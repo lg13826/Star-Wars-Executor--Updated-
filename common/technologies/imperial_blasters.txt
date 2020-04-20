@@ -177,27 +177,7 @@ technologies = {
 		}
 	}
 	
-	stormtrooper_tech = {
-		land_night_attack = 0.10
-		enable_subunits = {
-			stormtrooper
-		}
-		allow = {
-			tag = IMP
-		}
-		
-		research_cost = 4
-		start_year = 1938
-		folder = {
-			name = swinfantry_folder
-			position = { x = 2 y = 2 }
-		}
-		categories = {
-			imperial_tech
-			imperial_weapons_tech
-		}
-		
-	}
+	
 	
 	blaster_efficiency1 = {
 		

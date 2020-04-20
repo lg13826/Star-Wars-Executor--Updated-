@@ -36,10 +36,6 @@ technologies = {
 			leads_to_tech = imp_tech_maintenance_company
 			research_cost_coeff = 1
 		}
-		path = {
-			leads_to_tech = stormtrooper_tech
-			research_cost_coeff = 1
-		}
 		
 		dependencies = {
 			republic_weapon1 = 1
