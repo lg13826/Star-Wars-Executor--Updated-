@@ -1,0 +1,1491 @@
+﻿add_namespace = imperial
+add_namespace = info
+add_namespace = imperial_story
+add_namespace = imperial_response_news
+add_namespace = imperial_border_conflict
+add_namespace = imperial_global_news
+add_namespace = imperial_coop
+#### STORY EVENTS###
+
+
+country_event = {
+	id = info.0
+	title = info.0.t
+	desc = info.0.d
+	picture = GFX_introduction
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = info.0.a
+	}
+
+	
+}
+
+country_event = {
+	id = imperial_story.0
+	title = imperial_story.0.t
+	desc = imperial_story.0.d
+	picture = GFX_introduction
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = imperial.3.a
+		create_field_marshal = {
+			name = "Wilhuff Tarkin"
+			picture = "portrait_imp_tarkin.dds"
+			traits = { 
+				old_guard
+				brilliant_strategist
+				career_officer
+			}
+			skill = 6
+			attack_skill = 5
+			defense_skill = 5
+			planning_skill = 5
+			logistics_skill = 5
+		}
+		news_event = {
+			id = imperial_story.2
+			days = 33
+		}
+	}
+	
+	option = {
+		name = imperial.3.b
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Wilhuff Tarkin"
+			desc = "Tarkin_desc"
+			picture = "portrait_imp_tarkin.dds"
+			expire = "1965.1.1"
+			ideology = fascism_ideology
+			traits = { imperial_connections	}
+		}
+		
+		create_field_marshal = {
+			name = "Darth Vader"
+			picture = "portrait_imp_vader.dds"
+			traits = { 
+				offensive_doctrine
+				trait_reckless
+				harsh_leader
+				infantry_officer
+			}
+			skill = 4
+			attack_skill = 5
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 3
+		}
+		custom_effect_tooltip = deploy_tooltip2
+		hidden_effect = {
+			load_oob = "IMP_501st_legion"
+		}
+		news_event = {
+			id = imperial_story.1
+			days = 33
+		}
+	}	
+	
+}
+
+news_event = {
+	id = imperial_story.1
+	title = imperial_story.1.t
+	desc = imperial_story.1.d
+	picture = GFX_tarkin_choice
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = imperial_story.1.a
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+		hidden_effect = {
+			country_event = {
+				id = imperial_coop.0
+			}
+		}
+	}
+}
+
+## Co-Op
+country_event = {
+	id = imperial_coop.0
+	title = imperial_coop.0.t
+	desc = imperial_coop.0.d
+	picture = GFX_tarkin_choice
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = imperial_coop.0.a
+		country_event = {
+			id = imperial_coop.1
+		}
+		ai_chance = { factor = 0 }
+	}
+	
+	option = {
+		name = imperial_coop.0.b
+		ai_chance = { factor = 4000 }
+	}
+}
+
+country_event = {
+	id = imperial_coop.1
+	title = imperial_coop.1.t
+	desc = imperial_coop.1.d
+	picture = GFX_tarkin_choice
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { # Saudi Arabia and Iraq Coop
+		name = imperial_coop.1.a
+		IMP = {	
+			set_autonomy = {
+				target = SAU
+				autonomy_state = autonomy_satellite
+			}
+		}
+		SAU = {
+			set_country_flag = star_wars_tech_flag
+			set_country_flag = coop_enabled
+		}
+		set_province_name = {
+			id = 12727
+			name = "Command Post Besh"
+		}
+		SAU = {
+			create_country_leader = {
+				name = "Commander Hock Malsuum"
+				desc = "Malsuum_desc"
+				picture = "portrait_sau_malsuum.dds"
+				expire = "1965.1.1"
+				ideology = fascism_ideology
+				traits = { }
+			}			
+			hidden_effect = { 
+				set_cosmetic_tag = SAU_IMP 
+				set_party_name = { 
+					ideology = neutrality 
+					long_name = frebel_party_empire 
+					name = frebel_party_empire
+				}
+				
+				set_party_name = { 
+					ideology = fascism
+					long_name = neutrality_party_empire 
+					name = neutrality_party_empire 
+				}
+				
+				set_party_name = { 
+					ideology = communism
+					long_name = crebel_party_empire
+					name = crebel_party_empire
+				}
+				
+				set_party_name = { 
+					ideology = democratic
+					long_name = drebel_party_empire
+					name = drebel_party_empire
+				}
+				
+				news_event = {
+					id = imperial_global_news.0
+				}
+			}
+		}
+		IMP = {
+			set_autonomy = {
+				target = IRQ
+				autonomy_state = autonomy_satellite
+			}
+		}
+		IRQ = {
+			set_country_flag = star_wars_tech_flag
+			set_country_flag = coop_enabled
+		}
+		set_province_name = {
+			id = 2097
+			name = "Command Post Aurek"
+		}
+		IRQ = {
+			create_country_leader = {
+				name = "Darth Vader"
+				desc = "Vader_desc"
+				picture = "portrait_irq_vader.dds"
+				expire = "1965.1.1"
+				ideology = fascism_ideology
+				traits = { headstrong }
+			}
+			
+			
+			hidden_effect = {
+				set_cosmetic_tag = IRQ_IMP 
+				set_party_name = { 
+					ideology = neutrality 
+					long_name = frebel_party_empire 
+					name = frebel_party_empire 
+				}
+			
+				set_party_name = { 
+					ideology = fascism
+					long_name = neutrality_party_empire
+					name = neutrality_party_empire
+				}
+			
+				set_party_name = { 
+					ideology = communism
+					long_name = crebel_party_empire
+					name = crebel_party_empire
+				}
+				
+				set_party_name = { 
+					ideology = democratic
+					long_name = drebel_party_empire
+					name = drebel_party_empire
+				}
+	
+			}
+		}
+		
+	}
+	
+	option = { # Saudi Only
+		name = imperial_coop.1.b
+		IMP = {	
+			set_autonomy = {
+				target = SAU
+				autonomy_state = autonomy_satellite
+			}
+		}
+		SAU = {
+			set_country_flag = star_wars_tech_flag
+			set_country_flag = coop_enabled
+		}
+		set_province_name = {
+			id = 12727
+			name = "Command Post Besh"
+		}
+		SAU = {
+			create_country_leader = {
+				name = "Commander Hock Malsuum"
+				desc = "Malsuum_desc"
+				picture = "portrait_sau_malsuum.dds"
+				expire = "1965.1.1"
+				ideology = fascism_ideology
+				traits = { }
+			}			
+			hidden_effect = { 
+				set_cosmetic_tag = SAU_IMP 
+				set_party_name = { 
+					ideology = neutrality 
+					long_name = frebel_party_empire 
+					name = frebel_party_empire
+				}
+				
+				set_party_name = { 
+					ideology = fascism
+					long_name = neutrality_party_empire 
+					name = neutrality_party_empire 
+				}
+				
+				set_party_name = { 
+					ideology = communism
+					long_name = crebel_party_empire
+					name = crebel_party_empire
+				}
+				
+				set_party_name = { 
+					ideology = democratic
+					long_name = drebel_party_empire
+					name = drebel_party_empire
+				}
+				
+				news_event = {
+					id = imperial_global_news.0
+				}
+			}
+		}
+	}
+	
+	option = { # Iraq Only
+		name = imperial_coop.1.c
+		IMP = {
+			set_autonomy = {
+				target = IRQ
+				autonomy_state = autonomy_satellite
+			}
+		}
+		IRQ = {
+			set_country_flag = star_wars_tech_flag
+			set_country_flag = coop_enabled
+		}
+		set_province_name = {
+			id = 2097
+			name = "Command Post Aurek"
+		}
+		IRQ = {
+			create_country_leader = {
+				name = "Darth Vader"
+				desc = "Vader_desc"
+				picture = "portrait_irq_vader.dds"
+				expire = "1965.1.1"
+				ideology = fascism_ideology
+				traits = { headstrong }
+			}
+			
+			
+			hidden_effect = {
+				set_cosmetic_tag = IRQ_IMP 
+				set_party_name = { 
+					ideology = neutrality 
+					long_name = frebel_party_empire 
+					name = frebel_party_empire 
+				}
+			
+				set_party_name = { 
+					ideology = fascism
+					long_name = neutrality_party_empire
+					name = neutrality_party_empire
+				}
+			
+				set_party_name = { 
+					ideology = communism
+					long_name = crebel_party_empire
+					name = crebel_party_empire
+				}
+				
+				set_party_name = { 
+					ideology = democratic
+					long_name = drebel_party_empire
+					name = drebel_party_empire
+				}
+	
+			}
+		}
+	}
+	
+	option = { #Changed my mind
+		name = imperial_coop.1.e
+	}
+}
+
+
+# End of Co-Op
+
+news_event = {
+	id = imperial_story.2
+	title = imperial_story.2.t
+	desc = imperial_story.2.d
+	picture = GFX_vader_choice
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = imperial_story.2.a
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.05
+		}
+	}
+}
+
+news_event = {
+	id = imperial_story.3
+	title = imperial_story.3.t
+	desc = imperial_story.3.d
+	picture = GFX_crashed_executor
+	
+	fire_only_once = yes
+	
+	trigger = {
+		date > 1936.04.04
+		tag = IMP
+	}
+	
+	option = {
+		name = imperial_story.3.a
+		add_stability = -0.05
+	}
+}
+
+news_event = {
+	id = imperial_story.4
+	title = imperial_story.4.t
+	desc = imperial_story.4.d
+	picture = GFX_crashed_executor
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			date > 1936.08.07
+			focus_progress = {
+				focus = imp_stage_one
+				progress > 0.10
+			}
+		}
+		tag = IMP
+	}
+	
+	option = {
+		name = imperial_story.4.a
+		country_event = {
+			id = imperial_story.5
+			days = 25
+		}
+	}
+}
+
+country_event = {
+	id = imperial_story.5
+	title = imperial_story.5.t
+	desc = imperial_story.5.d
+	picture = GFX_realization
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = imperial_story.5.a
+		add_timed_idea = {
+			idea = hidden_truth
+			days = 210
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1	
+		}
+		news_event = {
+			id = imperial_story.6
+			days = 3
+		}
+	}
+	
+	option = {
+		name = imperial_story.5.b
+		add_ideas = general_announcement
+		news_event = {
+			id = imperial_story.7
+			days = 3
+		}
+	}
+}
+
+news_event = {
+	id = imperial_story.6
+	title = imperial_story.6.t
+	desc = imperial_story.6.d
+	picture = GFX_hiddentruth
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	
+	option = {
+		name = imperial_story.6.a
+		news_event = {
+			id = imperial_story.8
+			days = 10
+		}
+	}
+}
+
+news_event = {
+	id = imperial_story.7
+	title = imperial_story.7.t
+	desc = imperial_story.7.d
+	picture = GFX_generalannouncement
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	
+	option = {
+		name = imperial_story.7.a
+	}
+}
+
+news_event = {
+	id = imperial_story.8
+	title = imperial_story.8.t
+	desc = imperial_story.8.d
+	picture = GFX_truthrevealed
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = imperial_story.8.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05	
+		}
+	}
+}
+
+news_event = {
+	id = imperial_story.9
+	title = imperial_story.9.t
+	desc = imperial_story.9.d
+	picture = GFX_depression
+	
+	fire_only_once = yes
+	
+	trigger = {
+		date > 1936.10.01
+		tag = IMP
+	}
+	
+	option = {
+		name = imperial_story.9.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05	
+		}
+		add_ideas = imp_great_depression
+		news_event = {
+			id = imperial_story.10
+			days = 42
+		}
+	}
+}
+
+news_event = {
+	id = imperial_story.10
+	title = imperial_story.10.t
+	desc = imperial_story.10.d
+	picture = GFX_aftermath
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	
+	option = {
+		name = imperial_story.10.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.10	
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.20	
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05	
+		}
+	}
+}
+
+news_event = {
+	id = imperial_story.11
+	title = imperial_story.11.t
+	desc = imperial_story.11.d
+	picture = GFX_tarkin_choice
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IMP
+		date > 1937.01.05
+		has_country_flag = tarkin_flag
+	}
+	
+	option = {
+		name = imperial_story.11.a		
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.10	
+		}
+		add_threat = 5
+		add_ideas = the_plan
+	}
+}
+
+news_event = {
+	id = imperial_story.12
+	title = imperial_story.12.t
+	desc = imperial_story.12.d
+	picture = GFX_vader_choice
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IMP
+		date > 1937.01.05
+		has_country_flag = sith_flag
+	}
+	
+	option = {
+		name = imperial_story.12.a		
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.10	
+		}
+		add_stability = -0.1
+		add_war_support = 0.1
+		news_event = {
+			id = imperial_story.13
+			days = 20
+		}
+	}
+}
+
+news_event = {
+	id = imperial_story.13
+	title = imperial_story.13.t
+	desc = imperial_story.13.d
+	picture = GFX_vader_choice
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = imperial_story.13.a
+		add_ideas = the_plan
+		add_threat = 5
+	}
+
+}
+
+news_event = {
+	id = imperial_story.14
+	title = imperial_story.14.t
+	desc = imperial_story.14.d
+	picture = GFX_yularen
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IMP
+		date > 1937.03.02
+	}
+	
+	option = {
+		name = imperial_story.14.a
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.15
+		}
+		
+		create_country_leader = {
+			name = "Wullf Yularen"
+			desc = ""
+			picture = "portrait_Wulff_Yularen.dds"
+			expire = "1965.1.1"
+			ideology = liberalism
+			traits = {
+				
+			}
+		}
+	}
+}
+
+country_event = {
+	id = imperial_story.15
+	title = imperial_story.15.t
+	desc = imperial_story.15.d
+	picture = GFX_soviet
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IMP
+		date > 1937.05.03
+	}
+	
+	option = {
+		name = imperial_story.15.a
+		SOV = { 
+			add_political_power = -150
+			add_opinion_modifier = {
+				target = IMP
+				modifier = protest_action
+			}
+		}
+		add_ideas = soviet_defectors
+	}
+	option = {
+		name = imperial_story.15.b
+	}
+}
+
+news_event = {
+	id = imperial_story.16
+	title = imperial_story.16.t
+	desc = imperial_story.16.d
+	picture = GFX_warsuccess
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IMP
+		date > 1938.10.01
+		PER = {
+			OR = {
+				NOT = { country_exists = PER }
+				is_puppet = yes
+				is_subject = yes
+			}
+		}
+		AFG = {
+			OR = {
+				NOT = { country_exists = AFG }
+				is_puppet = yes
+				is_subject = yes
+			}
+		}
+	}
+	
+	option = {
+		name = imperial_story.16.a
+		remove_ideas = {
+			the_plan
+			general_announcement
+			imp_great_depression
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.15		
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05		
+		}
+		add_threat = 5
+		add_ideas = imperial_victory
+	}
+}
+
+country_event = {
+	id = imperial_story.18
+	title = imperial_story.18.t
+	desc = imperial_story.18.d
+	picture = GFX_soviet
+	
+	is_triggered_only = no
+	fire_only_once = no
+	
+	trigger = {
+		CPG = {
+			country_exists = yes
+		}
+		tag = IMP
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = imperial_story.18.a
+		CPG = {
+			change_tag_from = IMP
+		}
+		
+	}
+	
+	option = {
+		name = imperial_story.18.b
+	}
+
+}
+
+
+##### END OF STORY EVENTS####
+country_event = {
+	id = imperial.0
+	title = imperial.0.t
+	desc = imperial.0.d
+	picture = GFX_survey_team
+
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+	name = imperial.0.a
+		add_resource = {
+			type = steel
+			amount = 32
+			state = 656
+		}
+		add_resource = {
+			type = oil
+			amount = 24
+			state = 656
+		}
+		add_resource = {
+			type = chromium
+			amount = 32
+			state = 656
+		}
+		add_resource = {
+			type = tungsten
+			amount = 24
+			state = 656
+		}
+		add_resource = {
+			type = aluminium
+			amount = 24
+			state = 656
+		}
+		add_resource = {
+			type = rubber
+			amount = 24
+			state = 656
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		656 = {
+			add_extra_state_shared_building_slots = 5
+		}
+	}
+	
+	option = {
+		name = imperial.0.b
+		add_resource = {
+			type = steel
+			amount = 16
+			state = 656
+		}
+		add_resource = {
+			type = oil
+			amount = 12
+			state = 656
+		}
+		add_resource = {
+			type = chromium
+			amount = 16
+			state = 656
+		}
+		add_resource = {
+			type = tungsten
+			amount = 12
+			state = 656
+		}
+		add_resource = {
+			type = aluminium
+			amount = 12
+			state = 656
+		}
+		add_resource = {
+			type = rubber
+			amount = 12
+			state = 656
+		}
+		add_stability = -0.1
+		add_manpower = 35000
+		add_popularity = 
+		{
+			ideology = democratic
+			popularity = 0.1
+		}
+	}
+}
+
+	
+country_event = {
+	id = imperial.1  #investigate
+	title = imperial.1.t
+	desc = imperial.1.d
+	picture = GFX_survey_team
+
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = imperial.1.a
+		291 = {
+			remove_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		656 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		IRQ = {
+			add_opinion_modifier = {
+				target = IMP
+				modifier = condemn_aggression
+			}
+			add_ai_strategy = {
+				type = contain
+				id = IMP
+				value = 4000
+			}
+			
+		}
+	}
+	option = {
+		name = imperial.1.b
+		656 = {
+			if = {
+				limit = { is_controlled_by = IMP }
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+}	
+	
+country_event = {
+	id = imperial.2 #repair
+	title = imperial.2.t
+	desc = imperial.2.d
+	picture = GFX_survey_team
+
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = imperial.2.a
+		656 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		
+	}
+	
+	option = {
+		name = imperial.2.b
+		656 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			
+			}
+		}
+	}		
+}	
+ 
+country_event = {
+	id = imperial.4  
+	title = imperial.4.t
+	desc = imperial.4.d
+	picture = GFX_report_event_bose_meeting
+
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = imperial.4.a
+		ai_chance = { factor = 50 }
+		IMP = {
+			news_event = {
+				id = imperial_response_news.0
+				days = 1
+			}
+		}	
+		hidden_effect = {
+			if = {
+				limit = {
+					IMP = { has_country_flag = give_starwars_tech_flag }
+				}
+				ROOT = { set_country_flag = star_wars_tech_flag }
+			}
+		}
+	}
+	option = {
+		name = imperial.4.b
+		ai_chance = { factor = 50 }
+		IMP = {
+			news_event = {
+				id = imperial_response_news.1
+				days = 1
+			}
+		}
+		
+	}
+}
+
+country_event = {
+	id = imperial.7
+	title = imperial.7.t
+	desc = imperial.7.d
+	picture = GFX_report_event_bose_meeting
+
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = imperial.7.a
+		ai_chance = { factor = 60 }
+		IMP = {
+			news_event = {
+				id = imperial_response_news.3
+				days = 1
+			}
+		}	
+
+		hidden_effect = {
+			if = {
+				limit = {
+					IMP = { has_country_flag = give_starwars_tech_flag }
+				}
+				ROOT = { set_country_flag = star_wars_tech_flag }
+			}
+		}
+	}
+	option = {
+		name = imperial.7.b
+		ai_chance = { factor = 40 }
+		IMP = {
+			news_event = {
+				id = imperial_response_news.4
+				days = 1
+			}
+		}
+		
+	}
+}
+
+country_event = {
+	id = imperial.8
+	title = imperial.8.t
+	desc = imperial.8.d
+	picture = GFX_report_event_bose_meeting
+
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = imperial.8.a
+		ai_chance = { factor = 60 }
+		IMP = {
+			news_event = {
+				id = imperial_response_news.5
+				days = 1
+			}
+		}	
+		hidden_effect = {
+			if = {
+				limit = {
+					IMP = { has_country_flag = give_starwars_tech_flag }
+				}
+				ROOT = { set_country_flag = star_wars_tech_flag }
+			}
+		}
+	}
+	option = {
+		name = imperial.8.b
+		ai_chance = { factor = 40 }
+		IMP = {
+			news_event = {
+				id = imperial_response_news.6
+				days = 1
+			}
+		}
+		
+	}
+}
+
+country_event = {
+	id = imperial.99
+	title = imperial.99.t
+	desc = imperial.99.d
+	picture = GFX_report_event_bose_meeting
+
+	hidden = yes
+
+	is_triggered_only = no
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = instant_wargoal_flag
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		every_other_country = {
+			IMP = {
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = PREV
+				}
+			}
+		}
+	}	
+	
+	option = {
+		name = imperial.99.a
+	}
+}		
+		
+news_event = {
+	id = imperial_response_news.0
+	title = imperial_response_news.0.t
+	desc =  imperial_response_news.0.d
+	picture = GFX_news_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	
+	option = {
+		name = imperial_response_news.0.a
+		IMP = {
+			puppet = TUR
+		}
+	}	
+}
+
+
+news_event = {
+	id = imperial_response_news.1 
+	title = imperial_response_news.1.t
+	desc = imperial_response_news.1.d
+	picture = GFX_imperial_news
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = imperial_response_news.1.a
+		IMP = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = TUR
+			}
+		}
+	}	
+}
+
+news_event = {
+	id = imperial_response_news.3
+	title = imperial_response_news.3.t
+	desc =  imperial_response_news.3.d
+	picture = GFX_news_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	
+	option = {
+		name = imperial_response_news.0.a
+		IMP = {
+			puppet = PER
+		}
+	}	
+}
+
+
+news_event = {
+	id = imperial_response_news.4
+	title = imperial_response_news.4.t
+	desc = imperial_response_news.4.d
+	picture = GFX_imperial_news
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = imperial_response_news.1.a
+		IMP = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PER
+			}
+		}
+	}	
+}
+
+news_event = {
+	id = imperial_response_news.5
+	title = imperial_response_news.5.t
+	desc =  imperial_response_news.5.d
+	picture = GFX_news_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	
+	option = {
+		name = imperial_response_news.0.a
+		IMP = {
+			puppet = AFG
+		}
+	}	
+}
+
+
+news_event = {
+	id = imperial_response_news.6 
+	title = imperial_response_news.6.t
+	desc = imperial_response_news.6.d
+	picture = GFX_imperial_news
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = imperial_response_news.1.a
+		IMP = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = AFG
+			}
+		}
+	}	
+}
+
+ 
+	
+
+news_event = {
+	id = imperial_global_news.0
+	title = imperial_global_news.0.t
+	desc = imperial_global_news.0.d
+
+	picture = GFX_imperial_news
+	
+	major = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			has_completed_focus = imp_establish_base_iraq
+			has_completed_focus = imp_supply_lines_iraq
+		}
+	}
+	
+	immediate = {
+		set_country_flag = iraq_dead_flag
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = imperial_global_news.0.a
+	}	
+}	
+
+news_event = {
+	id = imperial_global_news.1
+	title = imperial_global_news.1.t
+	desc = imperial_global_news.1.d
+
+	picture = GFX_imperial_news
+	
+	major = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			has_completed_focus = imp_establish_base_saudi
+			has_completed_focus = imp_supply_lines_saudi
+		}
+	}
+	
+	immediate = {
+		set_country_flag = saudi_dead_flag
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = imperial_global_news.1.a
+	}	
+}	
+
+news_event = {
+	id = imperial_global_news.2
+	title = imperial_global_news.2.t
+	desc = imperial_global_news.2.d
+
+	picture = GFX_imperial_news
+	
+	major = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		set_country_flag = imp_expands_flag
+	}
+	
+	trigger = {
+		has_country_flag = saudi_dead_flag
+		has_country_flag = iraq_dead_flag 
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	option = {
+		name = imperial_global_news.2.a
+		IMP = {
+			add_political_power = 150
+		}
+		if = {
+			limit = { has_government = democratic }
+			add_opinion_modifier = {
+				target = IMP
+				modifier = protest_action
+			}
+		}
+		TUR = {
+			add_opinion_modifier = {
+				target = IMP
+				modifier = condemn_aggression
+			}
+		}
+		
+	}
+}	
+
+news_event = { #tech Event
+	id = imperial_global_news.5
+	title = imperial_global_news.5.t
+	desc = imperial_global_news.5.d
+
+	picture = GFX_imperial_news
+	fire_only_once = yes
+
+	immediate = {
+		every_country = {
+			if = {
+				limit = {
+					OR = {
+						is_puppet_of = IMP
+						is_subject_of = IMP
+					}
+				}
+				set_country_flag = star_wars_tech_flag
+			}
+		}	
+	}
+
+	
+	trigger = { 
+		IMP = {
+			has_country_flag = give_starwars_tech_flag
+		}
+		
+		any_country = {
+			OR = {
+				is_puppet_of = IMP
+				is_subject_of = IMP
+			}
+		}
+	}
+	
+	option = {
+		name = imperial_global_news.5.a	
+	}
+}		
+
+news_event = {
+	id = imperial_global_news.3
+	title = imperial_global_news.3.t
+	desc = imperial_global_news.3.d
+	picture = GFX_imperial_news
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			293 = { is_controlled_by = IMP }
+			if = {
+				limit = { SAU = { is_puppet_of = IMP} }
+				293 = { is_controlled_by = SAU }
+			}
+		}
+		659 = { is_controlled_by = YEM }
+	}
+	
+	option = {
+		name = imperial_global_news.3.a
+		if = { 
+			limit = { 293 = { is_controlled_by = IMP } }
+			IMP = { transfer_state = 659 }
+		}
+		else_if = {
+			limit = { 293 = { is_controlled_by = SAU } }
+			SAU = { transfer_state = 659 }
+		}
+	}
+}
+
+news_event = { #Usurpation event
+	id = imperial_global_news.4
+	title = imperial_global_news.4.t
+	desc = imperial_global_news.4.d
+	picture = GFX_imperial_news
+		
+	major = yes
+	is_triggered_only = yes
+		
+	option = {
+		name = imperial_global_news.4.a		
+	}
+}
+
+news_event = {
+	id = imperial_response_news.2
+	title = imperial_response_news.2.t
+	desc = imperial_response_news.2.d
+	picture = GFX_rebel_symbol
+
+	fire_only_once = yes
+	
+	trigger = {
+		has_government = democratic
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = imperial_response_news.2.a
+	}
+}	
+
+
+# end of rebel events
+
+
+#End Country Events

@@ -1,0 +1,82 @@
+﻿capital = 656
+
+#oob = ""
+
+# Starting tech
+set_technology = {
+	#military tech
+	tech_special_forces = 1
+	republic_weapon1 = 1
+	stormtrooper_tech = 1
+	#industrial tech
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	advanced_machine_tools = 1
+	improved_equipment_conversion = 1
+	concentrated_industry = 1
+	concentrated_industry2 = 1
+	concentrated_industry3 = 1
+	construction1 = 1
+	construction2= 1
+	fuel_silos = 1
+	#electronics
+	electronic_mechanical_engineering = 1
+	mechanical_computing = 1
+	improved_computing_machine = 1
+	advanced_computing_machine = 1
+	computing_machine = 1
+	radio = 1
+	radio_detection = 1
+	#doctrines
+}
+
+set_country_flag = star_wars_tech_flag
+set_rule = {
+    can_create_factions = yes
+}
+set_research_slots = 3
+set_war_support = 0.9
+
+set_politics = {
+	ruling_party = fascism 
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 5
+	fascism = 51
+	communism = 0
+	neutrality = 44
+}
+
+add_ideas = {
+	tot_economic_mobilisation
+	service_by_requirement
+	closed_economy
+	ruined_ship
+	imperial_military
+	stranded
+	no_industry
+}
+
+create_country_leader = {
+	name = "Darth Vader"
+	desc = "Vader_desc"
+	picture = "portrait_imp_vader.dds"
+	expire = "1965.1.1"
+	ideology = fascism_ideology
+	traits = { headstrong }
+}
+
+
+create_country_leader = {
+	name = "Commander Hock Malsuum"
+	desc = "Malsuum_desc"
+	picture = "portrait_imp_malsuum.dds"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+	}
+}
+

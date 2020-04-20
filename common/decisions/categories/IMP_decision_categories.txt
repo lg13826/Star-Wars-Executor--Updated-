@@ -1,0 +1,33 @@
+################
+##### IMP ######
+################
+
+IMP_statebuilding_decisions = {
+	icon = usa_intervention_mandate
+	allowed = {
+		original_tag = IMP
+	}
+	visible = {
+		has_completed_focus = imp_logistics_review
+	}
+}
+
+IMP_wargoals_decisions = {
+	icon = usa_intervention_mandate
+	allowed = { 
+		original_tag = IMP
+	}
+	visible = {
+		has_completed_focus = imp_war_plan
+	}
+}
+
+IMP_campaign_decisions = {
+	icon = usa_intervention_mandate
+	allowed = { 
+		original_tag = IMP
+	}
+	visible = {
+		has_completed_focus = imp_campaign_decisions
+	}
+}
