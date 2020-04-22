@@ -604,7 +604,7 @@ equipments = {
 		
 		picture = archetype_strat_bomber_equipment			
 		is_buildable = no
-		type = { tactical_bomber }
+		type = { tactical_bomber strategic_bomber }
 		group_by = archetype
 		sprite = heavy_plane
 		maximum_speed = 500
