@@ -955,7 +955,7 @@ equipments = {
 
 		#Defensive Abilities
 		defense = 4
-		breakthrough = 60
+		breakthrough = 4
 		hardness = 0.10
 		armor_value = 10
 
@@ -989,9 +989,10 @@ equipments = {
 		maximum_speed = 16
 
 		#Offensive Abilities
-		soft_attack = 25
-		hard_attack = 10
-		ap_attack = 16
+		soft_attack = 4
+		hard_attack = 1
+		ap_attack = 5
+		breakthrough = 6
 
 		build_cost_ic = 1.0
 		resources = {
@@ -1011,10 +1012,12 @@ equipments = {
 		lend_lease_cost = 20
 		maximum_speed = 18
 
+
 		#Offensive Abilities
-		soft_attack = 35
-		hard_attack = 15
-		ap_attack = 20
+		soft_attack = 9
+		hard_attack = 4
+		ap_attack = 7
+		breakthrough = 8
 		recon = 1
 		
 		build_cost_ic = 1.5
@@ -1034,11 +1037,13 @@ equipments = {
 		
 		lend_lease_cost = 20
 		maximum_speed = 20
+		
 
 		#Offensive Abilities
-		soft_attack = 45
-		hard_attack = 20
-		ap_attack = 25
+		soft_attack = 10
+		hard_attack = 5
+		ap_attack = 8
+		breakthrough = 12
 		recon = 1
 		
 		build_cost_ic = 2.0
@@ -1060,12 +1065,12 @@ equipments = {
 		maximum_speed = 22
 		#Defensive Abilities
 		defense = 4
-		breakthrough = 17
 
 		#Offensive Abilities
-		soft_attack = 55
-		hard_attack = 25
-		ap_attack = 30
+		soft_attack = 12
+		hard_attack = 6
+		ap_attack = 9
+		breakthrough = 18
 		recon = 2
 		
 		build_cost_ic = 2.5
