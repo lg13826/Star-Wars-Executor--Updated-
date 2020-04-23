@@ -358,22 +358,14 @@ IMP_wargoals_decisions = {
 			custom_effect_tooltip = turkey_build_tooltip
 			hidden_effect = {
 				set_country_flag = integrated_tur_flag
-			 	random_owned_state = {
+			 	352 = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
 						instant_build = yes
 					}
 				}
-				random_owned_state = {
-					add_building_construction = {
-						type = infrastructure
-						level = 3
-						instant_build = yes
-					}
-				}
-				
-				random_owned_state = {
+				350 = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -381,7 +373,15 @@ IMP_wargoals_decisions = {
 					}
 				}
 				
-				random_owned_state = {
+				344 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				
+				348 = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -389,7 +389,7 @@ IMP_wargoals_decisions = {
 					} 
 				}
 				
-				random_owned_state = {
+				49 = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -397,7 +397,7 @@ IMP_wargoals_decisions = {
 					}
 				}
 				
-				random_owned_state = {
+				347 = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -405,7 +405,7 @@ IMP_wargoals_decisions = {
 					}
 				}
 				
-				random_owned_state = {
+				341 = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -413,16 +413,16 @@ IMP_wargoals_decisions = {
 					}
 				}
 				
-				656 = {
+				49 = {
 					add_extra_state_shared_building_slots = 3
 					add_building_construction = {
 						type = industrial_complex
-						level = 1
+						level = 4
 						instant_build = yes
 					}
 					add_building_construction = {
 						type = arms_factory
-						level = 2
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -430,8 +430,8 @@ IMP_wargoals_decisions = {
 			
 			if = {
 				limit = { has_country_flag = tarkin_flag }
-					add_offsite_building = { type = industrial_complex level = 5 }
-					add_offsite_building = { type = arms_factory level = 5 }
+					add_offsite_building = { type = industrial_complex level = 8 }
+					add_offsite_building = { type = arms_factory level = 8 }
 			}
 		}
 	
@@ -518,6 +518,14 @@ IMP_wargoals_decisions = {
 						instant_build = yes
 					}
 				}
+				421 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				
 				417 = {
 					add_building_construction = {
 						type = infrastructure
@@ -531,7 +539,7 @@ IMP_wargoals_decisions = {
 						type = infrastructure
 						level = 3
 						instant_build = yes
-					}
+					} 
 				}
 				
 				416 = {
@@ -539,18 +547,10 @@ IMP_wargoals_decisions = {
 						type = infrastructure
 						level = 3
 						instant_build = yes
-					} 
-				}
-				
-				420 = {
-					add_building_construction = {
-						type = infrastructure
-						level = 3
-						instant_build = yes
 					}
 				}
 				
-				419 = {
+				414 = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -558,11 +558,11 @@ IMP_wargoals_decisions = {
 					}
 				}			
 				
-				656 = {
+				266 = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = industrial_complex
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -570,8 +570,8 @@ IMP_wargoals_decisions = {
 			
 			if = {
 				limit = { has_country_flag = tarkin_flag }
-				add_offsite_building = { type = industrial_complex level = 2 }
-				add_offsite_building = { type = arms_factory level = 1 }
+				add_offsite_building = { type = industrial_complex level = 4 }
+				add_offsite_building = { type = arms_factory level = 3 }
 			}
 			
 		}
@@ -661,14 +661,12 @@ IMP_wargoals_decisions = {
 					}
 				}
 				267 = {
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = infrastructure
 						level = 3
 						instant_build = yes
 					}
-				}
-				656 = {
-					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = industrial_complex
 						level = 2
@@ -679,8 +677,8 @@ IMP_wargoals_decisions = {
 			
 			if = {
 				limit = { has_country_flag = tarkin_flag }
-				add_offsite_building = { type = industrial_complex level = 2 }
-				add_offsite_building = { type = arms_factory level = 1 }
+				add_offsite_building = { type = industrial_complex level = 4 }
+				add_offsite_building = { type = arms_factory level = 2 }
 			}	
 		}
 		
@@ -812,7 +810,7 @@ IMP_campaign_decisions = {
 		remove_effect = {
 			custom_effect_tooltip = balkan_attk
 			hidden_effect = {
-			add_ideas = balkan_bonus
+				add_ideas = balkan_bonus
 			}
 		}
 	
