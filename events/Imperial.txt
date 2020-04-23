@@ -746,13 +746,6 @@ news_event = {
 				is_subject = yes
 			}
 		}
-		AFG = {
-			OR = {
-				NOT = { country_exists = AFG }
-				is_puppet = yes
-				is_subject = yes
-			}
-		}
 	}
 	
 	option = {
@@ -775,39 +768,7 @@ news_event = {
 	}
 }
 
-country_event = {
-	id = imperial_story.18
-	title = imperial_story.18.t
-	desc = imperial_story.18.d
-	picture = GFX_soviet
-	
-	is_triggered_only = no
-	fire_only_once = no
-	
-	trigger = {
-		CPG = {
-			country_exists = yes
-		}
-		tag = IMP
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-	}
-	
-	option = {
-		name = imperial_story.18.a
-		CPG = {
-			change_tag_from = IMP
-		}
-		
-	}
-	
-	option = {
-		name = imperial_story.18.b
-	}
 
-}
 
 
 ##### END OF STORY EVENTS####

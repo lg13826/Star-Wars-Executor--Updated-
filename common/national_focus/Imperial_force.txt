@@ -674,8 +674,6 @@ focus_tree = {
 				add_state_core = 675
 				add_state_core = 676
 				add_state_core = 291
-				add_state_core = 946
-				add_state_core = 945
 			}
 		}
 	}
@@ -740,7 +738,6 @@ focus_tree = {
 				add_state_core = 292
 				add_state_core = 679
 				add_state_core = 678
-				add_state_core = 948
 			}
 		}
 	}
@@ -2105,6 +2102,25 @@ focus_tree = {
 		completion_reward = {
 			add_stability = -0.05
 			add_ideas = utopian_civilization_idea
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+			add_popularity = {
+			    ideology = democratic
+			    popularity = 0.3
+			}
+			set_party_name = { 
+			    ideology = democratic
+			    long_name = "Unitary Republic Party" 
+			    name = "The Senate" 
+			}
+			set_rule = {
+			    can_declare_war_on_same_ideology = yes
+			    can_occupy_non_war = yes
+			    can_only_justify_war_on_threat_country = no
+			    can_create_factions = yes
+			}
 		}
 	}
 	
@@ -3903,6 +3919,9 @@ focus_tree = {
 				remove_idea = damaged_ship
 				add_idea = partial_ship
 			}
+			set_technology = {
+				experimental_rockets = 1
+			}
 		}
 	}
 	
@@ -3964,7 +3983,7 @@ focus_tree = {
 		
 		completion_reward = {
 			set_technology = {
-				experimental_rockets = 1
+				improved_rocket_engines = 1
 			}
 			656 = {
 				remove_building = {
@@ -4036,8 +4055,8 @@ focus_tree = {
 		
 		completion_reward = {
 			set_technology = {
-				improved_rocket_engines = 1
-			}			
+				advanced_rocket_engines = 1
+			}				
 		}
 	}
 	
@@ -4070,10 +4089,7 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
-			}
-			set_technology = {
-				advanced_rocket_engines = 1
-			}		
+			}	
 		}
 	}
 	

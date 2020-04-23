@@ -9,7 +9,7 @@ IMP_statebuilding_decisions = {
 		
 		visible = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 944
+			has_full_control_of_state = 291
 		}
 		
 		ai_will_do = {
@@ -23,7 +23,7 @@ IMP_statebuilding_decisions = {
 			add_resource = {
 				type = oil
 				amount = 18
-				state = 944
+				state = 291
 			}
 			set_country_flag = materials_flag #this unlocks the synthetic materials focus#
 		}
@@ -36,7 +36,7 @@ IMP_statebuilding_decisions = {
 		
 		visible = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 944
+			has_full_control_of_state = 291
 		}
 		
 		ai_will_do = {
@@ -49,7 +49,7 @@ IMP_statebuilding_decisions = {
 		days_remove = 180
 		
 		remove_effect = {
-			944 = {
+			291 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
@@ -72,7 +72,7 @@ IMP_statebuilding_decisions = {
 		}
 		
 		visible = {
-			has_full_control_of_state = 944
+			has_full_control_of_state = 291
 		}
 		
 		ai_will_do = {
@@ -98,9 +98,9 @@ IMP_statebuilding_decisions = {
 		}
 		
 		visible = {
-			has_full_control_of_state = 944
-			has_full_control_of_state = 875
-			has_full_control_of_state = 765
+			has_full_control_of_state = 291
+			has_full_control_of_state = 675
+			has_full_control_of_state = 292
 		}
 		
 		ai_will_do = {
@@ -113,7 +113,7 @@ IMP_statebuilding_decisions = {
 		fire_only_once = yes
 		
 		remove_effect = {
-			944 = {
+			291 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -121,7 +121,7 @@ IMP_statebuilding_decisions = {
 				}
 			}
 			
-			765 = {
+			675 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -129,7 +129,7 @@ IMP_statebuilding_decisions = {
 				}
 			}
 			
-			875 = {
+			292 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -358,22 +358,14 @@ IMP_wargoals_decisions = {
 			custom_effect_tooltip = turkey_build_tooltip
 			hidden_effect = {
 				set_country_flag = integrated_tur_flag
-				352 = {
+			 	random_owned_state = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
 						instant_build = yes
 					}
 				}
-				350 = {
-					add_building_construction = {
-						type = infrastructure
-						level = 3
-						instant_build = yes
-					}
-				}
-				
-				344 = {
+				random_owned_state = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -381,7 +373,15 @@ IMP_wargoals_decisions = {
 					}
 				}
 				
-				348 = {
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				
+				random_owned_state = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -389,7 +389,7 @@ IMP_wargoals_decisions = {
 					} 
 				}
 				
-				49 = {
+				random_owned_state = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -397,7 +397,7 @@ IMP_wargoals_decisions = {
 					}
 				}
 				
-				347 = {
+				random_owned_state = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -405,7 +405,7 @@ IMP_wargoals_decisions = {
 					}
 				}
 				
-				341 = {
+				random_owned_state = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
@@ -417,12 +417,12 @@ IMP_wargoals_decisions = {
 					add_extra_state_shared_building_slots = 3
 					add_building_construction = {
 						type = industrial_complex
-						level = 2
+						level = 1
 						instant_build = yes
 					}
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}

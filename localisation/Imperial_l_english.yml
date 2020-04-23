@@ -882,6 +882,7 @@
  deploy_tooltip2: "The 501st Legion will join Darth Vader on the field."
  turkey_build_tooltip: "Builds infrastructure across the conquered territories and adds factories to the Crash Site.\n"
  #Decisions
+ turkey_bonus: "Middle-Eastern Offense"
  integrate_persia: "Integrate Iran"
  integrate_afghanistan: "Integrate Afghanistan"
  integrate_turkey: "Integrate Turkey"
