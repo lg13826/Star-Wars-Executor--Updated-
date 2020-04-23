@@ -189,8 +189,6 @@ IMP_wargoals_decisions = {
 				SAU = { 
 					transfer_state = 294 
 					add_state_core = 294
-					transfer_state = 876
-					add_state_core = 876
 				}
 				
 				else_if = {
@@ -204,7 +202,7 @@ IMP_wargoals_decisions = {
 						}
 					}
 					
-					else = { transfer_state = 294 transfer_state = 876 }
+					else = { transfer_state = 294 }
 				}
 			}
 		}
@@ -256,8 +254,6 @@ IMP_wargoals_decisions = {
 				SAU = {
 						transfer_state = 293 
 						add_state_core = 293
-						transfer_state = 949
-						add_state_core = 949
 						if = { 
 							limit = { YEM = { has_full_control_of_state = 659 } }
 							transfer_state = 659
@@ -277,7 +273,6 @@ IMP_wargoals_decisions = {
 					
 					else = {
 						transfer_state = 293 
-						transfer_state = 949
 						if = { 
 							limit = { YEM = { has_full_control_of_state = 659 } }
 							transfer_state = 659

@@ -55,8 +55,8 @@ equipments = {
 		year = 1936
 		archetype = mobile_art_equipment
 		picture = archetype_medium_tank_equipment		
-		visual_level = 0
 
+		
 		group_by = archetype
 		
 		interface_category = interface_category_armor
@@ -99,8 +99,7 @@ equipments = {
 		year = 1936
 		archetype = mobile_art_equipment
 		picture = archetype_medium_tank_equipment		
-		visual_level = 1
-		parent = spha_equipment
+		
 		
 		group_by = archetype
 		
@@ -143,8 +142,7 @@ equipments = {
 		year = 1936
 		archetype = mobile_art_equipment
 		picture = archetype_medium_tank_equipment		
-		visual_level = 2
-		parent = spma_equipment
+		
 		
 		group_by = archetype
 		
@@ -236,7 +234,7 @@ equipments = {
 		year = 1938
 		archetype = mobile_aa_equipment
 		picture = archetype_medium_tank_equipment		
-		visual_level = 0
+		
 		
 		group_by = archetype
 		
@@ -279,9 +277,7 @@ equipments = {
 		year = 1942
 		archetype = mobile_aa_equipment
 		picture = archetype_medium_tank_equipment		
-		visual_level = 1
-		parent = rx_equipment
-
+		
 		type = {
 			armor
 			artillery
@@ -328,9 +324,7 @@ equipments = {
 		year = 1942
 		archetype = mobile_aa_equipment
 		picture = archetype_medium_tank_equipment		
-		visual_level = 2
-		parent = ataa_equipment
-
+		
 		type = {
 			armor
 			artillery
@@ -425,7 +419,7 @@ equipments = {
 		year = 1940
 		archetype = mobile_at_equipment
 		picture = archetype_medium_tank_equipment		
-		visual_level = 0
+		
 		
 		group_by = archetype
 		
@@ -468,8 +462,7 @@ equipments = {
 		year = 1944
 		archetype = mobile_at_equipment
 		picture = archetype_medium_tank_equipment		
-		visual_level = 1
-		parent = atap_equipment
+		
 		
 		group_by = archetype
 		
@@ -512,8 +505,7 @@ equipments = {
 		year = 1944
 		archetype = mobile_at_equipment
 		picture = archetype_medium_tank_equipment		
-		visual_level = 2
-		parent = av7_equipment
+		
 		
 		group_by = archetype
 		
@@ -1035,7 +1027,7 @@ equipments = {
 	ava_equipment = {
 		year = 1942
 	
-		archetype = speeder_equipment
+		archetype = light_equipment
 		parent = infantry_support_platform
 		priority = 10
 		visual_level = 2
@@ -1059,7 +1051,7 @@ equipments = {
 	z_speeder_equipment = {
 		year = 1945
 	
-		archetype = speeder_equipment
+		archetype = light_equipment
 		parent = infantry_support_platform
 		priority = 10
 		visual_level = 3
