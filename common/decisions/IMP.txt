@@ -9,7 +9,6 @@ IMP_statebuilding_decisions = {
 		
 		visible = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
 		}
 		
 		ai_will_do = {
@@ -36,7 +35,7 @@ IMP_statebuilding_decisions = {
 		
 		visible = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
 		}
 		
 		ai_will_do = {
@@ -49,7 +48,7 @@ IMP_statebuilding_decisions = {
 		days_remove = 180
 		
 		remove_effect = {
-			291 = {
+			797 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
@@ -72,7 +71,7 @@ IMP_statebuilding_decisions = {
 		}
 		
 		visible = {
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
 		}
 		
 		ai_will_do = {
@@ -98,9 +97,9 @@ IMP_statebuilding_decisions = {
 		}
 		
 		visible = {
-			has_full_control_of_state = 291
-			has_full_control_of_state = 675
-			has_full_control_of_state = 292
+			has_full_control_of_state = 656
+			has_full_control_of_state = 798
+			has_full_control_of_state = 797
 		}
 		
 		ai_will_do = {
@@ -113,7 +112,7 @@ IMP_statebuilding_decisions = {
 		fire_only_once = yes
 		
 		remove_effect = {
-			291 = {
+			656 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -121,7 +120,7 @@ IMP_statebuilding_decisions = {
 				}
 			}
 			
-			675 = {
+			798 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -129,7 +128,7 @@ IMP_statebuilding_decisions = {
 				}
 			}
 			
-			292 = {
+			797 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -160,10 +159,7 @@ IMP_wargoals_decisions = {
 		}
 		
 		visible = {
-			OR = {
-				NOT = { country_exists = SAU }
-				SAU = { is_puppet_of = IMP }
-			}
+			always = yes
 		}
 		
 		ai_will_do = {
@@ -225,10 +221,7 @@ IMP_wargoals_decisions = {
 		}
 		
 		visible = {
-			OR = {
-				NOT = { country_exists = SAU }
-				SAU = { is_puppet_of = IMP }
-			}
+			always = yes
 		}
 		
 		ai_will_do = {

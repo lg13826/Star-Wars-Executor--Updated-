@@ -33,7 +33,7 @@ ideas =
 			
 			removal_cost = -1
 			
-			picture = general_announcement
+			picture = great_depression
 			
 			modifier = {
 				army_attack_factor = -0.2
@@ -90,7 +90,7 @@ ideas =
 			
 			removal_cost = -1
 			
-			picture = soviet_defectors	
+			picture = generic_communism_drift_bonus	
 			research_bonus = {
 				mass_assault = 0.30
 			}
@@ -111,7 +111,7 @@ ideas =
 			
 			removal_cost = -1
 			
-			picture = imperial_victory
+			picture = generic_victors_of_ww1
 			
 			modifier = {
 				army_org_factor = 0.10

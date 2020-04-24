@@ -60,9 +60,9 @@ create_country_leader = {
 
 
 create_country_leader = {
-	name = "Commander Hock Malsuum"
-	desc = "Malsuum_desc"
-	picture = "portrait_imp_malsuum.dds"
+	name = "Governor Tarkin"
+	desc = "Tarkin_desc"
+	picture = "portrait_imp_tarkin.dds"
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {

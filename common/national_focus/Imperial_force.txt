@@ -758,21 +758,28 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		available = 
 		{
-			IRQ = {
-				OR = {
-					is_subject_of = IMP
-					is_puppet_of = IMP
+			OR = {
+				IRQ = {
+					OR = {
+						is_subject_of = IMP
+						is_puppet_of = IMP
+					}
 				}
-				has_full_control_of_state = 676
-				has_full_control_of_state = 675
-				has_full_control_of_state = 291
+				IMP = {
+					has_full_control_of_state = 676
+					has_full_control_of_state = 675
+					has_full_control_of_state = 291
+					has_full_control_of_state = 797		
+				}
 			}
 		}
 		x = 0
 		y = 1
 		relative_position_id = imp_subjugate_iraq
 		completion_reward = {
-			
+			release_puppet = IRQ
+			transfer_state = 797
+			add_state_core = 797
 			add_offsite_building = {
 				type = industrial_complex
 				level = 1
@@ -835,7 +842,7 @@ focus_tree = {
 					create_country_leader = {
 						name = "Darth Vader"
 						desc = "Vader_desc"
-						picture = "portrait_irq_vader.dds"
+						picture = "portrait_imp_vader.dds"
 						expire = "1965.1.1"
 						ideology = fascism_ideology
 						traits = { headstrong }
@@ -886,20 +893,28 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		available = {
-			SAU = {
-				OR = {
-					is_subject_of = IMP
-					is_puppet_of = IMP
+			OR = {
+				SAU = {
+					OR = {
+						is_subject_of = IMP
+						is_puppet_of = IMP
+					}
 				}
-				has_full_control_of_state = 678
-				has_full_control_of_state = 292
-				has_full_control_of_state = 679
+				IMP = {
+					has_full_control_of_state = 678
+					has_full_control_of_state = 292
+					has_full_control_of_state = 679
+					has_full_control_of_state = 798
+				}
 			}
 		}
 		x = 0
 		y = 1
 		relative_position_id = imp_subjugate_saudi
 		completion_reward = {
+			release_puppet = SAU
+			transfer_state = 798
+			add_state_core = 798
 			add_offsite_building = {
 				type = industrial_complex
 				level = 1
@@ -956,7 +971,7 @@ focus_tree = {
 					create_country_leader = {
 						name = "Commander Hock Malsuum"
 						desc = "Malsuum_desc"
-						picture = "portrait_sau_malsuum.dds"
+						picture = "portrait_imp_malsuum.dds"
 						expire = "1965.1.1"
 						ideology = fascism_ideology
 						traits = { }
@@ -1194,7 +1209,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 6
@@ -1218,9 +1234,8 @@ focus_tree = {
 		available = {
 			has_country_flag = materials_flag
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
-			has_full_control_of_state = 292
-			has_full_control_of_state = 675
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		x = -4
@@ -1228,7 +1243,7 @@ focus_tree = {
 		
 		relative_position_id = imp_logistics_review
 		completion_reward = {
-			291 = {
+			797 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = synthetic_refinery
@@ -1310,7 +1325,8 @@ focus_tree = {
 		available = {
 			has_country_flag = industrial_flag
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		x = 4
@@ -1318,11 +1334,19 @@ focus_tree = {
 		
 		relative_position_id = imp_logistics_review
 		completion_reward = {
-			291 = {
+			797 = {
 				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
 					level = 4
+					instant_build = yes
+				}
+			}
+			798 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -1339,7 +1363,8 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		x = 0
@@ -1347,7 +1372,15 @@ focus_tree = {
 		
 		relative_position_id = imp_industrial_build-up
 		completion_reward = {
-			291 = {
+			797 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			798 = {
 				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
@@ -1368,7 +1401,8 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		x = 0
@@ -1393,7 +1427,7 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		x = -2
@@ -1401,7 +1435,7 @@ focus_tree = {
 		
 		relative_position_id = imp_outer_regions_development
 		completion_reward = {
-			291 = {
+			797 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
@@ -1427,8 +1461,8 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
-			has_full_control_of_state = 675
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 2
@@ -1436,7 +1470,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		relative_position_id = imp_outer_regions_development
 		completion_reward = {
-			291 = {
+			797 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -1449,7 +1483,7 @@ focus_tree = {
 					instant_build = yes			
 				}
 			}
-			675 = {
+			798 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -1476,7 +1510,8 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL}
 		x = -4
@@ -1505,7 +1540,8 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		x = 0
@@ -1536,7 +1572,8 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		x = 4
@@ -1563,7 +1600,8 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = -2
@@ -1594,7 +1632,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 2
@@ -1619,9 +1658,8 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
-			has_full_control_of_state = 675
-			has_full_control_of_state = 292
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 0
@@ -1629,17 +1667,11 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		relative_position_id = imp_establish_city_council
 		completion_reward = {
-			291 = {
-				add_manpower = 1000000
+			797 = {
+				add_manpower = 2146875
 			}
-			656 = {
-				add_manpower = 75000
-			}
-			675 = {
-				add_manpower = 245000
-			}
-			292 = {
-				add_manpower = 112054
+			798 = {
+				add_manpower = 149876
 			}
 		}
 	}
@@ -1654,7 +1686,8 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 0
@@ -1662,7 +1695,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		relative_position_id = imp_rapid_industrialization
 		completion_reward = {
-			291 = {
+			797 = {
 				add_extra_state_shared_building_slots = 7
 				add_building_construction = {
 					type = industrial_complex
@@ -1680,7 +1713,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			291 = {
+			798 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -1700,7 +1733,8 @@ focus_tree = {
 		}
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = -2
@@ -1725,7 +1759,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -1766,7 +1801,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 2
@@ -1794,7 +1830,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 0
@@ -1825,9 +1862,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
-			has_full_control_of_state = 675
-			has_full_control_of_state = 292
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 0
@@ -1839,7 +1875,7 @@ focus_tree = {
 				limit = { has_idea = medium_industry }
 				remove_ideas = medium_industry
 			}
-			675 = {
+			798 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = synthetic_refinery
@@ -1848,7 +1884,7 @@ focus_tree = {
 				}
 			}
 			
-			292 = {
+			797 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction =  {
 					type = synthetic_refinery
@@ -1879,7 +1915,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		x = 0
@@ -1887,7 +1924,7 @@ focus_tree = {
 		
 		relative_position_id = imp_imperial_warmachine
 		completion_reward = {
-			291 = {
+			797 = {
 				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
 					type = arms_factory
@@ -1909,7 +1946,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = -2
@@ -1933,7 +1971,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 2
@@ -1958,7 +1997,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 0 
@@ -1981,7 +2021,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 0 
@@ -2007,7 +2048,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 0
@@ -2039,7 +2081,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 2
@@ -2066,7 +2109,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		x = 0
@@ -2076,11 +2120,39 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.1
 			add_war_support = 0.1
-			656 = {
+			797 = {
 				set_building_level = {
 					type = bunker
-					level = 10
-					province = 8085
+					level = 5
+					province = 2089
+				}
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 8001
+				}
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 12879
+				}
+				
+			}
+			798 = {
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 12749
+				}
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 10850
+				}
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 1955
 				}
 			}
 		}
@@ -2097,7 +2169,8 @@ focus_tree = {
 		
 		available = {
 			has_full_control_of_state = 656
-			has_full_control_of_state = 291
+			has_full_control_of_state = 797
+			has_full_control_of_state = 798
 		}
 		
 		x = 0
@@ -2126,6 +2199,9 @@ focus_tree = {
 			    can_occupy_non_war = yes
 			    can_only_justify_war_on_threat_country = no
 			    can_create_factions = yes
+			    can_send_volunteers = yes
+				can_puppet = yes
+				can_create_collaboration_government = yes
 			}
 		}
 	}

@@ -118,7 +118,7 @@ news_event = {
 }
 
 ## Co-Op
-country_event = {
+news_event = {
 	id = imperial_coop.0
 	title = imperial_coop.0.t
 	desc = imperial_coop.0.d
@@ -141,7 +141,7 @@ country_event = {
 	}
 }
 
-country_event = {
+news_event = {
 	id = imperial_coop.1
 	title = imperial_coop.1.t
 	desc = imperial_coop.1.d
@@ -152,6 +152,10 @@ country_event = {
 	
 	option = { # Saudi Arabia and Iraq Coop
 		name = imperial_coop.1.a
+		transfer_state = 797
+		add_state_core = 797
+		transfer_state = 798
+		add_state_core = 798
 		IMP = {	
 			set_autonomy = {
 				target = SAU
@@ -264,6 +268,8 @@ country_event = {
 	
 	option = { # Saudi Only
 		name = imperial_coop.1.b
+		transfer_state = 798
+		add_state_core = 798
 		IMP = {	
 			set_autonomy = {
 				target = SAU
@@ -322,6 +328,8 @@ country_event = {
 	
 	option = { # Iraq Only
 		name = imperial_coop.1.c
+		transfer_state = 797
+		add_state_core = 797
 		IMP = {
 			set_autonomy = {
 				target = IRQ
