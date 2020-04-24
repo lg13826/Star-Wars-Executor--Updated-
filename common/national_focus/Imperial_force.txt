@@ -35,7 +35,7 @@ focus_tree = {
 		x = 12
 		y = 0
 		
-		cost = 5
+		cost = 1
 		
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		
@@ -127,7 +127,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = imp_crashed
-		cost = 5
+		cost = 1
 		prerequisite =
 		{
 			focus = imp_crashed
@@ -264,7 +264,7 @@ focus_tree = {
 	{
 		id = imp_phase_two
 		icon = GFX_focus_phasetwo
-		cost = 5
+		cost = 1
 		
 		available = {
 		}
@@ -299,7 +299,7 @@ focus_tree = {
 	focus = {
 		id = imp_investigate
 		icon = GFX_focus_investigate
-		cost = 3
+		cost = 1
 		prerequisite = {
 			focus = imp_survey
 		}
@@ -337,7 +337,7 @@ focus_tree = {
 	{
 		id = imp_tarkin_doctrine
 		icon = GFX_focus_tarkin
-		cost = 5
+		cost = 1
 		prerequisite =
 		{
 			focus = imp_investigate
@@ -375,7 +375,7 @@ focus_tree = {
 	{
 		id = imp_sith_might
 		icon = GFX_focus_sith
-		cost = 5
+		cost = 1
 		prerequisite =
 		{
 			focus = imp_investigate
@@ -416,7 +416,7 @@ focus_tree = {
 		id = imp_conquer_iraq
 		icon = GFX_goal_generic_major_war
 		will_lead_to_war_with = IRQ
-		cost = 5
+		cost = 2
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -464,7 +464,7 @@ focus_tree = {
 		id = imp_subjugate_iraq
 		icon = GFX_goal_generic_forceful_treaty
 		will_lead_to_war_with = IRQ
-		cost = 5
+		cost = 2
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -521,7 +521,7 @@ focus_tree = {
 		id = imp_subjugate_saudi
 		icon = GFX_goal_generic_forceful_treaty
 		will_lead_to_war_with = SAU
-		cost = 5
+		cost = 2
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -577,7 +577,7 @@ focus_tree = {
 	{
 		id = imp_conquer_saudi
 		icon = GFX_goal_generic_major_war
-		cost = 5
+		cost = 2
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -625,7 +625,7 @@ focus_tree = {
 	{
 		id = imp_supply_lines_iraq
 		icon = GFX_goal_generic_construct_infrastructure
-		cost = 5 
+		cost = 3
 		prerequisite =
 		{
 			focus = imp_conquer_iraq
@@ -686,7 +686,7 @@ focus_tree = {
 	{
 		id = imp_supply_lines_saudi
 		icon = GFX_goal_generic_construct_infrastructure
-		cost = 5
+		cost = 3
 		prerequisite =
 		{
 			focus = imp_conquer_saudi
@@ -750,7 +750,7 @@ focus_tree = {
 	{
 		id = imp_establish_base_iraq
 		icon = GFX_goal_generic_fortify_city
-		cost = 5
+		cost = 3
 		prerequisite =
 		{
 			focus = imp_subjugate_iraq
@@ -879,7 +879,7 @@ focus_tree = {
 	{
 		id = imp_establish_base_saudi
 		icon = GFX_goal_generic_fortify_city
-		cost = 5
+		cost = 3
 		prerequisite =
 		{
 			focus = imp_subjugate_saudi
@@ -1007,7 +1007,6 @@ focus_tree = {
 		prerequisite = {
 		}
 		available = {
-			has_country_flag = conference_room
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 			
@@ -2209,8 +2208,6 @@ focus_tree = {
 		prerequisite = {
 		}
 		available = {
-			has_country_flag = conference_room
-			has_country_flag = war_plans_flag
 		}
 		
 		x = 14
