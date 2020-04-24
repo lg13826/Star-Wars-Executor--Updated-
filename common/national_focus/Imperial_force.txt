@@ -4006,7 +4006,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_ideas = ship_gun
+			#add_ideas = ship_gun
 			set_country_flag = guns_restored
 		}
 	}
