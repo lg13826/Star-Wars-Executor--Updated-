@@ -170,6 +170,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			add_offsite_building = { type = arms_factory level = 1 }
 			add_manpower = 2000
 		}
 	}
@@ -195,6 +196,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			add_offsite_building = { type = arms_factory level = 1 }
 		}
 	}
 	
@@ -226,6 +228,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			add_offsite_building = { type = arms_factory level = 1 }
 		}
 	}
 	
@@ -252,6 +255,7 @@ focus_tree = {
 				}
 			}
 			add_manpower = 2000
+			add_offsite_building = { type = arms_factory level = 1 }
 		}
 	}
 		
@@ -1056,6 +1060,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			add_offsite_building = { type = arms_factory level = 1 }
 			#Add 1 anti-air
 		}
 	}
@@ -1101,6 +1106,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			add_offsite_building = { type = arms_factory level = 1 }
 						
 		}
 	}
@@ -1138,6 +1144,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			add_offsite_building = { type = arms_factory level = 1 }
 			
 		}
 	}
