@@ -118,11 +118,11 @@ news_event = {
 }
 
 ## Co-Op
-news_event = {
+country_event = {
 	id = imperial_coop.0
 	title = imperial_coop.0.t
 	desc = imperial_coop.0.d
-	picture = GFX_tarkin_choice
+	picture = GFX_tarkin_choice_mod
 	
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -141,11 +141,11 @@ news_event = {
 	}
 }
 
-news_event = {
+country_event = {
 	id = imperial_coop.1
 	title = imperial_coop.1.t
 	desc = imperial_coop.1.d
-	picture = GFX_tarkin_choice
+	picture = GFX_tarkin_choice_mod
 	
 	is_triggered_only = yes
 	fire_only_once = yes
