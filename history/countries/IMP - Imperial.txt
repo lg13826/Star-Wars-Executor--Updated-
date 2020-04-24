@@ -10,23 +10,12 @@ set_technology = {
 	stormtrooper_tech = 1
 	#industrial tech
 	basic_machine_tools = 1
-	improved_machine_tools = 1
-	advanced_machine_tools = 1
-	improved_equipment_conversion = 1
-	concentrated_industry = 1
-	concentrated_industry2 = 1
-	concentrated_industry3 = 1
-	construction1 = 1
-	construction2= 1
-	fuel_silos = 1
 	#electronics
 	electronic_mechanical_engineering = 1
-	mechanical_computing = 1
-	improved_computing_machine = 1
-	advanced_computing_machine = 1
-	computing_machine = 1
-	radio = 1
-	radio_detection = 1
+	atomic_research = 1
+	#Seafaring
+	early_destroyer = 1
+	early_carrier = 1
 	#doctrines
 }
 
