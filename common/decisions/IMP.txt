@@ -1,20 +1,20 @@
 
 
 IMP_statebuilding_decisions = {
-	
+
 	focus_on_materials = {
 		available = {
 			NOT = { has_decision = focus_on_industry }
 		}
-		
+
 		visible = {
 			has_full_control_of_state = 656
 		}
-		
+
 		ai_will_do = {
 			base = 5
 		}
-				
+
 		cost = 50
 		fire_only_once = yes
 		days_remove = 180
@@ -27,26 +27,26 @@ IMP_statebuilding_decisions = {
 			set_country_flag = materials_flag #this unlocks the synthetic materials focus#
 		}
 	}
-	
+
 	focus_on_industry = {
 		available = {
 			NOT = { has_decision = focus_on_materials }
 		}
-		
+
 		visible = {
 			has_full_control_of_state = 656
 			has_full_control_of_state = 797
 		}
-		
+
 		ai_will_do = {
 			base = 5
 		}
-				
+
 		cost = 50
 		fire_only_once = yes
-		
+
 		days_remove = 180
-		
+
 		remove_effect = {
 			797 = {
 				add_extra_state_shared_building_slots = 2
@@ -64,25 +64,25 @@ IMP_statebuilding_decisions = {
 			set_country_flag = industrial_flag #This unlocks the industry focus#
 		}
 	}
-	
+
 	concentrated_development = {
 		available = {
 			always = yes
 		}
-		
+
 		visible = {
 			has_full_control_of_state = 797
 		}
-		
+
 		ai_will_do = {
 			base = 5
 		}
-		
+
 		days_remove = 0
-				
+
 		cost = 70
 		fire_only_once = yes
-		
+
 		complete_effect = {
 			add_timed_idea = {
 				idea = concentrated_industry
@@ -90,27 +90,27 @@ IMP_statebuilding_decisions = {
 			}
 		}
 	}
-	
+
 	dispersed_development = {
 		available = {
 			always = yes
 		}
-		
+
 		visible = {
 			has_full_control_of_state = 656
 			has_full_control_of_state = 798
 			has_full_control_of_state = 797
 		}
-		
+
 		ai_will_do = {
 			base = 5
 		}
-		
+
 		days_remove = 70
 		cost = 30
-		
+
 		fire_only_once = yes
-		
+
 		remove_effect = {
 			656 = {
 				add_building_construction = {
@@ -119,7 +119,7 @@ IMP_statebuilding_decisions = {
 					instant_build = yes
 				}
 			}
-			
+
 			798 = {
 				add_building_construction = {
 					type = infrastructure
@@ -127,7 +127,7 @@ IMP_statebuilding_decisions = {
 					instant_build = yes
 				}
 			}
-			
+
 			797 = {
 				add_building_construction = {
 					type = infrastructure
@@ -136,13 +136,13 @@ IMP_statebuilding_decisions = {
 				}
 			}
 		}
-	
+
 	}
 
 }
 
 IMP_wargoals_decisions = {
-	
+
 	intimidate_oman = {
 		available = {
 			has_army_manpower = {
@@ -154,57 +154,57 @@ IMP_wargoals_decisions = {
 			}
 			OR = {
 				NOT = { country_exists = SAU }
-				SAU = { is_puppet_of = IMP }
+				SAU = { is_subject_of = IMP }
 			}
 		}
-		
+
 		visible = {
 			always = yes
 		}
-		
+
 		ai_will_do = {
 			base = 5
 		}
-		
+
 		days_remove = 50
-		
+
 		cost = 15
- 
+
 		fire_only_once = yes
-		
+
 		remove_effect = {
 			if = {
-				limit = { 
-					SAU = { 
-						is_puppet_of = IMP
+				limit = {
+					SAU = {
+						is_subject_of = IMP
 						is_neighbor_of = OMA
 					}
 					has_country_flag = tarkin_flag
-					
+
 				}
-				SAU = { 
-					transfer_state = 294 
+				SAU = {
+					transfer_state = 294
 					add_state_core = 294
 				}
-				
+
 				else_if = {
 					limit = {
 						has_country_flag = tarkin_flag
 					}
-					IMP = { 
+					IMP = {
 						set_autonomy = {
 							target = OMA
 							autonomy_state = autonomy_integrated_puppet
 						}
 					}
-					
+
 					else = { transfer_state = 294 }
 				}
 			}
 		}
-	
+
 	}
-	
+
 	intimidate_yemen = {
 		available = {
 			has_army_manpower = {
@@ -216,57 +216,57 @@ IMP_wargoals_decisions = {
 			}
 			OR = {
 				NOT = { country_exists = SAU }
-				SAU = { is_puppet_of = IMP }
+				SAU = { is_subject_of = IMP }
 			}
 		}
-		
+
 		visible = {
 			always = yes
 		}
-		
+
 		ai_will_do = {
 			base = 5
 		}
-		
+
 		days_remove = 50
-		
+
 		cost = 15
- 
+
 		fire_only_once = yes
-		
+
 		remove_effect = {
 			if = {
-				limit = { 
-					SAU = { 
-						is_puppet_of = IMP
+				limit = {
+					SAU = {
+						is_subject_of = IMP
 						is_neighbor_of = YEM
 					}
 					has_country_flag = tarkin_flag
-					
+
 				}
 				SAU = {
-						transfer_state = 293 
+						transfer_state = 293
 						add_state_core = 293
-						if = { 
+						if = {
 							limit = { YEM = { has_full_control_of_state = 659 } }
 							transfer_state = 659
 							add_state_core = 659
 						}
-					}					
+					}
 				else_if = {
 					limit = {
 						has_country_flag = tarkin_flag
 					}
-					IMP = { 
+					IMP = {
 						set_autonomy = {
 							target = YEM
 							autonomy_state = autonomy_integrated_puppet
 						}
 					}
-					
+
 					else = {
-						transfer_state = 293 
-						if = { 
+						transfer_state = 293
+						if = {
 							limit = { YEM = { has_full_control_of_state = 659 } }
 							transfer_state = 659
 						}
@@ -275,35 +275,35 @@ IMP_wargoals_decisions = {
 			}
 		}
 	}
-	
+
 	## Vaders Conquer Choices ##
 	take_turkey = {
-		available = { 
+		available = {
 			OR = {
 				has_army_manpower = { size > 50000 }
 				num_divisions > 23
 			}
 		}
-		
+
 		visible = {
 			OR = {
 				is_neighbor_of = TUR
 				IRQ = {
-					is_puppet_of = IMP
+					is_subject_of = IMP
 					is_neighbor_of = TUR
 				}
 			}
 		}
-				
+
 		ai_will_do = {
 			base = 5
 		}
 		fire_only_once = yes
-		
+
 		days_remove = 100
-		
+
 		cost = 0
-		
+
 		remove_effect = {
 			create_wargoal = {
 				type = annex_everything
@@ -311,42 +311,31 @@ IMP_wargoals_decisions = {
 			}
 		}
 	}
-	
+
 	integrate_turkey = {
-		available = { 
+		available = {
 			OR = {
 				IMP = {
 					owns_state = 49
 				}
-				TUR = {
-					is_puppet_of = IMP
+				any_country = {
+					is_subject_of = IMP
 					owns_state = 49
 				}
 			}
 		}
-		
-		visible = {
-			IMP = {
-				OR = {
-					has_full_control_of_state = 49
-					TUR = {
-						is_puppet_of = IMP
-						has_full_control_of_state = 49
-					}
-				}
-			}
-		}
-		
+
+
 		fire_only_once = yes
-		
+
 		ai_will_do = {
 			base = 5
 		}
-		
+
 		days_remove = 70
-		
+
 		cost = 35
-		
+
 		remove_effect = {
 			custom_effect_tooltip = turkey_build_tooltip
 			hidden_effect = {
@@ -365,7 +354,7 @@ IMP_wargoals_decisions = {
 						instant_build = yes
 					}
 				}
-				
+
 				344 = {
 					add_building_construction = {
 						type = infrastructure
@@ -373,15 +362,15 @@ IMP_wargoals_decisions = {
 						instant_build = yes
 					}
 				}
-				
+
 				348 = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
 						instant_build = yes
-					} 
+					}
 				}
-				
+
 				49 = {
 					add_building_construction = {
 						type = infrastructure
@@ -389,7 +378,7 @@ IMP_wargoals_decisions = {
 						instant_build = yes
 					}
 				}
-				
+
 				347 = {
 					add_building_construction = {
 						type = infrastructure
@@ -397,7 +386,7 @@ IMP_wargoals_decisions = {
 						instant_build = yes
 					}
 				}
-				
+
 				341 = {
 					add_building_construction = {
 						type = infrastructure
@@ -405,7 +394,7 @@ IMP_wargoals_decisions = {
 						instant_build = yes
 					}
 				}
-				
+
 				49 = {
 					add_extra_state_shared_building_slots = 3
 					add_building_construction = {
@@ -420,18 +409,18 @@ IMP_wargoals_decisions = {
 					}
 				}
 			}
-			
+
 			if = {
 				limit = { has_country_flag = tarkin_flag }
 					add_offsite_building = { type = industrial_complex level = 8 }
 					add_offsite_building = { type = arms_factory level = 8 }
 			}
 		}
-	
+
 	}
-	
+
 	take_persia = {
-		available = { 
+		available = {
 			OR = {
 				has_army_manpower = { size > 50000 }
 				num_divisions > 23
@@ -441,69 +430,58 @@ IMP_wargoals_decisions = {
 			OR = {
 				is_neighbor_of = PER
 				IRQ = {
-					is_puppet_of = IMP
+					is_subject_of = IMP
 					is_neighbor_of = PER
 				}
 			}
 		}
 		fire_only_once = yes
-		
+
 		ai_will_do = {
 			base = 5
 		}
-		
+
 		days_remove = 100
-		
+
 		cost = 0
-		
+
 		remove_effect = {
 			create_wargoal = {
 				type = annex_everything
 				target = PER
 			}
-		}	
+		}
 	}
-	
+
 	integrate_persia = {
-		available = { 
+		available = {
 			OR = {
 				IMP = {
-					owns_state = 266 
+					owns_state = 266
 				}
-				PER = {
-					is_puppet_of = IMP
-					owns_state = 266 
-				}
-			}
-		}
-		
-		visible = {
-			IMP = {
-				OR = {
-					has_full_control_of_state = 266
-					PER = {
-						is_puppet_of = IMP
-						has_full_control_of_state = 266
-					}
+				any_country = {
+					is_subject_of = IMP
+					owns_state = 266
 				}
 			}
 		}
-		
+
+
 		fire_only_once = yes
-		
+
 		ai_will_do = {
 			base = 5
 		}
-		
+
 		days_remove = 70
-		
+
 		cost = 35
-		
+
 		remove_effect = {
 			custom_effect_tooltip = turkey_build_tooltip
 			hidden_effect = {
 			#add cores#
-				set_country_flag = integrated_per_flag			
+				set_country_flag = integrated_per_flag
 				413 = {
 					add_building_construction = {
 						type = infrastructure
@@ -518,7 +496,7 @@ IMP_wargoals_decisions = {
 						instant_build = yes
 					}
 				}
-				
+
 				417 = {
 					add_building_construction = {
 						type = infrastructure
@@ -526,15 +504,15 @@ IMP_wargoals_decisions = {
 						instant_build = yes
 					}
 				}
-				
+
 				266 = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
 						instant_build = yes
-					} 
+					}
 				}
-				
+
 				416 = {
 					add_building_construction = {
 						type = infrastructure
@@ -542,15 +520,15 @@ IMP_wargoals_decisions = {
 						instant_build = yes
 					}
 				}
-				
+
 				414 = {
 					add_building_construction = {
 						type = infrastructure
 						level = 3
 						instant_build = yes
 					}
-				}			
-				
+				}
+
 				266 = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
@@ -560,88 +538,77 @@ IMP_wargoals_decisions = {
 					}
 				}
 			}
-			
+
 			if = {
 				limit = { has_country_flag = tarkin_flag }
 				add_offsite_building = { type = industrial_complex level = 4 }
 				add_offsite_building = { type = arms_factory level = 3 }
 			}
-			
+
 		}
-		
+
 	}
-	
+
 	take_afghanistan = {
-		available = { 
+		available = {
 			OR = {
 				has_army_manpower = { size > 50000 }
 				num_divisions > 23
 			}
 		}
-		
+
 		visible = {
 			OR = {
 				is_neighbor_of = AFG
-				PER = {
-					is_puppet_of = IMP
+				any_country = {
+					is_subject_of = IMP
 					is_neighbor_of = AFG
 				}
 			}
 		}
-		
+
 		fire_only_once = yes
-		
+
 		ai_will_do = {
 			base = 5
 		}
-		
+
 		days_remove = 100
-		
+
 		cost = 0
-		
+
 		remove_effect = {
 			create_wargoal = {
 				type = annex_everything
 				target = AFG
 			}
-		}	
+		}
 	}
-	
+
 	integrate_afghanistan = {
-		available = { 
+		available = {
 			OR = {
 				IMP = {
 					owns_state = 267
 				}
-				AFG = {
-					is_puppet_of = IMP
+				any_country = {
+					is_subject_of = IMP
 					owns_state = 267
 				}
 			}
 		}
-		
-		visible = {
-			IMP = {
-				OR = {
-					has_full_control_of_state = 267
-					AFG = {
-						is_puppet_of = IMP
-						has_full_control_of_state = 267
-					}
-				}
-			}
-		}
-		
+
+
 		fire_only_once = yes
-		
+
 		ai_will_do = {
 			base = 5
 		}
-		
+
 		days_remove = 70
-		
+
 		cost = 35
-		
+
 		remove_effect = {
 		custom_effect_tooltip = turkey_build_tooltip
 			hidden_effect = {
@@ -667,14 +634,14 @@ IMP_wargoals_decisions = {
 					}
 				}
 			}
-			
+
 			if = {
 				limit = { has_country_flag = tarkin_flag }
 				add_offsite_building = { type = industrial_complex level = 4 }
 				add_offsite_building = { type = arms_factory level = 2 }
-			}	
+			}
 		}
-		
+
 	}
 
 	## Tarkins Choices##
@@ -685,7 +652,7 @@ IMP_wargoals_decisions = {
 
 
 IMP_campaign_decisions = {
-	
+
 	anti_communist_campaign = {
 		available = {
 			OR = {
@@ -694,7 +661,7 @@ IMP_campaign_decisions = {
 				MON = { NOT = {is_subject_of = IMP} }
 			}
 		}
-		
+
 		visible = {
 			OR = {
 				SOV = { is_neighbor_of = IMP }
@@ -702,7 +669,7 @@ IMP_campaign_decisions = {
 				MON = { is_neighbor_of = IMP }
 			}
 		}
-		
+
 		ai_will_do = {
 			base = 5
 			modifier = {
@@ -710,13 +677,13 @@ IMP_campaign_decisions = {
 				has_war_with = TUR
 			}
 		}
-		
+
 		days_remove = 50
-		
+
 		cost = 50
- 
+
 		fire_only_once = yes
-		
+
 		remove_effect = {
 			custom_effect_tooltip = commie_attk
 			hidden_effect= {
@@ -724,7 +691,7 @@ IMP_campaign_decisions = {
 			}
 		}
 	}
-	
+
 	anti_colonial_campaign = {
 		available = {
 			OR = {
@@ -733,7 +700,7 @@ IMP_campaign_decisions = {
 				RAJ = { NOT = {is_subject_of = IMP} }
 			}
 		}
-		
+
 		visible = {
 			OR = {
 				ENG = { is_neighbor_of = IMP }
@@ -741,7 +708,7 @@ IMP_campaign_decisions = {
 				RAJ = { is_neighbor_of = IMP }
 			}
 		}
-		
+
 		ai_will_do = {
 			base = 5
 			modifier = {
@@ -749,13 +716,13 @@ IMP_campaign_decisions = {
 				has_war_with = TUR
 			}
 		}
-		
+
 		days_remove = 50
-		
+
 		cost = 50
- 
+
 		fire_only_once = yes
-		
+
 		remove_effect = {
 			custom_effect_tooltip = colony_attk
 			hidden_effect= {
@@ -774,7 +741,7 @@ IMP_campaign_decisions = {
 				ALB = { is_subject = no }
 			}
 		}
-		
+
 		visible = {
 			OR = {
 				GRE = { is_neighbor_of = IMP }
@@ -785,7 +752,7 @@ IMP_campaign_decisions = {
 				ALB = { is_neighbor_of = IMP }
 			}
 		}
-		
+
 		ai_will_do = {
 			base = 5
 			modifier = {
@@ -793,22 +760,22 @@ IMP_campaign_decisions = {
 				has_war_with = TUR
 			}
 		}
-		
+
 		days_remove = 50
-		
+
 		cost = 50
- 
+
 		fire_only_once = yes
-		
+
 		remove_effect = {
 			custom_effect_tooltip = balkan_attk
 			hidden_effect = {
 				add_ideas = balkan_bonus
 			}
 		}
-	
+
 	}
-	
+
 	middle_east_campaign = {
 		available = {
 			OR = {
@@ -817,7 +784,7 @@ IMP_campaign_decisions = {
 				PER = { NOT = {is_subject_of = IMP} }
 			}
 		}
-		
+
 		visible = {
 			OR = {
 				TUR = { is_neighbor_of = IMP }
@@ -825,7 +792,7 @@ IMP_campaign_decisions = {
 				PER = { is_neighbor_of = IMP }
 			}
 		}
-		
+
 		ai_will_do = {
 			base = 5
 			modifier = {
@@ -833,19 +800,19 @@ IMP_campaign_decisions = {
 				has_war_with = TUR
 			}
 		}
-		
+
 		days_remove = 50
-		
+
 		cost = 50
- 
+
 		fire_only_once = yes
-		
+
 		remove_effect = {
 			custom_effect_tooltip = middle_east_attk
 			hidden_effect = {
 			add_ideas = turkey_bonus
 			}
 		}
-		
+
 	}
 }

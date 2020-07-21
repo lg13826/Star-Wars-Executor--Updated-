@@ -7,9 +7,9 @@ sub_units = {
 		need = { imp_fighter_equipment = 1 }
 		categories = { category_fighter }
 	}
-	
+
 	tie_heavy_fighter = { #defender
-		sprite = medium_plane 
+		sprite = medium_plane
 		priority = 1
 		active = yes
 		type = { fighter tactical_bomber }
@@ -24,21 +24,21 @@ sub_units = {
 		type = { interceptor }
 		need = { imp_interceptor_equipment = 1 }
 	}
-	
+
 	tie_bomber = {
 		sprite = heavy_plane
 		priority = 2
 		active = yes
-		type = { tactical_bomber }
+		type = { strategic_bomber }
 		need = { imp_bomber_equipment = 1 }
-		categories = { category_tac_bomber }
+		categories = { category_strat_bomber }
 	}
-	
+
 	space_transport = {
 		sprite = heavy_plane
 		priority = 6
 		active = yes
 		type = { air_transport cas }
 		need = { imperial_transport_plane_equipment = 1 }
-	}	
+	}
 }

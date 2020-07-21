@@ -1,9 +1,87 @@
-ideas = 
+ideas =
 {
 	# MILITARY
-	
-	country = 
+
+	country =
 	{
+		unification_war = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = idea_unification_war
+
+			modifier = {
+				justify_war_goal_time = -0.5
+				generate_wargoal_tension = -1.0
+				resistance_damage_to_garrison = -0.5
+				required_garrison_factor = -0.5
+				non_core_manpower = 0.1
+				army_morale_factor = 0.15
+			}
+
+
+		}
+
+		more_weapon = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = idea_droid
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.1
+			}
+
+
+		}
+
+		more_droid = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = idea_droid
+
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+
+		}
+
+		tech_superiority = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_research_bonus
+
+			modifier = {
+				research_speed_factor = 0.1
+			}
+
+		}
 	## Internal Conflict
 		hidden_truth = {
 			allowed = {
@@ -12,17 +90,17 @@ ideas =
 			allowed_civil_war = {
 				always = no
 			}
-			
+
 			removal_cost = -1
-			
+
 			picture = hidden_truth
-			
+
 			modifier = {
 				stability_weekly = -0.01
 			}
-		
+
 		}
-		
+
 		general_announcement = {
 			allowed = {
 				always = no
@@ -30,17 +108,17 @@ ideas =
 			allowed_civil_war = {
 				always = no
 			}
-			
+
 			removal_cost = -1
-			
-			picture = great_depression
-			
+
+			picture = general_anouncement
+
 			modifier = {
 				army_attack_factor = -0.2
 				army_defence_factor = -0.2
 			}
 		}
-		
+
 		imp_great_depression = {
 			allowed = {
 				always = no
@@ -48,18 +126,18 @@ ideas =
 			allowed_civil_war = {
 				always = no
 			}
-			
+
 			removal_cost = -1
-			
-			picture = great_depression		
-			
+
+			picture = imp_great_depression
+
 			modifier = {
 				production_speed_buildings_factor = -0.20
 				army_org_factor = -0.35
 				political_power_gain = -0.5
 			}
 		}
-		
+
 		the_plan = {
 			allowed = {
 				always = no
@@ -67,19 +145,19 @@ ideas =
 			allowed_civil_war = {
 				tag = IMP
 			}
-			
+
 			removal_cost = -1
-			
-			picture = the_plan	
-			
+
+			picture = the_plan
+
 			modifier = {
 				army_attack_factor = 0.2
 				army_defence_factor = 0.2
 				non_core_manpower = -0.01
 			}
-		
+
 		}
-		
+
 		soviet_defectors = {
 			allowed = {
 				always = no
@@ -87,20 +165,22 @@ ideas =
 			allowed_civil_war = {
 				tag = CPG
 			}
-			
+
 			removal_cost = -1
-			
-			picture = generic_communism_drift_bonus	
+
+			picture = soviet_defectors
 			research_bonus = {
-				mass_assault = 0.30
+				land_doctrine = 0.30
 			}
-			
+
 			modifier = {
 				max_planning = 0.05
+				communism_drift = 0.03
+				democratic_drift = 0.01
 			}
-		
+
 		}
-		
+
 		imperial_victory = {
 			allowed = {
 				always = no
@@ -108,136 +188,136 @@ ideas =
 			allowed_civil_war = {
 				tag = IMP
 			}
-			
+
 			removal_cost = -1
-			
-			picture = generic_victors_of_ww1
-			
+
+			picture = idea_imperial_victory
+
 			modifier = {
 				army_org_factor = 0.10
 				production_speed_buildings_factor = 0.10
 			}
-		
+
 		}
-		
-		
+
+
 	## Internal Conflict
-	
+
 	#industrial stages
 		no_industry = {
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			allowed_civil_war = {
 				tag = imp
 			}
-			
+
 			removal_cost = -1
-			
+
 			picture = no_industry
-		
+
 			modifier = {
 				consumer_goods_factor = 0.3
 				production_factory_max_efficiency_factor = -0.3
 				production_speed_industrial_complex_factor = -0.3
 			}
 		}
-		
+
 		small_industry = {
 			allowed = {
 				always = no
 			}
-			
+
 			allowed_civil_war = {
 				tag = imp
 			}
-			
+
 			removal_cost = -1
-			
+
 			picture = small_industry
-		
+
 			modifier = {
 				consumer_goods_factor = 0.2
 				production_factory_max_efficiency_factor = -0.2
 				production_speed_industrial_complex_factor = -0.2
 			}
 		}
-		
+
 		medium_industry = {
 			allowed = {
 				always = no
 			}
-			
+
 			allowed_civil_war = {
 				tag = imp
 			}
-			
+
 			removal_cost = -1
-			
+
 			picture = medium_industry
-		
+
 			modifier = {
 				consumer_goods_factor = 0.1
 				production_factory_max_efficiency_factor = -0.1
 				production_speed_industrial_complex_factor = -0.1
 			}
 		}
-		
+
 		large_industry = {
 			allowed = {
 				always = no
 			}
-			
+
 			allowed_civil_war = {
 				tag = imp
 			}
-			
+
 			removal_cost = -1
-			
+
 			picture = large_industry
-		
+
 			modifier = {
 				production_factory_max_efficiency_factor = +0.1
 				production_speed_industrial_complex_factor = 0.1
 			}
 		}
-		
+
 		concentrated_industry = {
 			allowed = {
 				always = no
 			}
-			
+
 			allowed_civil_war = {
 				tag = IMP
 			}
-			
+
 			removal_cost = -1
-			
+
 			picture = concentrated_industry
-		
+
 			modifier = {
 				consumer_goods_factor = -0.2
 			}
 		}
-		
-		
-	#industrial stages	
-		
-		
-		
+
+
+	#industrial stages
+
+
+
 		balkan_bonus = {
 			allowed = {
 				always = no
 			}
-			
+
 			allowed_civil_war = {
 				tag = IMP
 			}
 			removal_cost = -1
-			
+
 			picture = rom_balkan_dominance
-			
+
 			targeted_modifier = {
 				tag = YUG
 				attack_bonus_against = 0.1
@@ -268,19 +348,19 @@ ideas =
 				attack_bonus_against = 0.1
 				defense_bonus_against = 0.1
 			}
-		} 
-			
+		}
+
 		turkey_bonus = {
 			allowed = {
 				always = no
 			}
-			
+
 			allowed_civil_war = {
 				tag = IMP
 			}
 			removal_cost = -1
 			picture = raj_marginalized_muslim_community_angry
-			
+
 			targeted_modifier = {
 				tag = TUR
 				attack_bonus_against = 0.1
@@ -297,17 +377,17 @@ ideas =
 				defense_bonus_against = 0.1
 			}
 		}
-			
+
 		colonial_bonus = {
 			allowed = {
 				always = no
 			}
-			
+
 			allowed_civil_war = {
 				tag = IMP
 			}
 			removal_cost = -1
-			
+
 			picture = eng_guided_by_britain
 			targeted_modifier = {
 				tag = ENG
@@ -325,17 +405,17 @@ ideas =
 				defense_bonus_against = 0.1
 			}
 		}
-			
+
 		anti_commie_bonus = {
 			allowed = {
 				always = no
 			}
-			
+
 			allowed_civil_war = {
 				tag = IMP
 			}
 			removal_cost = -1
-			
+
 			picture = GFX_anti_soviet_pact
 			targeted_modifier = {
 				tag = TAN
@@ -352,136 +432,90 @@ ideas =
 				attack_bonus_against = 0.1
 				defense_bonus_against = 0.1
 			}
-			
-		}		
-	
-		imperial_military = 
-		{			
+
+		}
+
+		imperial_military =
+		{
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			allowed_civil_war = {
 				tag = IMP
 			}
-			
+
 			picture = imperial_military
-			
-			removal_cost = -1
-			
-			modifier = 
-			{
-				stability_factor = 0.1
-			}			
-		}
-		
-		imperial_military_conf_war = 
-		{			
-			allowed = {
-				always = no
-			}
-			
-			allowed_civil_war = {
-				tag = IMP
-			}
-			
-			picture = imperial_military
-			
-			removal_cost = -1
-			
-			modifier = 
-			{
-				planning_speed = 0.10
-				stability_factor = 0.1
-				army_org_factor = 0.1
-			}			
-		}
-		
-		imperial_military_conf_war_done = 
-		{			
-			allowed = {
-				always = no
-			}
-			
-			allowed_civil_war = {
-				tag = IMP
-			}
-			
-			picture = imperial_military
-			
-			removal_cost = -1
-			
-			research_bonus = { 
-				land_doctrine = 0.08
-			}
-			
-			modifier = 
-			{
-				planning_speed = 0.10
-				stability_factor = 0.1
-				army_org_factor = 0.1
-				command_power_gain = 0.5	
-			}			
-		}
-						
-		ship_gun = 
-		{			
-			allowed = {
-				always = no
-			}
-			
-			allowed_civil_war = {
-				tag = IMP
-			}
-			
-			picture = gunturret
-			
+
 			removal_cost = -1
 
-			modifier = 
+			modifier =
 			{
-				production_speed_rocket_site_factor = -10.0	
-			}			
+				stability_factor = 0.05
+				planning_speed = 0.15
+				command_power_gain = 0.5
+				fascism_drift = 0.01
+			}
 		}
-		
-		imperial_military_conf = 
-		{			
+
+		ship_gun =
+		{
 			allowed = {
 				always = no
 			}
-			
+
 			allowed_civil_war = {
 				tag = IMP
 			}
-			
-			picture = imperial_military
-			
+
+			picture = gunturret
+
 			removal_cost = -1
-			
-			modifier = 
+
+			modifier =
+			{
+				production_speed_rocket_site_factor = -10.0
+			}
+		}
+
+		imperial_military_conf =
+		{
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				tag = IMP
+			}
+
+			picture = imperial_military
+
+			removal_cost = -1
+
+			modifier =
 			{
 				stability_factor = 0.1
-				army_org_factor = 0.1	
-			}			
+				army_org_factor = 0.1
+			}
 		}
-		
-		ruined_ship = 
+
+		ruined_ship =
 		{
-			allowed = 
+			allowed =
 			{
 				always = yes
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				tag = IMP
 			}
-			
+
 			picture = ruined_ship
 
 			removal_cost = -1
-			
-			modifier = 
+
+			modifier =
 			{
 				planning_speed = -0.5
 				political_power_factor = -0.5
@@ -490,22 +524,22 @@ ideas =
 				production_speed_arms_factory_factor = -0.3
 			}
 		}
-				
-		damaged_ship = 
+
+		damaged_ship =
 		{
 			picture = damaged_ship
-			allowed = 
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			removal_cost = -1
-			
+
 			modifier = {
 				planning_speed = -0.4
 				political_power_factor = -0.4
@@ -514,7 +548,7 @@ ideas =
 				production_speed_arms_factory_factor = -0.2
 			}
 		}
-		
+
 		partial_ship = {
 			picture = partial_ship
 			allowed = {
@@ -526,7 +560,7 @@ ideas =
 			}
 
 			removal_cost = -1
-			
+
 			modifier = {
 				planning_speed = -0.3
 				political_power_factor = -0.3
@@ -535,7 +569,7 @@ ideas =
 				production_speed_arms_factory_factor = -0.1
 			}
 		}
-		
+
 		half_functional_ship = {
 			picture = half_functional_ship
 			allowed = {
@@ -547,219 +581,219 @@ ideas =
 			}
 
 			removal_cost = -1
-			
+
 			modifier = {
 				planning_speed = -0.2
 				political_power_factor = -0.2
 				industrial_capacity_factory = -0.2
 			}
 		}
-		
-		functional_ship = 
+
+		functional_ship =
 		{
 			picture = functional_ship
-			allowed = 
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			removal_cost = -1
-			
-			modifier = 
+
+			modifier =
 			{
 			}
 		}
-		
-		fully_repaired_ship = 
+
+		fully_repaired_ship =
 		{
 			picture = fully_repaired_ship
-			allowed = 
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			removal_cost = -1
-			
-			modifier = 
+
+			modifier =
 			{
 				political_power_factor = 0.10
 				production_speed_arms_factory_factor = 0.1
 			}
 		}
-		
-		stranded = 
+
+		stranded =
 		{
-			
-			allowed = 
+
+			allowed =
 			{
 				original_tag = IMP
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				tag = imp
 			}
 
 			picture = stranded
-			
+
 			removal_cost = -1
-			
-			modifier = 
+
+			modifier =
 			{
 				stability_factor = -0.2
 			}
 		}
-		
-		stranded2 = 
+
+		stranded2 =
 		{
-			allowed = 
+			allowed =
 			{
 				original_tag = IMP
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			picture = sith_pic
-			
+
 			removal_cost = -1
-			
-			modifier = 
+
+			modifier =
 			{
 				justify_war_goal_time = -0.5
 			}
 		}
-		spec_forces = 
+		spec_forces =
 		{
-			allowed = 
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			picture = special
-			
+
 			removal_cost = -1
-			
-			modifier = 
+
+			modifier =
 			{
 				special_forces_cap = 0.10
 			}
 		}
-		
-		spec_forces2 = 
+
+		spec_forces2 =
 		{
-			allowed = 
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			picture = special
-			
+
 			removal_cost = -1
-			
-			modifier = 
+
+			modifier =
 			{
 				special_forces_cap = 0.15
 				special_forces_attack_factor = 0.1
 				special_forces_defence_factor = 0.1
 			}
 		}
-		
-		army_production = 
+
+		army_production =
 		{
 			picture = blaster
-			
-			allowed = 
+
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
-			
+
 			removal_cost = -1
-			
+
 			equipment_bonus = {
 				infantry_equipment = {
-					build_cost_ic = -0.2 
+					build_cost_ic = -0.2
 					instant = yes
 				}
 			}
-			
+
 		}
-		
-		army_production_weak = 
+
+		army_production_weak =
 		{
 			picture = stormtrooper_squad
-			
-			allowed = 
+
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
-			
+
 			removal_cost = -1
-			
-			
+
+
 			modifier = {
 				special_forces_cap = 0.05
 				special_forces_attack_factor = 0.05
 				special_forces_defence_factor = 0.05
 			}
-			
+
 			equipment_bonus = {
 				infantry_equipment = {
-					build_cost_ic = -0.05 
+					build_cost_ic = -0.05
 					instant = yes
 				}
 			}
-			
+
 		}
-		
+
 		imp_vehicle_prod_bonus	= {
-		
-			allowed = 
+
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			picture = tank
-			
+
 			removal_cost = -1
 			equipment_bonus = {
 				walker_equipment = {
@@ -776,21 +810,21 @@ ideas =
 				}
 			}
 		}
-		
-		aircraft_prod = 
+
+		aircraft_prod =
 		{
-			allowed = 
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			picture = fighter
-			
+
 			removal_cost = -1
 			equipment_bonus = {
 				imp_fighter_equipment = {
@@ -798,7 +832,7 @@ ideas =
 					instant = yes
 				}
 				imp_bomber_equipment = {
-					build_cost_ic = -0.05 
+					build_cost_ic = -0.05
 					instant = yes
 				}
 				imp_defender_equipment = {
@@ -812,105 +846,105 @@ ideas =
 			}
 
 		}
-		
+
 		foreign_technology = {
-			allowed = 
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			picture = imperial_military
-			
+
 			removal_cost = -1
-			
+
 			research_bonus = {
-				imperial_tech = -0.5 
+				imperial_tech = -0.5
 			}
-			
+
 			modifier = {
-				
+
 			}
-		
+
 		}
-		
-		recruitment_drive = 
+
+		recruitment_drive =
 		{
-			allowed = 
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			picture = chi_army_corruption
-			
+
 			removal_cost = -1
-			
+
 			modifier = {
-				conscription = 0.05
+				recruitable_population = 0.1
 				non_core_manpower = 0.02
 			}
 		}
-		
-		
-		training_camp = 
+
+
+		training_camp =
 		{
-			allowed = 
+			allowed =
 			{
 				always = no
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			picture = squad
-			
+
 			removal_cost = -1
-			
+
 			modifier = {
 				training_time_factor = -0.1
 				acclimatization_hot_climate_gain_factor = 0.2
 				heat_attrition_factor = -0.5
 			}
 		}
-		
-		
-		stranded3 = 
+
+
+		stranded3 =
 		{
-			allowed = 
+			allowed =
 			{
 				original_tag = IMP
 			}
 
-			allowed_civil_war = 
+			allowed_civil_war =
 			{
 				always = yes
 			}
 
 			picture = sith_pic
-			
+
 			removal_cost = -1
-			
-			modifier = 
+
+			modifier =
 			{
 				war_support_weekly = 0.01
 				justify_war_goal_time = -0.3
 			}
 		}
-		
+
 		renewed_hopes = {
 			picture = renewed_hopes
-			
+
 			allowed = {
 				always = no
 			}
@@ -920,37 +954,37 @@ ideas =
 			}
 
 			removal_cost = -1
-			
+
 			modifier = {
 				stability_factor = 0.1
 			}
 		}
-		
-		secret_military = 
+
+		secret_military =
 		{
 			picture = generic_spy_intel
-			
+
 			allowed = {
 				always = no
 			}
-						
+
 
 			allowed_civil_war = {
 				always = no
 			}
 
 			removal_cost = -1
-			
+
 			modifier = {
 				foreign_subversive_activites = -0.50
 				army_org_factor = 0.10
 			}
 		}
-		
-		auxiliary_systems = 
+
+		auxiliary_systems =
 		{
 			picture = auxiliary
-			
+
 			allowed = {
 				always = no
 			}
@@ -960,356 +994,352 @@ ideas =
 			}
 
 			removal_cost = -1
-			
-			modifier = {	
+
+			modifier = {
 				air_accidents_factor = -0.1
 				air_night_penalty = -0.1
 			}
 		}
-		
-		auxiliary_systems1 = 
+
+		auxiliary_systems1 =
 		{
 			picture = auxiliary
-			
+
 			allowed = {
 				always = no
 			}
-						
+
 
 			allowed_civil_war = {
 				tag = IMP
 			}
 
 			removal_cost = -1
-			
-			modifier = {	
+
+			modifier = {
 				air_accidents_factor = -0.1
 				air_night_penalty = -0.1
 				decryption_factor = 0.1
-				army_org_factor = 0.05
+				land_reinforce_rate = 0.01
 			}
 		}
-		
-		auxiliary_systems2 = 
+
+		auxiliary_systems2 =
 		{
 			picture = auxiliary
-			
+
 			allowed = {
 				always = no
 			}
-						
+
 
 			allowed_civil_war = {
 				tag = IMP
 			}
 
 			removal_cost = -1
-			
-			modifier = {	
+
+			modifier = {
 				air_accidents_factor = -0.1
 				air_night_penalty = -0.1
 				decryption_factor = 0.1
-				army_org_factor = 0.05
+				land_reinforce_rate = 0.02
 				army_bonus_air_superiority_factor = 0.1
 			}
 		}
-		
-		auxiliary_systems3 = 
+
+		auxiliary_systems3 =
 		{
 			picture = auxiliary
-			
+
 			allowed = {
 				always = no
 			}
-						
+
 
 			allowed_civil_war = {
 				tag = IMP
 			}
 
 			removal_cost = -1
-			
-			modifier = {	
+
+			modifier = {
 				air_accidents_factor = -0.1
 				air_night_penalty = -0.1
 				decryption_factor = 0.1
-				army_org_factor = 0.05
+				land_reinforce_rate = 0.03
 				army_bonus_air_superiority_factor = 0.1
 				army_defence_factor = 0.05
 				recon_factor = 0.05
 			}
 		}
-		
-		executor_structure1 = 
+
+		executor_structure1 =
 		{
 			picture = structure
-			
+
 			allowed = {
 				always = no
 			}
-						
+
 
 			allowed_civil_war = {
 				tag = IMP
 			}
 
 			removal_cost = -1
-			
-			modifier = {	
-				army_morale_factor = 0.1
-				consumer_goods_factor = -0.05
+
+			modifier = {
+				army_morale_factor = 0.04
 			}
 		}
-		
-		executor_structure2 = 
+
+		executor_structure2 =
 		{
 			picture = structure
-			
+
 			allowed = {
 				always = no
 			}
-						
+
 
 			allowed_civil_war = {
 				tag = IMP
 			}
 
 			removal_cost = -1
-			
-			modifier = {	
-				army_morale_factor = 0.1
-				consumer_goods_factor = -0.10
+
+			modifier = {
+				army_morale_factor = 0.06
 				industry_air_damage_factor = -0.1
 			}
 		}
-		
-		executor_structure3 = 
+
+		executor_structure3 =
 		{
 			picture = structure
-			
+
 			allowed = {
 				always = no
 			}
-						
+
 
 			allowed_civil_war = {
 				tag = IMP
 			}
 
 			removal_cost = -1
-			
-			modifier = {	
-				army_morale_factor = 0.20
-				consumer_goods_factor = -0.15
+
+			modifier = {
+				army_morale_factor = 0.08
+				land_reinforce_rate = 0.02
 				industry_air_damage_factor = -0.15
 			}
-		}		
-		
-		tarkin_doctrine = 
+		}
+
+		tarkin_doctrine =
 		{
 			picture = FRA_scw_intervention_nationalists_focus
-			
+
 			allowed = {
 				always = no
 			}
-		
+
 
 			allowed_civil_war = {
 				tag = IMP
 			}
 
 			removal_cost = -1
-			
+
 			modifier = {
-				fascism_drift = 0.03
-				democratic_drift = -0.01
 				foreign_subversive_activites = -0.5
 				trade_opinion_factor = -0.25
 				special_forces_cap = 0.05
-				subjects_autonomy_gain = -1
+				subjects_autonomy_gain = -0.5
+				compliance_gain = 0.02
 			}
-		}		
-		sith_might = 
+		}
+		sith_might =
 		{
 			picture = FRA_scw_intervention_republicans_focus
-			
+
 			allowed = {
 				always = no
 			}
-						
+
 
 			allowed_civil_war = {
 				tag = IMP
 			}
 
 			removal_cost = -1
-			
+
 			modifier = {
-				fascism_drift = 0.03
-				democratic_drift = -0.01
-				justify_war_goal_time = -0.5
 				enemy_justify_war_goal_time = -0.1
+				justify_war_goal_time = -0.1
+				subversive_activites_upkeep = -0.5
 				non_core_manpower = 0.02
 				trade_opinion_factor = -0.75
-				special_forces_cap = 0.1				
+				special_forces_cap = 0.1
 			}
 		}
 		#END
 	}
 	hidden_ideas = {
 		resource_boost = {
-		
+
 			allowed = {
 				always = no
 			}
 			modifier = {
-				local_resources_factor = 0.1				
+				local_resources_factor = 0.1
             }
-			
+
 		}
         IMP_warmachine = {
-		
+
 			allowed = {
 				always = no
 			}
-			
+
             modifier = {
 				production_factory_max_efficiency_factor = 0.10
-				production_factory_start_efficiency_factor = 0.10				
+				production_factory_start_efficiency_factor = 0.10
             }
-			
+
 			equipment_bonus = {
 				infantry_equipment = {
 					build_cost_ic = -0.1
 				}
-				
+
 				imperial_support_equipment = {
 					build_cost_ic = -0.1
 				}
-				
+
 				imp_fighter_equipment = {
 					build_cost_ic = -0.05
 				}
 			}
 		}
-		
+
 		pp_gain_1 = {
-		
+
 			allowed = {
 				always = no
 			}
-			
+
             modifier = {
                 political_power_gain = 0.25
 			    democratic_drift = 0.25
             }
 		}
-		
+
 		pp_gain_2 = {
-		
+
 			allowed = {
 				always = no
 			}
-			
+
             modifier = {
                 political_power_gain = 0.1
 			    democratic_drift = 0.25
             }
 		}
-		
+
 		elitism_idea = {
-		
+
 			allowed = {
 				always = no
 			}
-			
+
             modifier = {
                 army_core_defence_factor = 0.05
 			    min_export = 0.10
             }
 		}
-		
+
 		headquarters_idea = {
-		
+
 			allowed = {
 				always = no
 			}
-			
+
             modifier = {
                 army_core_defence_factor = 0.1
 			    army_core_attack_factor = 0.1
             }
 		}
-		
+
 		exploitation_idea = {
-		
+
 			allowed = {
 				always = no
 			}
-			
+
             modifier = {
                 local_resources_factor = 0.15
             }
 		}
-		
+
 		gulf_city_idea = {
-		
+
 			allowed = {
 				always = no
 			}
-			
+
             modifier = {
                 consumer_goods_factor = 0.08
             }
 		}
-		
+
 		gulf_city2_idea = {
-		
+
 			allowed = {
 				always = no
 			}
-			
+
             modifier = {
 				conscription = 0.01
             }
 		}
-		
+
 		utopian_civilization_idea = {
-		
+
 			allowed = {
 				always = no
 			}
-			
+
             modifier = {
 				conscription = 0.02
 				political_power_gain = 0.5
             }
 		}
 	}
-	
+
 	political_advisor = {
 
 		officer1 = {
-				
+
 			picture = officer1
-			
+
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			traits = { prince_of_terror }
 
 			ai_will_do = {
 				factor = 1
 			}
 		}
-		
+
 		officer2 = {
 			picture = officer2
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			traits = { captain_of_industry }
 		}
 
@@ -1318,16 +1348,16 @@ ideas =
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			traits = { war_industrialist }
 		}
-		
+
 		moradmin_bast = {
 			picture = moradmin_bast
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			traits = { silent_workhorse }
 		}
 	}
@@ -1337,12 +1367,12 @@ ideas =
 			picture = cassio_tagge
 			allowed = {
 				original_tag = IMP
-			}		
-			
-			traits = { 
-				army_chief_organizational_2 
 			}
-			
+
+			traits = {
+				army_chief_organizational_2
+			}
+
 			ai_will_do = {
 				factor = 1
 			}
@@ -1354,15 +1384,15 @@ ideas =
 
 		officer4 = {
 			picture = officer4
-			
+
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			traits = {
-			air_chief_reform_2 
+			air_chief_reform_2
 			}
-			
+
 			ai_will_do = {
 				factor = 1
 			}
@@ -1374,13 +1404,13 @@ ideas =
 
 		conan_antonio_motti = {
 			picture = conan_antonio_motti
-			
+
 			allowed = {
 				original_tag = IMP
 			}
-					
+
 			traits = { navy_chief_commerce_raiding_2 }
-			
+
 			ai_will_do = {
 				factor = 1
 			}
@@ -1395,41 +1425,41 @@ ideas =
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			traits = { army_regrouping_2 }
-			
+
 			ai_will_do = {
 				factor = 1
 			}
 		}
-		
+
 		wulf_yularen = {
 			picture = wulf_yularen
 			ledger = army
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			traits = { army_infantry_2 }
-			
+
 			ai_will_do = {
 				factor = 1
 			}
 		}
-		
+
 		maximillian_veers = {
 			picture = maximillian_veers
 			ledger = army
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			traits = { army_armored_3 }
-			
+
 			ai_will_do = {
 				factor = 1
 			}
-		
+
 		}
 
 
@@ -1440,37 +1470,37 @@ ideas =
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			traits = { air_close_air_support_2 }
-			
+
 			ai_will_do = {
 				factor = 1
 			}
 		}
 
-	}	
+	}
 
-	theorist = 
+	theorist =
 	{
 		firmus_piett = {
-			
+
 			picture = firmus_piett
 			ledger = army
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			cost = 150
-			
+
 			research_bonus = {
 				land_doctrine = 0.15
 			}
-			
+
 			traits = {
 				superior_firepower_expert
 			}
 		}
-		
+
 		kendal_ozzel = {
 
 			picture = kendal_ozzel
@@ -1478,52 +1508,52 @@ ideas =
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			research_bonus = {
 				naval_doctrine = 0.15
 			}
-			
+
 			traits = { naval_theorist }
-		}	
+		}
 
 		tiaan_jerjerrod = {
-			
+
 			picture = tiaan_jerjerrod
 			ledger = air
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			research_bonus = {
 				air_doctrine = 0.15
 			}
-			
+
 			traits = { victory_through_airpower }
 		}
 
 	}
-	
-	tank_manufacturer = { 
+
+	tank_manufacturer = {
 		designer = yes
-		
+
 		classic_quality_manufacturer = {
 			picture = rothana
 			cost = 70
 			allowed = {
 				original_tag = IMP
-			}			
-			
+			}
+
 			available = {
 				has_completed_focus = imp_faults_in_designs
-			} 
-			
+			}
+
 			research_bonus = {
 				imperial_assault_tech = 0.2
 				imperial_motor_tech = 0.2
 			}
-			
+
 			traits = { }
-			
+
 			equipment_bonus = {
 				assault_equipment = {
 					reliability = 0.1
@@ -1536,7 +1566,7 @@ ideas =
 					reliability = 0.1
 				}
 			}
-			
+
 			modifier = {
 			}
 		}
@@ -1546,17 +1576,17 @@ ideas =
 			cost = 70
 			allowed = {
 				original_tag = IMP
-			}			
-			
+			}
+
 			available = {
 				has_completed_focus = imp_overwhelming_offense
-			} 
-			
+			}
+
 			research_bonus = {
 			}
-			
+
 			traits = { }
-			
+
 			equipment_bonus = {
 				assault_equipment = {
 					build_cost_ic = -0.2
@@ -1565,29 +1595,29 @@ ideas =
 					build_cost_ic = -0.2
 				}
 			}
-			
+
 			modifier = {
 			}
 		}
 
 		new_quality_manufacturer = {
-			picture = kuat 
+			picture = kuat
 			cost = 70
 			allowed = {
 				original_tag = IMP
-			}			
-			
+			}
+
 			available = {
 				has_completed_focus = imp_kuat_light_vehicles
-			} 
-			
+			}
+
 			research_bonus = {
 				imperial_light_tech = 0.2
 				imperial_speeder_tech = 0.2
 			}
-			
+
 			traits = { }
-			
+
 			equipment_bonus = {
 				light_equipment = {
 					soft_attack = 0.1
@@ -1595,44 +1625,44 @@ ideas =
 					maximum_speed = 0.2
 				}
 			}
-			
+
 			modifier = {
 			}
-		}	
-		
+		}
+
 		new_quantity_manufacturer = {
 			picture = kuat
 			cost = 70
 			allowed = {
 				original_tag = IMP
-			}			
-			
+			}
+
 			available = {
 				has_completed_focus = imp_walkers_in_every_battalion
-			} 
-			
+			}
+
 			research_bonus = {
 			}
-			
+
 			traits = { }
-			
+
 			equipment_bonus = {
 				light_equipment = {
 					build_cost_ic = -0.3
 				}
 			}
-			
+
 			modifier = {
 			}
-		}	
-		
+		}
+
 	}
-	
+
 	industrial_concern = {
-		
+
 		oil_company = {
 			picture = oil_company
-			
+
 			cost = 150
 			allowed = {
 				original_tag = IMP
@@ -1640,29 +1670,29 @@ ideas =
 			available = {
 				has_completed_focus = imp_corporate_system
 			}
-			
+
 			research_bonus = {
 				industry = 0.1
 				synth_resources = 0.2
 			}
-			
+
 			traits = { refinery_concern }
-			
+
 			modifier = {
 				production_oil_factor = 0.1
 			}
 		}
 
-				
+
 	}
-	
-	naval_manufacturer = { 			
-		
+
+	naval_manufacturer = {
+
 		imperial_navy = {
-			
+
 			picture = generic_sea_focused_navy
 
-			allowed = {		
+			allowed = {
 				original_tag = IMP
 			}
 			cost = 150
@@ -1673,11 +1703,11 @@ ideas =
 					has_idea = fully_repaired_ship
 				}
 			}
-			
+
 			research_bonus = {
 				naval_equipment = 0.15
 			}
-			
+
 			equipment_bonus = {
 				ship_hull_cruiser = {
 					build_cost_ic = -0.05
@@ -1694,30 +1724,30 @@ ideas =
 					instant = yes
 				}
 				ship_hull_submarine = {
-					build_cost_ic = -0.05 
+					build_cost_ic = -0.05
 					instant = yes
 				}
 			}
-			
+
 			traits = { naval_manufacturer }
-			
+
 			modifier = {
 			}
 		}
 	}
-	
+
 	materiel_manufacturer = {
-		
+
 		designer = yes
-		
-		
+
+
 		blastech = {
-			
+
 			cost = 150
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			picture = blastech
 
 			available = {
@@ -1727,7 +1757,7 @@ ideas =
 					has_idea = fully_repaired_ship
 				}
 			}
-			
+
 			traits = { infantry_equipment_manufacturer }
 
 			equipment_bonus = {
@@ -1738,36 +1768,36 @@ ideas =
 					build_cost_ic = -0.1
 				}
 			}
-			
+
 		}
 	}
-	
-	aircraft_manufacturer = { 		
-			
+
+	aircraft_manufacturer = {
+
 		designer = yes
-		
+
 		transport_quality_manu = {
-			
+
 
 			cost = 70
 
 			picture = rothana
-			
+
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			available = {
 				has_completed_focus = imp_improved_gunship_turrets
 			}
-			
+
 			research_bonus = {
 				imperial_transport_tech = 0.25
 				imperial_fighter_tech = 0.25
 			}
-			
+
 			traits = {}
-			
+
 			equipment_bonus = {
 				imperial_transport_plane_equipment = {
 					air_ground_attack = 0.15
@@ -1780,29 +1810,29 @@ ideas =
 					reliability = 0.05
 				}
 			}
-			
+
 			ai_will_do = {
 				factor = 2
 			}
 		}
-		
+
 		transport_quantity_manu = {
-			
+
 
 			cost = 70
 
 			picture = rothana
-			
+
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			available = {
 				has_completed_focus = imp_a_rain_of_fire
 			}
-			
+
 			traits = {}
-			
+
 			equipment_bonus = {
 				imperial_transport_plane_equipment = {
 					build_cost_ic = -0.3
@@ -1811,30 +1841,30 @@ ideas =
 					build_cost_ic = -0.1
 				}
 			}
-			
+
 			ai_will_do = {
 				factor = 2
 			}
 		}
-		
-		
+
+
 		bomber_quantity_manu = {
-			
+
 
 			cost = 70
 
 			picture = kuat
-			
+
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			available = {
 				has_completed_focus = imp_blanket_the_skies
 			}
-			
+
 			traits = {}
-			
+
 			equipment_bonus = {
 				imp_bomber_equipment = {
 					build_cost_ic = -0.3
@@ -1846,35 +1876,35 @@ ideas =
 					build_cost_ic = -0.1
 				}
 			}
-			
+
 			ai_will_do = {
 				factor = 2
 			}
 		}
-		
-		
+
+
 		bomber_quality_manu = {
-			
+
 
 			cost = 70
 
 			picture = kuat
-			
+
 			allowed = {
 				original_tag = IMP
 			}
-			
+
 			available = {
 				has_completed_focus = imp_fewer_accidents
 			}
-			
+
 			traits = {}
 			research_bonus = {
 				imperial_bomber_tech = 0.2
 				imperial_fighter_tech = 0.1
 				imperial_interceptor_tech = 0.2
 			}
-			
+
 			equipment_bonus = {
 				imp_bomber_equipment = {
 					air_ground_attack = 0.1
@@ -1890,12 +1920,12 @@ ideas =
 					air_defence = 0.1
 				}
 			}
-			
+
 			ai_will_do = {
 				factor = 2
 			}
 		}
 
-	}	
-	
+	}
+
 }

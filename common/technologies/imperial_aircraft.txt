@@ -1,19 +1,19 @@
 technologies = {
 
 	laat = {
-			
+
 		dependencies = {
             republic_weapon1 = 1
         }
-		
+
 		enable_equipments = {
 			laat_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = maat
 			research_cost_coeff = 1
-		}		
+		}
 
 		research_cost = 4
 		start_year = 1936
@@ -27,23 +27,23 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	maat = {
-		
+
 		enable_equipments = {
 			maat_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = idt
 			research_cost_coeff = 1
-		}		
+		}
 
 		research_cost = 4
 		start_year = 1938
@@ -57,23 +57,23 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	idt = {
-		
+
 		enable_equipments = {
 			idt_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = tie-rp
 			research_cost_coeff = 1
-		}		
+		}
 
 		research_cost = 4
 		start_year = 1940
@@ -87,28 +87,28 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	tie-rb = {
-		
+
 		enable_equipments = {
 			tie-rb_equipment = 1
 		}
-			
+
 		path = {
 			leads_to_tech = tie-rp
 			research_cost_coeff = 0.8
-		}	
-		
+		}
+
 		path = {
 			leads_to_tech = tie_fighter
 			research_cost_coeff = 0.8
-		}	
+		}
 
 		research_cost = 4
 		start_year = 1942
@@ -122,29 +122,29 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	tie-rp = {
-		
+
 		enable_equipments = {
 			tie-rp_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = aal
 			research_cost_coeff = 1
-		}	
+		}
 
-			
+
 		path = {
 			leads_to_tech = tie-rb
 			research_cost_coeff = 0.8
-		}	
+		}
 
 		research_cost = 4
 		start_year = 1942
@@ -158,18 +158,18 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	aal = {
-		
+
 		enable_equipments = {
 			aal_equipment = 1
-		}	
+		}
 
 		research_cost = 4
 		start_year = 1948
@@ -183,23 +183,23 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	torrent = {
-	
+
 		enable_equipments = {
 			torrent_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = z-95
 			research_cost_coeff = 1
-		}		
+		}
 
 		research_cost = 4
 		start_year = 1936
@@ -213,23 +213,23 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	z-95 = {
 
 		enable_equipments = {
 			z-95_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = tie_fighter
 			research_cost_coeff = 1
-		}		
+		}
 
 		research_cost = 4
 		start_year = 1938
@@ -243,29 +243,29 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
-		
+
+
 	tie_fighter = {
 
 		enable_equipments = {
 			tie_fighter_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = tie-sf
 			research_cost_coeff = 1
-		}	
+		}
 
 		path = {
 			leads_to_tech = tie-rb
 			research_cost_coeff = 1
-		}			
+		}
 
 		research_cost = 4
 		start_year = 1942
@@ -281,16 +281,16 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 5
+			factor = 4000
 		}
-		
+
 	}
-	
+
 	tie-sf = {
 
 		enable_equipments = {
 			tie-sf_equipment = 1
-		}		
+		}
 
 		research_cost = 4
 		start_year = 1948
@@ -304,28 +304,28 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	y-wing = {
-			
+
 		dependencies = {
             republic_weapon1 = 1
         }
-		
+
 		enable_equipments = {
 			y-wing_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = skipray
 			research_cost_coeff = 1
-		}		
-		
+		}
+
 		research_cost = 3
 		start_year = 1936
 		folder = {
@@ -338,24 +338,24 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
-	
+
+
 	skipray = {
-		
+
 		enable_equipments = {
 			skipray_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = tie-sa
 			research_cost_coeff = 1
-		}		
+		}
 
 		research_cost = 4
 		start_year = 1938
@@ -369,23 +369,23 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	tie-sa = {
-		
+
 		enable_equipments = {
 			tie_bomber_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = scimitar
 			research_cost_coeff = 1
-		}	
+		}
 
 		research_cost = 4
 		start_year = 1940
@@ -399,15 +399,15 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	scimitar = {
-		
+
 		enable_equipments = {
 			scimitar_equipment = 1
 		}
@@ -427,21 +427,21 @@ technologies = {
 			factor = 5
 		}
 	}
-	
+
 	v_wing = {
-			
+
 		dependencies = {
             republic_weapon1 = 1
         }
-		
+
 		enable_equipments = {
 			v_wing_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = tie-in
 			research_cost_coeff = 1
-		}		
+		}
 
 		research_cost = 3
 		start_year = 1936
@@ -455,23 +455,23 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	tie-in = {
 
 		enable_equipments = {
 			tie-in_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = tie-sk
 			research_cost_coeff = 1
-		}	
+		}
 
 		research_cost = 4
 		start_year = 1940
@@ -485,24 +485,24 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
-		
+
+
 	tie-sk = {
 
 		enable_equipments = {
 			tie-sk_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = tie-vn
 			research_cost_coeff = 1
-		}		
+		}
 
 		research_cost = 4
 		start_year = 1942
@@ -516,24 +516,24 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
-		
+
+
 	tie-vn = {
 
 		enable_equipments = {
 			tie-vn_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = tie-ba
 			research_cost_coeff = 1
-		}	
+		}
 
 
 		research_cost = 4
@@ -548,19 +548,19 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	tie-ba = {
 
 		enable_equipments = {
 			tie-ba_equipment = 1
 		}
-		
+
 		research_cost = 4
 		start_year = 1948
 		folder = {
@@ -573,19 +573,19 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
-		
+
 	}
-	
+
 	arc-170 = {
-		
+
 		enable_equipments = {
 			arc-170_equipment = 1
 		}
-		
+
 		path = {
 			leads_to_tech = tie_defender
 			research_cost_coeff = 1.0
@@ -603,19 +603,19 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
 	}
-	
-	
+
+
 	tie_defender = {
-		
+
 		enable_equipments = {
 			tie_defender_equipment = 1
 		}
-		
+
 
 		research_cost = 4
 		start_year = 1946
@@ -629,10 +629,10 @@ technologies = {
 			imperial_tech
 			imperial_vehicles_tech
 		}
-		
+
 		ai_will_do = {
 			factor = 5
 		}
 	}
-	
+
 }
