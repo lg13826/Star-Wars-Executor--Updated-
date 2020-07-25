@@ -2,6 +2,18 @@
 ##### IMP ######
 ################
 
+IMP_tech_switch = {
+	icon = usa_intervention_mandate
+
+	allowed = {
+		has_country_flag = star_wars_tech_flag
+	}
+	visible = {
+		has_country_flag = star_wars_tech_flag
+	}
+}
+
+
 IMP_statebuilding_decisions = {
 	icon = usa_intervention_mandate
 	allowed = {
@@ -14,7 +26,7 @@ IMP_statebuilding_decisions = {
 
 IMP_wargoals_decisions = {
 	icon = usa_intervention_mandate
-	allowed = { 
+	allowed = {
 		original_tag = IMP
 	}
 	visible = {
@@ -24,7 +36,7 @@ IMP_wargoals_decisions = {
 
 IMP_campaign_decisions = {
 	icon = usa_intervention_mandate
-	allowed = { 
+	allowed = {
 		original_tag = IMP
 	}
 	visible = {

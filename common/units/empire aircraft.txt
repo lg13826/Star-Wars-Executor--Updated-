@@ -1,6 +1,6 @@
 sub_units = {
 	tie_fighter = {
-		sprite = jet_plane
+		sprite = light_plane
 		priority = 1
 		active = yes
 		type = { fighter cas }
@@ -9,7 +9,7 @@ sub_units = {
 	}
 
 	tie_heavy_fighter = { #defender
-		sprite = medium_plane
+		sprite = jet_plane
 		priority = 1
 		active = yes
 		type = { fighter tactical_bomber }
@@ -26,7 +26,7 @@ sub_units = {
 	}
 
 	tie_bomber = {
-		sprite = heavy_plane
+		sprite = medium_plane
 		priority = 2
 		active = yes
 		type = { strategic_bomber }

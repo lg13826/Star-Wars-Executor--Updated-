@@ -1,7 +1,43 @@
 
 
-IMP_statebuilding_decisions = {
+IMP_tech_switch = {
 
+	switch_to_imperial = {
+		available = {
+			has_country_flag = star_wars_tech_flag
+		}
+		visible = {
+			has_country_flag = tech_toggle_imp
+		}
+		cost = 0
+		ai_will_do = {
+			base = 4000
+		}
+		remove_effect = {
+			clr_country_flag = tech_toggle_imp
+		}
+	}
+
+	switch_to_vanilla = {
+		available = {
+			has_country_flag = star_wars_tech_flag
+		}
+		visible = {
+			NOT = { has_country_flag = tech_toggle_imp }
+		}
+		cost = 0
+		ai_will_do = {
+			base = 0
+		}
+
+		remove_effect = {
+			set_country_flag = tech_toggle_imp
+		}
+	}
+}
+
+IMP_statebuilding_decisions = {
+	#Industry
 	focus_on_materials = {
 		available = {
 			NOT = { has_decision = focus_on_industry }

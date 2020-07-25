@@ -17,7 +17,7 @@ technology_categories = {
 	imperial_aircraft_tech
 	imperial_speeder_tech
 	imperial_light_tech
-	imperial_assault_tech 
+	imperial_assault_tech
 	imperial_heavy_tech
 	imperial_weapons_tech
 	imperial_support
@@ -28,39 +28,42 @@ technology_folders = {
 		available = {
 			always = no
 		}
-		ledger = army	
+		ledger = army
 	}
 	swinfantry_folder = {
 		available = {
 			has_country_flag = star_wars_tech_flag
+			NOT = { has_country_flag = tech_toggle_imp}
 		}
-		ledger = army	
+		ledger = army
 	}
 	swsupport_folder = {
 		available = {
 			has_country_flag = star_wars_tech_flag
+			NOT = { has_country_flag = tech_toggle_imp}
 		}
-		ledger = army	
+		ledger = army
 	}
 	swarmour_folder = {
 		available = {
 			has_country_flag = star_wars_tech_flag
-		}	
+			NOT = { has_country_flag = tech_toggle_imp}
+		}
 		ledger = army
 	}
 	swartillery_folder = {
 		available = {
 			has_country_flag = star_wars_tech_flag
-		}	
+			NOT = { has_country_flag = tech_toggle_imp}
+		}
 		ledger = army
 	}
 	swair_folder = {
 		available = {
 			has_country_flag = star_wars_tech_flag
-		}	
+			NOT = { has_country_flag = tech_toggle_imp}
+		}
 		ledger = air
 	}
 	#secret_weapons_folder
 }
-
- 

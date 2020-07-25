@@ -49,70 +49,6 @@ focus_tree = {
 		}
 		completion_reward =
 		{
-
-			create_corps_commander =
-			{
-				name = "Maximillian Veers"
-				picture = "portrait_veers.dds"
-				traits = { war_hero armor_officer career_officer winter_specialist}
-				skill = 5
-				attack_skill = 5
-				defense_skill = 4
-				planning_skill = 4
-				logistics_skill = 4
-				id = 1950
-			}
-
-			create_corps_commander =
-			{
-				name = "CC-1119 'Appo'"
-				picture = "portrait_General_TK_417.dds"
-				traits = { infantry_officer }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 3
-				planning_skill = 1
-				logistics_skill = 2
-				id = 1951
-			}
-			create_corps_commander =
-			{
-				name = "Mod Terrik"
-				picture = "portrait_General_Sandtrooper.dds"
-				traits = { trait_reckless }
-				skill = 2
-				attack_skill = 3
-				defense_skill = 1
-				planning_skill = 2
-				logistics_skill = 1
-				id = 1952
-			}
-
-			create_corps_commander =
-			{
-				name = "Snowtrooper 'Maraway'"
-				picture = "portrait_General_snowtrooper.dds"
-				traits = { }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 2
-				planning_skill = 3
-				logistics_skill = 3
-				id = 1953
-			}
-
-			create_corps_commander =
-			{
-				name = "TK-417"
-				picture = "portrait_General_TK_417_real.dds"
-				traits = { }
-				skill = 1
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
-				id = 1954
-			}
 			custom_effect_tooltip = deploy_tooltip
 			hidden_effect =
 			{
@@ -752,21 +688,19 @@ focus_tree = {
 		y = 1
 		relative_position_id = imp_subjugate_iraq
 		completion_reward = {
-
+			if = {
+				limit = {
+						NOT = { country_exists = IRQ }
+				}
+				release_puppet = IRQ
+			}
 			set_province_name = {
 				id = 2097
 				name = "Command Post Aurek"
 			}
+			transfer_state = 797
+			add_state_core = 797
 			IRQ = {
-				create_country_leader = {
-					name = "Darth Vader"
-					desc = "Vader_desc"
-					picture = "portrait_imp_vader.dds"
-					expire = "1965.1.1"
-					ideology = fascism_ideology
-					traits = { headstrong }
-				}
-
 			add_offsite_building = {
 				type = industrial_complex
 				level = 1
@@ -809,6 +743,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+		}
 			if = {
 				limit = {
 					IRQ = {
@@ -817,15 +752,25 @@ focus_tree = {
 						}
 					}
 				}
-				release_puppet = IRQ
-				set_autonomy = {
-					target = IRQ
-					autonomy_state = autonomy_integrated_puppet
-				}
-				transfer_state = 797
-				add_state_core = 797
+
+					IMP = {
+						set_autonomy = {
+							target = IRQ
+							autonomy_state = autonomy_imperial
+						}
+					}
+					IRQ = {
+						create_country_leader = {
+							name = "Darth Vader"
+							desc = "Vader_desc"
+							picture = "portrait_imp_vader.dds"
+							expire = "1965.1.1"
+							ideology = imperial
+							traits = { headstrong }
+						}
+					}
 					hidden_effect = {
-						set_cosmetic_tag = IRQ_IMP
+						IRQ = { set_cosmetic_tag = ALL }
 						set_party_name = {
 							ideology = neutrality
 							long_name = frebel_party_empire
@@ -852,7 +797,7 @@ focus_tree = {
 
 					}
 				}
-			}
+
 
 		}
 	}
@@ -886,22 +831,21 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = imp_subjugate_saudi
-		completion_reward = {
+		completion_reward =
+		{
+			if =	{
+				limit =	{
+						NOT =	{ country_exists = SAU }
+				}
+				release_puppet = SAU
+			}
+
 			set_province_name = {
 				id = 12727
 				name = "Command Post Besh"
 			}
-			SAU = {
-				create_country_leader = {
-					name = "Commander Hock Malsuum"
-					desc = "Malsuum_desc"
-					picture = "portrait_imp_malsuum.dds"
-					expire = "1965.1.1"
-					ideology = fascism_ideology
-					traits = { indomitable_perseverance }
-				}
-
-
+			SAU =
+			{
 			add_offsite_building = {
 				type = industrial_complex
 				level = 1
@@ -929,6 +873,7 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
+
 			}
 			678 = {
 				add_building_construction = {
@@ -937,53 +882,66 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+		}
 
-			if = {
-				limit = {
-					SAU = {
-						NOT = {
-							has_country_flag = coop_enabled
-						}
+			if =
+			{
+				limit =
+				{
+					SAU =
+					{
+						NOT = { has_country_flag = coop_enabled }
 					}
 				}
 				transfer_state = 798
 				add_state_core = 798
-				release_puppet = SAU
-				set_autonomy = {
-					target = SAU
-					autonomy_state = autonomy_integrated_puppet
+				IMP =
+				{
+					set_autonomy = {
+						target = SAU
+						autonomy_state = autonomy_imperial
+					}
 				}
 
-					hidden_effect = {
-						set_cosmetic_tag = SAU_IMP
-						set_party_name = {
-							ideology = neutrality
-							long_name = frebel_party_empire
-							name = frebel_party_empire
-						}
-
-						set_party_name = {
-							ideology = fascism
-							long_name = neutrality_party_empire
-							name = neutrality_party_empire
-						}
-
-						set_party_name = {
-							ideology = communism
-							long_name = crebel_party_empire
-							name = crebel_party_empire
-						}
-
-						set_party_name = {
-							ideology = democratic
-							long_name = drebel_party_empire
-							name = drebel_party_empire
-						}
-
-						news_event = {
-							id = imperial_global_news.0
-						}
+				SAU = {
+					create_country_leader = {
+						name = "Commander Hock Malsuum"
+						desc = "Malsuum_desc"
+						picture = "portrait_imp_malsuum.dds"
+						expire = "1965.1.1"
+						ideology = imperial
+						traits = { indomitable_perseverance }
 					}
+				}
+
+				hidden_effect =
+				{
+					SAU = {
+					set_cosmetic_tag = ALL
+					set_party_name = {
+						ideology = neutrality
+						long_name = frebel_party_empire
+						name = frebel_party_empire
+					}
+					set_party_name = {
+						ideology = fascism
+						long_name = neutrality_party_empire
+						name = neutrality_party_empire
+					}
+					set_party_name = {
+						ideology = communism
+						long_name = crebel_party_empire
+						name = crebel_party_empire
+					}
+					set_party_name = {
+						ideology = democratic
+						long_name = drebel_party_empire
+						name = drebel_party_empire
+					}
+					news_event = {
+						id = imperial_global_news.0
+					}
+				}
 				}
 			}
 		}
@@ -997,6 +955,7 @@ focus_tree = {
 		prerequisite = {
 		}
 		available = {
+			has_country_flag = phase_two_complete
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -1105,6 +1064,7 @@ focus_tree = {
 			has_full_control_of_state = 656
 			has_full_control_of_state = 797
 			has_full_control_of_state = 798
+			has_country_flag = phase_two_complete
 		}
 
 		x = 24
@@ -2171,6 +2131,7 @@ focus_tree = {
 		prerequisite = {
 		}
 		available = {
+			has_country_flag = phase_two_complete
 		}
 
 		x = 39
@@ -3225,12 +3186,12 @@ focus_tree = {
 		completion_reward = {
 			army_experience = 50
 			add_ideas = training_camp
+			set_province_name = {
+				id = 12879
+				name = "Camp Ypsilon"
+			}
 		}
 
-		set_province_name = {
-			id = 12879
-			name = "Camp Ypsilon"
-		}
 	}
 
 	focus = {
@@ -4477,7 +4438,6 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = phase_two_complete
-
 		}
 
 		available = {
@@ -4489,6 +4449,10 @@ focus_tree = {
 					is_subject = no
 				}
 			}
+			NOT = {
+				has_war_with = FRA
+				has_war_with = ENG
+			}
 		}
 
 		x = -1
@@ -4496,173 +4460,21 @@ focus_tree = {
 		relative_position_id = imp_war_plan
 
 		completion_reward = {
-			diplomatic_relation = {
-				country = ENG
-				relation = non_aggression_pact
-				active = yes
-			}
-			diplomatic_relation = {
-				country = FRA
-				relation = non_aggression_pact
-				active = yes
-			}
-			if = {
-				limit = {
-					ENG = {
-						owns_state = 659
-					}
+			FRA = {
+				country_event = {
+					id = imperial_ambition.0
+					days = 1
 				}
-				ENG = { add_political_power = 30 }
-				IMP = {
-					if = {
-						limit = { has_country_flag = tarkin_flag }
-						SAU = { transfer_state = 659 add_state_core = 659}
-					}
-					else = {
-						transfer_state = 659
-					}
+			}
+			ENG = {
+				country_event = {
+					id = imperial_ambition.0
+					days = 1
 				}
 			}
 
-			if = {
-				limit = {
-					ENG = {
-						owns_state = 454
-					}
-				}
-				ENG = { add_political_power = 15 }
-				IMP = {
-					if = {
-						limit = { has_country_flag = tarkin_flag }
-						SAU = { transfer_state = 454 add_state_core = 454}
-					}
-					else = {
-						transfer_state = 454
-					}
-				}
-			}
-			if = {
-				limit = {
-					ENG = {
-						owns_state = 658
-					}
-				}
-				ENG = { add_political_power = 30 }
-				IMP = {
-					if = {
-						limit = { has_country_flag = tarkin_flag }
-						SAU = { transfer_state = 658 add_state_core = 658}
-					}
-					else = {
-						transfer_state = 658
-					}
-				}
-			}
-			if = {
-				limit = {
-					ENG = {
-						owns_state = 765
-					}
-				}
-				ENG = { add_political_power = 15 }
-				IMP = {
-					if = {
-						limit = { has_country_flag = tarkin_flag }
-						SAU = { transfer_state = 765 add_state_core = 765}
-					}
-					else = {
-						transfer_state = 765
-					}
-				}
-			}
-			if = {
-				limit = {
-					ENG = {
-						owns_state = 455
-					}
-				}
-				ENG = { add_political_power = 40 }
-				IMP = {
-					if = {
-						limit = { has_country_flag = tarkin_flag }
-						SAU = { transfer_state = 455 add_state_core = 455}
-					}
-					else = {
-						transfer_state = 455
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					FRA = {
-						owns_state = 680
-					}
-				}
-				FRA = { add_political_power = 20 }
-				IMP = {
-					if = {
-						limit = { has_country_flag = tarkin_flag }
-						IRQ = { transfer_state = 680 add_state_core = 680}
-					}
-					else = {
-						transfer_state = 680
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					FRA = {
-						owns_state = 677
-					}
-				}
-				FRA = { add_political_power = 30 }
-				IMP = {
-					if = {
-						limit = { has_country_flag = tarkin_flag }
-						IRQ = { transfer_state = 677 add_state_core = 677}
-					}
-					else = {
-						transfer_state = 677
-					}
-				}
-			}
-			if = {
-				limit = {
-					FRA = {
-						owns_state = 554
-					}
-				}
-				FRA = { add_political_power = 35 }
-				IMP = {
-					if = {
-						limit = { has_country_flag = tarkin_flag }
-						IRQ = { transfer_state = 554 add_state_core = 554}
-					}
-					else = {
-						transfer_state = 554
-					}
-				}
-			}
-			if = {
-				limit = {
-					FRA = {
-						owns_state = 553
-					}
-				}
-				FRA = { add_political_power = 50 }
-				IMP = {
-					if = {
-						limit = { has_country_flag = tarkin_flag }
-						IRQ = { transfer_state = 553 add_state_core = 553}
-					}
-					else = {
-						transfer_state = 553
-					}
-				}
-			}
 		}
+
 	}
 
 
@@ -4687,9 +4499,7 @@ focus_tree = {
 				add_ideas = secret_military
 				set_country_flag = secret_police_flag
 			}
-			else = {
 			custom_effect_tooltip = enable_decision_campaign_tooltip
-			}
 
 		}
 	}
