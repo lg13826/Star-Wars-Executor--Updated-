@@ -1,0 +1,174 @@
+continent = {
+	name = middle_east
+	political = {
+		imperialism = {
+			male = {
+				"gfx/leaders/generic_imperial/protectorate.dds"
+			}
+		}
+	}
+}
+
+continent = {
+	name = europe
+	political = {
+		imperialism = {
+			male = {
+				"gfx/leaders/generic_imperial/protectorate.dds"
+			}
+		}
+	}
+}
+
+continent = {
+	name = north_america
+	political = {
+		imperialism = {
+			male = {
+				"gfx/leaders/generic_imperial/protectorate.dds"
+			}
+		}
+	}
+}
+
+continent = {
+	name = south_america
+	political = {
+		imperialism = {
+			male = {
+				"gfx/leaders/generic_imperial/protectorate.dds"
+			}
+		}
+	}
+}
+
+continent = {
+	name = australia
+	political = {
+		imperialism = {
+			male = {
+				"gfx/leaders/generic_imperial/protectorate.dds"
+			}
+		}
+	}
+}
+
+continent = {
+	name = africa
+	political = {
+		imperialism = {
+			male = {
+				"gfx/leaders/generic_imperial/protectorate.dds"
+			}
+		}
+	}
+}
+
+continent = {
+	name = asia
+	political = {
+		imperialism = {
+			male = {
+				"gfx/leaders/generic_imperial/protectorate.dds"
+			}
+		}
+	}
+}
+
+
+
+IMP = {
+	army = {
+		male = {
+			"gfx/leaders/IMP/portrait_generic1.dds"
+			"gfx/leaders/IMP/portrait_generic2.dds"
+			"gfx/leaders/IMP/portrait_generic3.dds"
+			"gfx/leaders/IMP/portrait_generic4.dds"
+			"gfx/leaders/IMP/portrait_generic5.dds"
+			"gfx/leaders/IMP/portrait_generic6.dds"
+			"gfx/leaders/IMP/portrait_generic7.dds"
+			"gfx/leaders/IMP/portrait_generic8.dds"
+			"gfx/leaders/IMP/portrait_generic9.dds"
+			"gfx/leaders/IMP/portrait_specialguy.dds"
+		}
+	}
+
+	navy = {
+		male = {
+			"gfx/leaders/IMP/portrait_generic1.dds"
+			"gfx/leaders/IMP/portrait_generic2.dds"
+			"gfx/leaders/IMP/portrait_generic3.dds"
+			"gfx/leaders/IMP/portrait_generic4.dds"
+			"gfx/leaders/IMP/portrait_generic5.dds"
+			"gfx/leaders/IMP/portrait_generic6.dds"
+			"gfx/leaders/IMP/portrait_generic7.dds"
+			"gfx/leaders/IMP/portrait_generic8.dds"
+			"gfx/leaders/IMP/portrait_generic9.dds"
+			"gfx/leaders/IMP/portrait_specialguy.dds"
+		}
+	}
+}
+
+SAU_IMP = {
+	army = {
+		male = {
+			"gfx/leaders/IMP/portrait_generic1.dds"
+			"gfx/leaders/IMP/portrait_generic2.dds"
+			"gfx/leaders/IMP/portrait_generic3.dds"
+			"gfx/leaders/IMP/portrait_generic4.dds"
+			"gfx/leaders/IMP/portrait_generic5.dds"
+			"gfx/leaders/IMP/portrait_generic6.dds"
+			"gfx/leaders/IMP/portrait_generic7.dds"
+			"gfx/leaders/IMP/portrait_generic8.dds"
+			"gfx/leaders/IMP/portrait_generic9.dds"
+			"gfx/leaders/IMP/portrait_specialguy.dds"
+		}
+	}
+
+	navy = {
+		male = {
+			"gfx/leaders/IMP/portrait_generic1.dds"
+			"gfx/leaders/IMP/portrait_generic2.dds"
+			"gfx/leaders/IMP/portrait_generic3.dds"
+			"gfx/leaders/IMP/portrait_generic4.dds"
+			"gfx/leaders/IMP/portrait_generic5.dds"
+			"gfx/leaders/IMP/portrait_generic6.dds"
+			"gfx/leaders/IMP/portrait_generic7.dds"
+			"gfx/leaders/IMP/portrait_generic8.dds"
+			"gfx/leaders/IMP/portrait_generic9.dds"
+			"gfx/leaders/IMP/portrait_specialguy.dds"
+		}
+	}
+}
+
+IRQ_IMP = {
+	army = {
+		male = {
+			"gfx/leaders/IMP/portrait_generic1.dds"
+			"gfx/leaders/IMP/portrait_generic2.dds"
+			"gfx/leaders/IMP/portrait_generic3.dds"
+			"gfx/leaders/IMP/portrait_generic4.dds"
+			"gfx/leaders/IMP/portrait_generic5.dds"
+			"gfx/leaders/IMP/portrait_generic6.dds"
+			"gfx/leaders/IMP/portrait_generic7.dds"
+			"gfx/leaders/IMP/portrait_generic8.dds"
+			"gfx/leaders/IMP/portrait_generic9.dds"
+			"gfx/leaders/IMP/portrait_specialguy.dds"
+		}
+	}
+
+	navy = {
+		male = {
+			"gfx/leaders/IMP/portrait_generic1.dds"
+			"gfx/leaders/IMP/portrait_generic2.dds"
+			"gfx/leaders/IMP/portrait_generic3.dds"
+			"gfx/leaders/IMP/portrait_generic4.dds"
+			"gfx/leaders/IMP/portrait_generic5.dds"
+			"gfx/leaders/IMP/portrait_generic6.dds"
+			"gfx/leaders/IMP/portrait_generic7.dds"
+			"gfx/leaders/IMP/portrait_generic8.dds"
+			"gfx/leaders/IMP/portrait_generic9.dds"
+			"gfx/leaders/IMP/portrait_specialguy.dds"
+		}
+	}
+}

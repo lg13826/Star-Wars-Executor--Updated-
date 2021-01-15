@@ -1,0 +1,58 @@
+################
+##### IMP ######
+################
+
+
+IMP_rise_of_the_empire_decisions = {
+	icon = generic_propaganda
+
+	allowed = { 
+		is_ai = no
+		NOT = { original_tag = IMP }
+	}
+	visible = {
+		is_ai = no
+		NOT = { original_tag = IMP }
+	}
+}
+
+IMP_tech_switch = {
+	icon = generic_propaganda
+
+	allowed = {
+		has_country_flag = star_wars_tech_flag
+	}
+	visible = {
+		has_country_flag = star_wars_tech_flag
+	}
+}
+
+IMP_statebuilding_decisions = {
+	icon = generic_industry
+	allowed = {
+		original_tag = IMP
+	}
+	visible = {
+		has_completed_focus = imp_logistics_review
+	}
+}
+
+IMP_wargoals_decisions = {
+	icon = usa_intervention_mandate
+	allowed = {
+		original_tag = IMP
+	}
+	visible = {
+		has_completed_focus = imp_war_plan
+	}
+}
+
+IMP_campaign_decisions = {
+	icon = infiltration
+	allowed = {
+		original_tag = IMP
+	}
+	visible = {
+		has_completed_focus = imp_campaign_decisions
+	}
+}

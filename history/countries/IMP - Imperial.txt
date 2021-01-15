@@ -1,0 +1,139 @@
+﻿capital = 656
+
+#oob = ""
+
+# Starting tech
+set_technology = {
+	#military tech
+	tech_special_forces = 1
+	republic_weapon1 = 1
+	stormtrooper_tech = 1
+	infantry_weapons = 1
+	improved_special_forces = 1
+	survival_training = 1
+	elite_forces = 1
+	#industrial tech
+	basic_machine_tools = 1
+	#electronics
+	electronic_mechanical_engineering = 1
+	atomic_research = 1
+	#Seafaring
+	early_destroyer = 1
+	early_carrier = 1
+	#doctrines
+}
+
+set_country_flag = star_wars_tech_flag
+set_rule = {
+    can_create_factions = yes
+}
+set_research_slots = 3
+set_war_support = 0.9
+set_stability = 0.6
+
+set_politics = {
+	ruling_party = imperialism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 0
+	fascism = 12
+	communism = 0
+	neutrality = 24
+	imperialism = 64
+}
+
+add_ideas = {
+	tot_economic_mobilisation
+	service_by_requirement
+	closed_economy
+	ruined_ship
+	imperial_military
+	stranded
+	no_industry
+}
+
+create_country_leader = {
+	name = "Darth Vader"
+	desc = "Vader_desc"
+	picture = "portrait_imp_vader.dds"
+	expire = "1965.1.1"
+	ideology = imperial
+	traits = { headstrong }
+}
+
+create_country_leader = {
+	name = "Governor Tarkin"
+	desc = "Tarkin_desc"
+	picture = "portrait_imp_tarkin.dds"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = { imperial_connections }
+}
+
+create_corps_commander =
+{
+	name = "Maximillian Veers"
+	picture = "portrait_veers.dds"
+	traits = { war_hero armor_officer career_officer winter_specialist}
+	skill = 5
+	attack_skill = 5
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+	id = 1950
+}
+
+create_corps_commander =
+{
+	name = "CC-1119 'Appo'"
+	picture = "portrait_General_TK_417.dds"
+	traits = { infantry_officer }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 1
+	logistics_skill = 2
+	id = 1951
+}
+create_corps_commander =
+{
+	name = "Mod Terrik"
+	picture = "portrait_General_Sandtrooper.dds"
+	traits = { trait_reckless }
+	skill = 2
+	attack_skill = 3
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 1
+	id = 1952
+}
+
+create_corps_commander =
+{
+	name = "Snowtrooper 'Maraway'"
+	picture = "portrait_General_snowtrooper.dds"
+	traits = { }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 3
+	id = 1953
+}
+
+create_corps_commander =
+{
+	name = "TK-417"
+	picture = "portrait_General_TK_417_real.dds"
+	traits = { }
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+	id = 1954
+}

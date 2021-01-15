@@ -1,0 +1,4783 @@
+#IMPERIAL FOCUS TREE#
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
+focus_tree = {
+	id = imp_focus
+
+	country =
+	{
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				original_tag = IMP
+				tag = IMP
+				tag = REP
+				tag = CPG
+			}
+		}
+	}
+
+	default = no
+	continuous_focus_position = { x = 25 y = 2000 }
+
+
+	focus =
+	{
+		id = imp_crashed
+		icon = GFX_focus_deploy_trooper
+		x = 14
+		y = 0
+
+		cost = 1
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		ai_will_do = {
+			factor = 50
+
+		}
+		completion_reward =
+		{
+			custom_effect_tooltip = deploy_tooltip
+			hidden_effect =
+			{
+				load_oob = "IMP_deploy_troopers"
+				if = {
+					limit = { is_ai = yes }
+					load_oob = "IMP_ai_troopers"
+					add_manpower = 2000000
+
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_survey
+		icon = GFX_focus_survey
+		x = 0
+		y = 1
+		relative_position_id = imp_crashed
+		cost = 1
+		prerequisite =
+		{
+			focus = imp_crashed
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward =
+		{
+			country_event = {
+				id = imperial.0
+			}
+			if = {
+				limit = { has_country_flag = tarkin_flag }
+				add_offsite_building = { type = industrial_complex level = 1 }
+				add_offsite_building = { type = arms_factory level = 1 }
+			}
+
+		}
+	}
+
+	focus =
+	{
+		id = imp_fortify_land
+		icon = GFX_goal_fortify_the_westwall
+		cost = 8
+		prerequisite =
+		{
+			focus = imp_investigate
+		}
+		prerequisite =
+		{
+			focus = imp_repair
+		}
+		x = 0
+		y = 3
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER }
+		relative_position_id = imp_survey
+		completion_reward = {
+			656 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 8085
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 8085
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_manpower = 6000
+		}
+	}
+
+	focus =
+	{
+		id = imp_air_defense
+		icon = GFX_focus_generic_air_defense
+		cost = 8
+		prerequisite =
+		{
+			focus = imp_fortify_land
+		}
+		x = 0
+		y = 1
+		relative_position_id = imp_fortify_land
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			656 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					province = 8085
+					instant_build = yes
+				}
+			}
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_manpower = 6000
+		}
+	}
+
+	focus =
+	{
+		id = imp_phase_two
+		icon = GFX_focus_phasetwo
+		cost = 1
+
+		available = {
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite =
+		{
+			focus = imp_supply_lines_iraq
+			focus = imp_establish_base_saudi
+		}
+
+		prerequisite =
+		{
+			focus = imp_establish_base_iraq
+			focus = imp_supply_lines_saudi
+		}
+
+		x = 0
+		y = 5
+		relative_position_id = imp_survey
+		completion_reward = {
+			custom_effect_tooltip = phase_procedure
+			swap_ideas = {
+				remove_idea = ruined_ship
+				add_idea = damaged_ship
+			}
+			set_country_flag = phase_two_complete
+
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = imp_investigate
+		icon = GFX_focus_investigate
+		cost = 1
+		prerequisite = {
+			focus = imp_survey
+		}
+		x = 1
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = imp_survey
+		completion_reward = {
+			country_event = {
+				id = imperial.1
+			}
+		}
+	}
+
+	focus = {
+		id = imp_repair
+		icon = GFX_focus_reconstruction
+		cost = 3
+		prerequisite =
+		{
+			focus = imp_survey
+		}
+		x = -1
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = imp_survey
+		completion_reward = {
+			country_event = {
+				id = imperial.2
+			}
+		}
+	}
+
+	focus =
+	{
+		id = imp_tarkin_doctrine
+		icon = GFX_focus_tarkin
+		cost = 2
+		prerequisite =
+		{
+			focus = imp_investigate
+		}
+		prerequisite = {
+			focus = imp_repair
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			has_country_leader = {
+				name = "Wilhuff Tarkin"
+				ruling_only = yes
+			}
+		}
+		mutually_exclusive =
+		{
+			focus = imp_sith_might
+		}
+		x = -1
+		y = 1
+		relative_position_id = imp_repair
+		completion_reward =
+		{
+			set_country_flag = tarkin_flag
+			add_ideas =
+			{
+				tarkin_doctrine
+			}
+		}
+	}
+
+	focus =
+	{
+		id = imp_sith_might
+		icon = GFX_focus_sith
+		cost = 2
+		prerequisite =
+		{
+			focus = imp_investigate
+		}
+		prerequisite = {
+			focus = imp_repair
+		}
+		ai_will_do = {
+			factor = 4000
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "Darth Vader"
+			}
+		}
+
+		mutually_exclusive =
+		{
+			focus = imp_tarkin_doctrine
+		}
+		x = 1
+		y = 1
+		relative_position_id = imp_investigate
+		completion_reward = {
+			add_ideas = {
+				sith_might
+			}
+			set_country_flag = sith_flag
+		}
+	}
+
+
+	focus =
+	{
+		id = imp_conquer_iraq
+		icon = GFX_goal_generic_major_war
+		will_lead_to_war_with = IRQ
+		cost = 2
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite =
+		{
+			focus = imp_sith_might
+		}
+		bypass = {
+			NOT = {
+			country_exists = IRQ
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = imp_sith_might
+		completion_reward = {
+			declare_war_on = {
+				type = annex_everything
+				target = IRQ
+			}
+			IRQ = {
+				set_rule = {
+					can_create_factions = no
+					can_join_factions = no
+				}
+			}
+			custom_effect_tooltip = IMP_INSTANT_WAR
+			hidden_effect = {
+				add_ai_strategy = {
+					type = invade
+					id = IRQ
+					value = 200
+				}
+			}
+		}
+	}
+
+	focus =
+	{
+		id = imp_subjugate_iraq
+		icon = GFX_goal_generic_forceful_treaty
+		will_lead_to_war_with = IRQ
+		cost = 2
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite =
+		{
+			focus = imp_tarkin_doctrine
+		}
+
+		bypass = {
+			OR = {
+				NOT = {
+					country_exists = IRQ
+				}
+				IRQ = {
+					OR = {
+						is_subject_of = IMP
+						is_puppet_of = IMP
+					}
+				}
+			}
+		}
+		x = -4
+		y = 1
+		relative_position_id = imp_sith_might
+		completion_reward = {
+			declare_war_on = {
+				type = puppet_wargoal_focus
+				target = IRQ
+			}
+			IRQ = {
+				set_rule = {
+					can_create_factions = no
+					can_join_factions = no
+				}
+			}
+			custom_effect_tooltip = IMP_INSTANT_WAR
+			hidden_effect = {
+				add_ai_strategy = {
+					type = invade
+					id = IRQ
+					value = 200
+				}
+			}
+		}
+	}
+
+	focus =
+	{
+		id = imp_subjugate_saudi
+		icon = GFX_goal_generic_forceful_treaty
+		will_lead_to_war_with = SAU
+		cost = 2
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite =
+		{
+			focus = imp_tarkin_doctrine
+		}
+
+		bypass = {
+			OR = {
+				NOT = {
+					country_exists = SAU
+				}
+				SAU = {
+					OR = {
+						is_subject_of = IMP
+						is_puppet_of = IMP
+					}
+				}
+			}
+		}
+		x = -2
+		y = 0
+		relative_position_id = imp_subjugate_iraq
+		completion_reward = {
+			declare_war_on = {
+				type = puppet_wargoal_focus
+				target = SAU
+			}
+			SAU = {
+				set_rule = {
+					can_create_factions = no
+					can_join_factions = no
+				}
+			}
+			custom_effect_tooltip = IMP_INSTANT_WAR
+			hidden_effect = {
+				add_ai_strategy = {
+					type = invade
+					id = SAU
+					value = 200
+				}
+			}
+		}
+	}
+
+	focus =
+	{
+		id = imp_conquer_saudi
+		icon = GFX_goal_generic_major_war
+		cost = 2
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		will_lead_to_war_with = SAU
+		prerequisite =
+		{
+			focus = imp_sith_might
+		}
+		bypass = {
+			NOT = {
+			country_exists = SAU
+			}
+		}
+		x = 2
+		y = 0
+		relative_position_id = imp_conquer_iraq
+		completion_reward = {
+			declare_war_on = {
+				type = annex_everything
+				target = SAU
+			}
+			SAU = {
+				set_rule = {
+					can_create_factions = no
+					can_join_factions = no
+				}
+			}
+			custom_effect_tooltip = IMP_INSTANT_WAR
+			hidden_effect = {
+				add_ai_strategy = {
+					type = invade
+					id = SAU
+					value = 200
+				}
+			}
+		}
+	}
+
+	focus =
+	{
+		id = imp_supply_lines_iraq
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 3
+		prerequisite =
+		{
+			focus = imp_conquer_iraq
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER }
+		available =
+		{
+			OR = {
+				AND = {
+					has_full_control_of_state = 676
+					has_full_control_of_state = 675
+				}
+				IRQ = {
+					OR = {
+						is_subject_of = IMP
+						is_puppet_of = IMP
+					}
+				}
+			}
+
+		}
+		x = 0
+		y = 1
+		relative_position_id = imp_conquer_iraq
+		completion_reward = {
+			if = {
+				limit = {
+					IRQ = { is_puppet_of = IMP }
+				}
+				annex_country = {
+					target = IRQ
+					transfer_troops = no
+				}
+			}
+			676 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			675 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			IMP = {
+				add_state_core = 675
+				add_state_core = 676
+				add_state_core = 291
+				add_state_core = 807
+			}
+		}
+	}
+
+	focus =
+	{
+		id = imp_supply_lines_saudi
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 3
+		prerequisite =
+		{
+			focus = imp_conquer_saudi
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER }
+		available = {
+			OR = {
+				AND = {
+					has_full_control_of_state = 292
+					has_full_control_of_state = 678
+				}
+				SAU = {
+					OR = {
+						is_subject_of = IMP
+						is_puppet_of = IMP
+					}
+				}
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = imp_conquer_saudi
+		completion_reward = {
+			if = {
+				limit = {
+					SAU = {
+						OR = {
+							is_subject_of = IMP
+							is_puppet_of = IMP
+						}
+					}
+				}
+				annex_country = {
+					target = SAU
+					transfer_troops = no
+				}
+			}
+			292 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			678 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			IMP = {
+				add_state_core = 292
+				add_state_core = 679
+				add_state_core = 678
+				add_state_core = 808
+			}
+		}
+	}
+
+	focus =
+	{
+		id = imp_establish_base_iraq
+		icon = GFX_goal_generic_fortify_city
+		cost = 3
+		prerequisite =
+		{
+			focus = imp_subjugate_iraq
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
+		available =
+		{
+			OR = {
+				IRQ = {
+					OR = {
+						is_subject_of = IMP
+						is_puppet_of = IMP
+					}
+				}
+				IMP = {
+					has_full_control_of_state = 676
+					has_full_control_of_state = 675
+					has_full_control_of_state = 291
+					has_full_control_of_state = 807
+				}
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = imp_subjugate_iraq
+		completion_reward = {
+			if = {
+				limit = {
+						NOT = { country_exists = IRQ }
+				}
+				release_puppet = IRQ
+			}
+			set_province_name = {
+				id = 2097
+				name = "Command Post Aurek"
+			}
+			transfer_state = 807
+			add_state_core = 807
+			IRQ = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+
+			add_offsite_building = {
+				type = arms_factory
+				level = 1
+			}
+
+			675 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			291 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 2097
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12855
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12046
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+			if = {
+				limit = {
+					IRQ = {
+						NOT = {
+							has_country_flag = coop_enabled
+						}
+					}
+				}
+
+					IMP = {
+						set_autonomy = {
+							target = IRQ
+							autonomy_state = autonomy_imperial
+						}
+					}
+					IRQ = {
+						create_country_leader = {
+							name = "Darth Vader"
+							desc = "Vader_desc"
+							picture = "portrait_imp_vader.dds"
+							expire = "1965.1.1"
+							ideology = imperial
+							traits = { headstrong }
+						}
+					}
+					hidden_effect = {
+						IRQ = { set_cosmetic_tag = ALL }
+						set_party_name = {
+							ideology = neutrality
+							long_name = frebel_party_empire
+							name = frebel_party_empire
+						}
+
+						set_party_name = {
+							ideology = fascism
+							long_name = neutrality_party_empire
+							name = neutrality_party_empire
+						}
+
+						set_party_name = {
+							ideology = communism
+							long_name = crebel_party_empire
+							name = crebel_party_empire
+						}
+
+						set_party_name = {
+							ideology = democratic
+							long_name = drebel_party_empire
+							name = drebel_party_empire
+						}
+
+					}
+				}
+
+
+		}
+	}
+
+	focus =
+	{
+		id = imp_establish_base_saudi
+		icon = GFX_goal_generic_fortify_city
+		cost = 3
+		prerequisite =
+		{
+			focus = imp_subjugate_saudi
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER}
+		available = {
+			OR = {
+				SAU = {
+					OR = {
+						is_subject_of = IMP
+						is_puppet_of = IMP
+					}
+				}
+				IMP = {
+					has_full_control_of_state = 678
+					has_full_control_of_state = 292
+					has_full_control_of_state = 679
+					has_full_control_of_state = 808
+				}
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = imp_subjugate_saudi
+		completion_reward =
+		{
+			if =	{
+				limit =	{
+						NOT =	{ country_exists = SAU }
+				}
+				release_puppet = SAU
+			}
+
+			set_province_name = {
+				id = 12727
+				name = "Command Post Besh"
+			}
+			SAU =
+			{
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+
+			add_offsite_building = {
+				type = arms_factory
+				level = 1
+			}
+
+			292 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12727
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+
+			}
+			678 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+			if =
+			{
+				limit =
+				{
+					SAU =
+					{
+						NOT = { has_country_flag = coop_enabled }
+					}
+				}
+				transfer_state = 808
+				add_state_core = 808
+				IMP =
+				{
+					set_autonomy = {
+						target = SAU
+						autonomy_state = autonomy_imperial
+					}
+				}
+
+				SAU = {
+					create_country_leader = {
+						name = "Commander Hock Malsuum"
+						desc = "Malsuum_desc"
+						picture = "portrait_imp_malsuum.dds"
+						expire = "1965.1.1"
+						ideology = imperial
+						traits = { indomitable_perseverance }
+					}
+				}
+
+				hidden_effect =
+				{
+					SAU = {
+					set_cosmetic_tag = ALL
+					set_party_name = {
+						ideology = neutrality
+						long_name = frebel_party_empire
+						name = frebel_party_empire
+					}
+					set_party_name = {
+						ideology = fascism
+						long_name = neutrality_party_empire
+						name = neutrality_party_empire
+					}
+					set_party_name = {
+						ideology = communism
+						long_name = crebel_party_empire
+						name = crebel_party_empire
+					}
+					set_party_name = {
+						ideology = democratic
+						long_name = drebel_party_empire
+						name = drebel_party_empire
+					}
+					news_event = {
+						id = imperial_global_news.0
+					}
+				}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_war_plan
+		icon = GFX_focus_ger_strike_at_the_source
+		cost = 5
+
+		prerequisite = {
+		}
+		available = {
+			has_country_flag = phase_two_complete
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+
+		x = 0
+		y = 8
+		relative_position_id = imp_crashed
+
+		completion_reward = {
+			custom_effect_tooltip = strategy_flag
+			set_country_flag = war_plans_flag
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = imp_reinforce_bases
+		icon = GFX_goal_generic_fortify_city
+		cost = 5
+
+		prerequisite = {
+			focus = imp_establish_base_saudi
+			focus = imp_supply_lines_iraq
+		}
+		prerequisite = {
+			focus = imp_supply_lines_saudi
+			focus = imp_establish_base_iraq
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = -1
+		y = 3
+		relative_position_id = imp_tarkin_doctrine
+
+		completion_reward = {
+
+			#add coastal forts
+
+			656 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 8085
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 8085
+					instant_build = yes
+				}
+			}
+			add_offsite_building = { type = arms_factory level = 3 }
+
+		}
+	}
+
+
+
+	focus = {
+		id = imp_reinforce_supply_chain
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 5
+
+		prerequisite = {
+			focus = imp_establish_base_saudi
+			focus = imp_supply_lines_iraq
+		}
+		prerequisite = {
+			focus = imp_supply_lines_saudi
+			focus = imp_establish_base_iraq
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		x = 1
+		y = 3
+		relative_position_id = imp_sith_might
+
+		completion_reward = {
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+
+
+	###INDUSTRIAL PATH ###
+
+	focus = {
+		id = imp_logistics_review
+		icon = GFX_focus_logistics_review
+		cost = 5
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+			has_country_flag = phase_two_complete
+		}
+
+		x = 24
+		y = 0
+
+		completion_reward = {
+			custom_effect_tooltip = "Unlocks decision to pursue industry and material excavation."
+		}
+	}
+
+
+	focus = {
+		id = imp_synthetic_materials
+		icon = GFX_focus_synthetic_materials
+		cost = 5
+
+		prerequisite = {
+			focus = imp_logistics_review
+		}
+		available = {
+			has_country_flag = materials_flag
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = -4
+		y = 1
+
+		relative_position_id = imp_logistics_review
+		completion_reward = {
+			807 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = oil
+				amount = 1
+			}
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = rubber
+				amount = 1
+			}
+			add_resource = {
+				type = aluminium
+				amount = 28
+				state = 807
+			}
+			add_resource = {
+				type = chromium
+				amount = 34
+				state = 807
+			}
+			add_resource = {
+				type = steel
+				amount = 100
+				state = 808
+			}
+			add_resource = {
+				type = tungsten
+				amount = 42
+				state = 808
+			}
+		}
+	}
+
+	focus = {
+		id = imp_efficient_collection
+		icon = GFX_focus_efficient_collection
+		cost = 5
+
+		prerequisite = {
+			focus = imp_synthetic_materials
+		}
+		available = {
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = 0
+		y = 1
+
+		relative_position_id = imp_synthetic_materials
+		completion_reward = {
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = oil
+				amount = 4
+			}
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = rubber
+				amount = 2
+			}
+			add_ideas = resource_boost
+		}
+	}
+
+	focus = {
+		id = imp_industrial_build-up
+		icon = GFX_focus_industrial_build-up
+		cost = 5
+
+		prerequisite = {
+			focus = imp_logistics_review
+		}
+		available = {
+			has_country_flag = industrial_flag
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = 4
+		y = 1
+
+		relative_position_id = imp_logistics_review
+		completion_reward = {
+			807 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+			808 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_industrialize_the_desert
+		icon = GFX_focus_industrialize_the_desert
+		cost = 5
+
+		prerequisite = {
+			focus = imp_industrial_build-up
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = 0
+		y = 1
+
+		relative_position_id = imp_industrial_build-up
+		completion_reward = {
+			807 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			808 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_outer_regions_development
+		icon = GFX_focus_outer_regions_development
+		cost = 5
+
+		prerequisite = {
+			focus = imp_logistics_review
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = 0
+		y = 2
+
+		relative_position_id = imp_logistics_review
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = no_industry
+				add_idea = small_industry
+			}
+		}
+	}
+
+	focus = {
+		id = imp_urban_development
+		icon = GFX_focus_urban_development
+		cost = 5
+
+		prerequisite = {
+			focus = imp_outer_regions_development
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = -2
+		y = 1
+
+		relative_position_id = imp_outer_regions_development
+		completion_reward = {
+			807 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_rural_development
+		icon = GFX_focus_rural_development
+		cost = 5
+
+		prerequisite = {
+			focus = imp_outer_regions_development
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 2
+		y = 1
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = imp_outer_regions_development
+		completion_reward = {
+			807 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			808 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_self-sustained_city
+		icon = GFX_focus_self-sustained_city
+		cost = 5
+
+		prerequisite = {
+			focus = imp_urban_development
+		}
+		prerequisite = {
+			focus = imp_rural_development
+		}
+		mutually_exclusive = {
+			focus = imp_appoint_a_city_manager
+			focus = imp_direct_control
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL}
+		x = -4
+		y = 2
+
+		relative_position_id = imp_outer_regions_development
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = imp_appoint_a_city_manager
+		icon = GFX_focus_appoint_a_city_manager
+		cost = 5
+
+		prerequisite = {
+			focus = imp_urban_development
+		}
+		prerequisite = {
+			focus = imp_rural_development
+		}
+		mutually_exclusive = {
+			focus = imp_self-sustained_city
+			focus = imp_direct_control
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 2
+
+		relative_position_id = imp_outer_regions_development
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = imp_direct_control
+		icon = GFX_focus_direct_control
+		cost = 5
+
+		prerequisite = {
+			focus = imp_urban_development
+		}
+		prerequisite = {
+			focus = imp_rural_development
+		}
+
+		mutually_exclusive = {
+			focus = imp_self-sustained_city
+			focus = imp_appoint_a_city_manager
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		x = 4
+		y = 2
+
+		relative_position_id = imp_outer_regions_development
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = imp_establish_city_council
+		icon = GFX_focus_establish_city_council
+		cost = 5
+
+		prerequisite = {
+			focus = imp_self-sustained_city
+			focus = imp_appoint_a_city_manager
+		}
+
+		mutually_exclusive = {
+			focus = imp_rapid_industrialization
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = -2
+		y = 1
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL}
+		relative_position_id = imp_appoint_a_city_manager
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = small_industry
+				add_idea = medium_industry
+			}
+		}
+	}
+
+	focus = {
+		id = imp_rapid_industrialization
+		icon = GFX_focus_rapid_industrialization
+		cost = 5
+
+		prerequisite = {
+			focus = imp_direct_control
+			focus = imp_appoint_a_city_manager
+		}
+
+		mutually_exclusive = {
+			focus = imp_establish_city_council
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 2
+		y = 1
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = imp_appoint_a_city_manager
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = small_industry
+				add_idea = large_industry
+			}
+		}
+	}
+
+	focus = {
+		id = imp_citizenship_for_service
+		icon = GFX_focus_establish_city_council
+		cost = 5
+
+		prerequisite = {
+			focus = imp_establish_city_council
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		relative_position_id = imp_establish_city_council
+		completion_reward = {
+			807 = {
+				add_manpower = 2146875
+			}
+			808 = {
+				add_manpower = 149876
+			}
+		}
+	}
+
+	focus = {
+		id = imp_landscape_terraforming
+		icon = GFX_focus_landscape_terraforming
+		cost = 5
+
+		prerequisite = {
+			focus = imp_rapid_industrialization
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = imp_rapid_industrialization
+		completion_reward = {
+			807 = {
+				add_extra_state_shared_building_slots = 7
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			808 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_internal_developments
+		icon = GFX_focus_internal_developments
+		cost = 5
+
+		prerequisite = {
+			focus = imp_citizenship_for_service
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = -2
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		relative_position_id = imp_citizenship_for_service
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = imp_export_resources
+		icon = GFX_focus_export_resources
+		cost = 5
+
+		prerequisite = {
+			focus = imp_citizenship_for_service
+			focus = imp_landscape_terraforming
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		x = 2
+		y = 1
+
+		relative_position_id = imp_citizenship_for_service
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = closed_economy
+				}
+				swap_ideas = {
+					remove_idea = closed_economy
+					add_idea = limited_exports
+				}
+			}
+			if = {
+				limit = {
+					has_idea = limited_exports
+				}
+				swap_ideas = {
+					remove_idea = limited_exports
+					add_idea = export_focus
+				}
+			}
+		}
+	}
+	focus = {
+		id = imp_imperial_warmachine
+		icon = GFX_focus_imperial_warmachine
+		cost = 5
+
+		prerequisite = {
+			focus = imp_landscape_terraforming
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 2
+		y = 1
+
+		relative_position_id = imp_landscape_terraforming
+		completion_reward = {
+			add_ideas = IMP_warmachine
+		}
+	}
+
+	focus = {
+		id = imp_civilian_industry
+		icon = GFX_focus_civilian_industry
+		cost = 5
+
+		prerequisite = {
+			focus = imp_internal_developments
+		}
+
+		mutually_exclusive = {
+			focus = imp_corporate_system
+			focus = imp_war_industry
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = imp_internal_developments
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = medium_industry
+				add_idea = large_industry
+			}
+		}
+	}
+
+	focus = {
+		id = imp_corporate_system
+		icon = GFX_focus_corporate_system
+		cost = 5
+
+		prerequisite = {
+			focus = imp_export_resources
+		}
+
+		mutually_exclusive = {
+			focus = imp_war_industry
+			focus = imp_civilian_industry
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL}
+		relative_position_id = imp_export_resources
+		completion_reward = {
+			if = {
+				limit = { has_idea = medium_industry }
+				remove_ideas = medium_industry
+			}
+			808 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			807 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction =  {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			custom_effect_tooltip = "Unlocks Oil Company: "
+			show_ideas_tooltip = oil_company
+
+		}
+	}
+
+	focus = {
+		id = imp_war_industry
+		icon = GFX_focus_war_industry
+		cost = 5
+
+		prerequisite = {
+			focus = imp_imperial_warmachine
+		}
+
+		mutually_exclusive = {
+			focus = imp_civilian_industry
+			focus = imp_corporate_system
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = 0
+		y = 1
+
+		relative_position_id = imp_imperial_warmachine
+		completion_reward = {
+			807 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_the_senate
+		icon = GFX_focus_the_senate
+		cost = 5
+
+		prerequisite = {
+			focus = imp_civilian_industry
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = -2
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = imp_civilian_industry
+		completion_reward = {
+			add_ideas = pp_gain_1
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = imp_increased_autonomy
+		icon = GFX_focus_increased_autonomy
+		cost = 5
+
+		prerequisite = {
+			focus = imp_civilian_industry
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 2
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = imp_civilian_industry
+		completion_reward = {
+			add_ideas = pp_gain_2
+			add_stability = 0.05
+		}
+	}
+
+
+	focus = {
+		id = imp_elitism
+		icon = GFX_focus_elitism
+		cost = 5
+
+		prerequisite = {
+			focus = imp_corporate_system
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 1
+
+		relative_position_id = imp_corporate_system
+		completion_reward = {
+			add_ideas = elitism_idea
+		}
+	}
+
+	focus = {
+		id = imp_exploitation
+		icon = GFX_focus_exploitation
+		cost = 5
+
+		prerequisite = {
+			focus = imp_war_industry
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = imp_war_industry
+		completion_reward = {
+			add_ideas = exploitation_idea
+		}
+	}
+
+	focus = {
+		id = imp_gulf_city
+		icon = GFX_focus_gulf_city
+		cost = 5
+
+		prerequisite = {
+			focus = imp_increased_autonomy
+		}
+		prerequisite = {
+			focus = imp_the_senate
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 0
+		y = 2
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = imp_civilian_industry
+		completion_reward = {
+			add_ideas = gulf_city2_idea
+			add_timed_idea = {
+				idea = gulf_city_idea
+				days = 360
+			}
+			set_province_name = {
+				id = 2089
+				name = "Gulf City"
+			}
+		}
+	}
+
+	focus = {
+		id = imp_new_headquarters
+		icon = GFX_focus_new_headquarters
+		cost = 5
+
+		prerequisite = {
+			focus = imp_exploitation
+			focus = imp_elitism
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 2
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = imp_elitism
+		completion_reward = {
+			add_ideas = headquarters_idea
+			set_province_name = {
+				id = 2089
+				name = "Industrial Capital"
+			}
+		}
+	}
+
+	focus = {
+		id = imp_imperial_might
+		icon = GFX_focus_imperial_might
+		cost = 5
+
+		prerequisite = {
+			focus = imp_new_headquarters
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 1
+
+		relative_position_id = imp_new_headquarters
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+			807 = {
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 2089
+				}
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 8001
+				}
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 12879
+				}
+
+			}
+			808 = {
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 12749
+				}
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 10850
+				}
+				set_building_level = {
+					type = bunker
+					level = 5
+					province = 1955
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_utopian_civilization
+		icon = GFX_focus_utopian_civilization
+		cost = 5
+
+		prerequisite = {
+			focus = imp_gulf_city
+		}
+
+		available = {
+			has_full_control_of_state = 656
+			has_full_control_of_state = 807
+			has_full_control_of_state = 808
+		}
+
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		relative_position_id = imp_gulf_city
+		completion_reward = {
+			add_stability = -0.05
+			add_ideas = utopian_civilization_idea
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+			add_popularity = {
+			    ideology = democratic
+			    popularity = 0.3
+			}
+			set_party_name = {
+			    ideology = democratic
+			    long_name = "Unitary Republic Party"
+			    name = "The Senate"
+			}
+			set_rule = {
+			    can_declare_war_on_same_ideology = yes
+			    can_occupy_non_war = yes
+			    can_only_justify_war_on_threat_country = no
+			    can_create_factions = yes
+			    can_send_volunteers = yes
+				can_puppet = yes
+				can_create_collaboration_government = yes
+			}
+		}
+	}
+
+	### END OF INDUSTRIAL PATH####
+
+	focus = {
+		id = imp_reconstructing_the_ship
+		icon = GFX_focus_reconstructing_the_ship
+		cost = 5
+
+		available = {
+			has_full_control_of_state = 656
+			has_country_flag = phase_two_complete
+		}
+
+		x = 4
+		y = 0
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			656 = {
+				add_extra_state_shared_building_slots = 6
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			set_province_name = {
+				id = 8085
+				name = "Construction Site"
+			}
+			set_country_flag = ship_construction_begun
+		}
+	}
+
+	focus = {
+		id = imp_repair_conference_room
+		icon = GFX_focus_conferenceroom
+		cost = 5
+
+		prerequisite = {
+			focus = imp_reconstructing_the_ship
+		}
+		available = {
+			has_full_control_of_state = 656
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		x = -1
+		y = 1
+		relative_position_id = imp_reconstructing_the_ship
+
+		completion_reward = {
+			set_country_flag = conference_room
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = imp_biweekly_conference
+		icon = GFX_focus_imp_officer
+		cost = 10
+
+		prerequisite = {
+		}
+		available = {
+			has_country_flag = phase_two_complete
+		}
+
+		x = 39
+		y = 0
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			every_unit_leader = {
+					add_logistics = 1
+					add_planning = 1
+			}
+		}
+	}
+
+	focus = {
+		id = imp_land_doctrine
+		icon = GFX_focus_manpower
+		cost = 5
+
+		prerequisite = {
+			focus = imp_biweekly_conference
+		}
+
+
+		x = -3
+		y = 1
+		relative_position_id = imp_biweekly_conference
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = land_doctrine
+			}
+			army_experience = 50
+		}
+	}
+
+
+	focus = {
+		id = imp_restore_database
+		icon = GFX_focus_research
+		cost = 5
+
+		prerequisite = {
+			focus = imp_biweekly_conference
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		x = 9
+		y = 1
+		relative_position_id = imp_biweekly_conference
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+
+	focus = {
+		id = imp_data_segment_speeder
+		icon = GFX_focus_data_segment_speeder
+		cost = 5
+
+		prerequisite = {
+			focus = imp_restore_database
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		x = 9
+		y = 2
+		relative_position_id = imp_biweekly_conference
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = imperial_speeder_tech
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = imperial_motor_tech
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = imperial_starfighter_tech
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = imperial_transport_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_mobile_imperial_army
+		icon = GFX_focus_mobile_imperial_army
+		cost = 6
+
+		prerequisite = {
+			focus = imp_data_segment_speeder
+		}
+
+		mutually_exclusive = {
+			focus = imp_a_classic_approach
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		x = -4
+		y = 2
+		relative_position_id = imp_data_segment_speeder
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 1.0
+				uses = 1
+				category = imperial_light_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_a_classic_approach
+		icon = GFX_focus_a_classic_approach
+		cost = 6
+
+		prerequisite = {
+			focus = imp_data_segment_speeder
+		}
+
+		mutually_exclusive = {
+			focus = imp_mobile_imperial_army
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		x = -6
+		y = 2
+		relative_position_id = imp_data_segment_speeder
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 1.0
+				uses = 1
+				category = imperial_assault_tech
+			}
+		}
+
+	}
+
+	focus = {
+		id = imp_a_comprehensive_history_on_tanks
+		icon = GFX_focus_a_comprehensive_history_on_tanks
+		cost = 5
+
+		prerequisite = {
+			focus = imp_a_classic_approach
+		}
+
+
+		mutually_exclusive = {
+			focus = imp_reuse_current_designs
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		x = 0
+		y = 1
+		relative_position_id = imp_a_classic_approach
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 2.0
+				uses = 1
+				category = imperial_motor_tech
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 2.0
+				uses = 1
+				category = imperial_assault_tech
+			}
+
+		}
+
+	}
+
+	focus = {
+		id = imp_reuse_current_designs
+		icon = GFX_focus_reuse_current_designs
+		cost = 5
+
+		prerequisite = {
+			focus = imp_a_classic_approach
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		mutually_exclusive = {
+			focus = imp_a_comprehensive_history_on_tanks
+		}
+
+		x = -2
+		y = 1
+		relative_position_id = imp_a_classic_approach
+
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_tech = h_repulsor } }
+				add_tech_bonus = {
+					bonus = 1.0
+					ahead_reduction = 4.0
+					uses = 1
+					technology = h_repulsor
+				}
+			}
+
+			if = {
+				limit = { NOT = { has_tech = repulsor } }
+				add_tech_bonus = {
+					bonus = 1.0
+					ahead_reduction = 4.0
+					uses = 1
+					technology = repulsor
+				}
+			}
+
+			if = {
+				limit = { NOT = { has_tech = tx130t } }
+				add_tech_bonus = {
+					bonus = 1.0
+					ahead_reduction = 2.0
+					uses = 1
+					technology = tx130t
+				}
+			}
+
+			if = {
+				limit = {
+					AND = {
+						has_tech = tx130t
+						has_tech = repulsor
+						has_tech = h_repulsor
+					}
+				}
+				add_tech_bonus = {
+					bonus = 1.0
+					ahead_reduction = 2.0
+					uses = 2
+					category = imperial_assault_tech
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_faults_in_designs
+		icon = GFX_focus_faults_in_designs
+		cost = 5
+
+		prerequisite = {
+			focus = imp_a_comprehensive_history_on_tanks
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		x = 0
+		y = 1
+		relative_position_id = imp_a_comprehensive_history_on_tanks
+
+		completion_reward = {
+			custom_effect_tooltip = add_manufacturer_tt
+			show_ideas_tooltip = classic_quality_manufacturer
+		}
+
+	}
+
+	focus = {
+		id = imp_overwhelming_offense
+		icon = GFX_focus_overwhelming_offense
+		cost = 5
+
+		prerequisite = {
+			focus = imp_reuse_current_designs
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		x = 0
+		y = 1
+		relative_position_id = imp_reuse_current_designs
+
+		completion_reward = {
+			custom_effect_tooltip = add_manufacturer_tt
+			show_ideas_tooltip = classic_quantity_manufacturer
+		}
+
+	}
+
+	focus = {
+		id = imp_battlefront_assault
+		icon = GFX_focus_battlefront_assault
+		cost = 5
+
+		prerequisite = {
+			focus = imp_faults_in_designs
+			focus = imp_overwhelming_offense
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		x = -1
+		y = 3
+		relative_position_id = imp_a_classic_approach
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				ahead_reduction = 2
+				category = imperial_motor_tech
+			}
+		}
+
+	}
+
+	focus = {
+		id = imp_war_doctrine_refinement
+		icon = GFX_focus_war_doctrine
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_reinstate_heavier_models
+			focus = imp_battlefront_assault
+		}
+
+		x = -5
+		y = 7
+		relative_position_id = imp_restore_database
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 3
+				category = land_doctrine
+			}
+		}
+
+	}
+
+	focus = {
+		id = imp_research_lab_construction
+		icon = GFX_focus_research2
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_technology_for_our_subjects
+			focus = imp_one_authority_one_planet
+		}
+
+		available = {
+			num_of_factories > 49
+		}
+
+		x = 0
+		y = 3
+		relative_position_id = imp_restore_database
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+
+	}
+
+	focus = {
+		id = imp_study_kuat_corporation_practices
+		icon = GFX_focus_study_kuat
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_mobile_imperial_army
+		}
+
+		mutually_exclusive = {
+			focus = imp_stick_with_what_works
+		}
+
+
+		x = 0
+		y = 1
+		relative_position_id = imp_mobile_imperial_army
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 3.0
+				uses = 1
+				category = imperial_light_tech
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 3.0
+				uses = 1
+				category = imperial_speeder_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_stick_with_what_works
+		icon = GFX_focus_stick_with_what_works
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_mobile_imperial_army
+		}
+
+		mutually_exclusive = {
+			focus = imp_study_kuat_corporation_practices
+		}
+
+
+		x = 2
+		y = 1
+		relative_position_id = imp_mobile_imperial_army
+
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_tech = atpt } }
+				add_tech_bonus = {
+					bonus = 1.0
+					ahead_reduction = 4.0
+					uses = 1
+					technology = atpt
+				}
+			}
+
+			if = {
+				limit = { NOT = { has_tech = atrct } }
+				add_tech_bonus = {
+					bonus = 1.5
+					uses = 1
+					technology = atrct
+				}
+			}
+
+			if = {
+				limit = { NOT = { has_tech = atrt } }
+				add_tech_bonus = {
+					bonus = 1.0
+					uses = 1
+					technology = atrt
+				}
+			}
+
+			if = {
+				limit = {
+					has_tech = atrct
+					has_tech = atrt
+					has_tech = atpt
+				}
+				add_tech_bonus = {
+					bonus = 1.0
+					uses = 1
+					category = imperial_light_tech
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_walkers_in_every_battalion
+		icon = GFX_focus_walkers_in_every_battalion
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_stick_with_what_works
+		}
+
+
+		x = 0
+		y = 1
+		relative_position_id = imp_stick_with_what_works
+
+		completion_reward = {
+			custom_effect_tooltip = add_manufacturer_tt
+			show_ideas_tooltip = new_quantity_manufacturer
+		}
+	}
+
+	focus = {
+		id = imp_kuat_light_vehicles
+		icon = GFX_focus_kuat_light_vehicles
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_study_kuat_corporation_practices
+		}
+
+
+		x = 0
+		y = 1
+		relative_position_id = imp_study_kuat_corporation_practices
+
+		completion_reward = {
+			custom_effect_tooltip = add_manufacturer_tt
+			show_ideas_tooltip = new_quality_manufacturer
+		}
+	}
+
+	focus = {
+		id = imp_reinstate_heavier_models
+		icon = GFX_focus_heavier_designs
+		cost = 5
+
+		prerequisite = {
+			focus = imp_kuat_light_vehicles
+			focus = imp_walkers_in_every_battalion
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		x = 1
+		y = 3
+		relative_position_id = imp_mobile_imperial_army
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 4.0
+				uses = 1
+				category = imperial_heavy_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_technology_for_our_subjects
+		icon = GFX_focus_technology_for_our_subjects
+		cost = 5
+
+		prerequisite = {
+			focus = imp_data_segment_speeder
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		mutually_exclusive = {
+			focus = imp_one_authority_one_planet
+		}
+
+		x = -1
+		y = 2
+		relative_position_id = imp_restore_database
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					OR = {
+						is_puppet_of = IMP
+						is_subject_of = IMP
+					}
+				}
+				set_country_flag = star_wars_tech_flag
+			}
+			custom_effect_tooltip = puppet_tech_given_tt
+			IMP = {
+				set_country_flag = give_star_wars_tech_flag
+			}
+		}
+	}
+
+
+	focus = {
+		id = imp_one_authority_one_planet
+		icon = GFX_focus_one_authority_one_planet
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_data_segment_speeder
+		}
+
+		mutually_exclusive = {
+			focus = imp_technology_for_our_subjects
+		}
+
+
+		x = 1
+		y = 2
+		relative_position_id = imp_restore_database
+
+		completion_reward = {
+			add_ideas =	tech_superiority
+		}
+	}
+
+	focus = {
+		id = imp_transportation_and_support
+		icon = GFX_focus_transportation_and_support
+		cost = 6
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		prerequisite = {
+			focus = imp_data_segment_speeder
+
+		}
+
+		mutually_exclusive = {
+			focus = imp_bomber_models
+		}
+
+		x = 15
+		y = 4
+		relative_position_id = imp_biweekly_conference
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 1.0
+				uses = 1
+				category = imperial_starfighter_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_bomber_models
+		icon = GFX_focus_bomber_models
+		cost = 6
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_data_segment_speeder
+
+		}
+		mutually_exclusive = {
+			focus = imp_transportation_and_support
+		}
+
+		x = 13
+		y = 4
+		relative_position_id = imp_biweekly_conference
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 1.0
+				uses = 1
+				category = imperial_interceptor_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_simplify_assembly_process
+		icon = GFX_focus_simplify_assembly_process
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_transportation_and_support
+		}
+
+
+		mutually_exclusive = {
+			focus = imp_advanced_developments
+		}
+
+		x = 2
+		y = 1
+		relative_position_id = imp_transportation_and_support
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = air_doctrine
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = imperial_transport_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_advanced_developments
+		icon = GFX_focus_advanced_developments
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_transportation_and_support
+		}
+
+		mutually_exclusive = {
+			focus = imp_simplify_assembly_process
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_transportation_and_support
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 3.0
+				uses = 1
+				category = imperial_transport_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_improved_gunship_turrets
+		icon = GFX_focus_improved_gunship_turrets
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_advanced_developments
+		}
+
+
+		x = 0
+		y = 1
+		relative_position_id = imp_advanced_developments
+
+		completion_reward = {
+			custom_effect_tooltip = add_manufacturer_tt
+			show_ideas_tooltip = transport_quality_manu
+		}
+	}
+
+	focus = {
+		id = imp_a_rain_of_fire
+		icon = GFX_focus_a_rain_of_fire
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_simplify_assembly_process
+		}
+
+
+		x = 0
+		y = 1
+		relative_position_id = imp_simplify_assembly_process
+
+		completion_reward = {
+			custom_effect_tooltip = add_manufacturer_tt
+			show_ideas_tooltip = transport_quantity_manu
+		}
+	}
+
+	focus = {
+		id = imp_land_air_cooperation
+		icon = GFX_focus_improved_gunship_turrets
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_improved_gunship_turrets
+			focus = imp_a_rain_of_fire
+		}
+
+
+
+
+		x = 1
+		y = 3
+		relative_position_id = imp_transportation_and_support
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 4.0
+				uses = 1
+				category = imperial_transport_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_research_on_bomber_construction
+		icon = GFX_focus_research_on_bomber_construction
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_bomber_models
+		}
+
+		mutually_exclusive = {
+			focus = imp_simple_roles
+		}
+
+
+
+
+		x = 0
+		y = 1
+		relative_position_id = imp_bomber_models
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 3.0
+				uses = 1
+				category = imperial_bomber_tech
+			}
+
+		}
+	}
+
+
+	focus = {
+		id = imp_simple_roles
+		icon = GFX_focus_simple_roles
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_bomber_models
+		}
+
+		mutually_exclusive = {
+			focus = imp_research_on_bomber_construction
+		}
+
+
+
+
+		x = -2
+		y = 1
+		relative_position_id = imp_bomber_models
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = air_doctrine
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = imperial_aircraft_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_blanket_the_skies
+		icon = GFX_focus_blanket_the_skies
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_simple_roles
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_simple_roles
+
+		completion_reward = {
+			custom_effect_tooltip = add_manufacturer_tt
+			show_ideas_tooltip = bomber_quantity_manu
+		}
+	}
+
+	focus = {
+		id = imp_fewer_accidents
+		icon = GFX_focus_fewer_accidents
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		prerequisite = {
+			focus = imp_research_on_bomber_construction
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_research_on_bomber_construction
+
+		completion_reward = {
+			custom_effect_tooltip = add_manufacturer_tt
+			show_ideas_tooltip = bomber_quality_manu
+		}
+	}
+
+	focus = {
+		id = imp_the_ultimate_fighter
+		icon = GFX_focus_the_ultimate_fighter
+		cost = 5
+
+		prerequisite = {
+			focus = imp_fewer_accidents
+			focus = imp_blanket_the_skies
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		x = -1
+		y = 3
+		relative_position_id = imp_bomber_models
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 4.0
+				uses = 1
+				category = imperial_starfighter_tech
+			}
+		}
+	}
+
+
+	focus = {
+		id = imp_air_doctrine_refinement
+		icon = GFX_focus_air_doctrine_refinement
+		cost = 5
+
+		prerequisite = {
+			focus = imp_the_ultimate_fighter
+			focus = imp_land_air_cooperation
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		x = 5
+		y = 7
+		relative_position_id = imp_restore_database
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 3
+				category = air_doctrine
+			}
+		}
+	}
+
+
+	focus = {
+		id = imp_an_army
+		icon = GFX_focus_imperialarmy
+		cost = 5
+
+		mutually_exclusive = {
+			focus = imp_special_forces
+		}
+
+		prerequisite = {
+			focus = imp_land_doctrine
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		x = -2
+		y = 1
+
+		relative_position_id = imp_land_doctrine
+
+		completion_reward = { #Replace with support research#
+			add_tech_bonus = {
+				bonus = 2.0
+				uses = 2
+				category = land_doctrine
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = imperial_weapons_tech
+			}
+		}
+	}
+
+	focus = {
+		id = imp_an_army2
+		icon = GFX_focus_imperialarmy
+		cost = 5
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = {
+			focus = imp_an_army
+		}
+
+		x = 0
+		y = 1
+
+		relative_position_id = imp_an_army
+
+		completion_reward = {
+			add_ideas = army_production
+		}
+	}
+
+	focus = {
+		id = imp_an_army3
+		icon = GFX_focus_imperialarmy
+		cost = 5
+
+
+		prerequisite = {
+			focus = imp_an_army2
+		}
+
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		relative_position_id = imp_an_army2
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 2.0
+				uses = 3
+				category = imperial_support
+			}
+		}
+	}
+
+	focus = {
+		id = imp_recruitment_drive
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+
+
+		prerequisite = {
+			focus = imp_an_army3
+			focus = imp_special_forces2
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		x = 0
+		y = 2
+
+		relative_position_id = imp_an_army2
+
+		completion_reward = {
+			if = {
+				limit = { has_country_flag = tarkin_flag }
+				add_ideas = recruitment_drive
+				add_manpower = 70000
+				807 = {
+					add_manpower = 350000
+				}
+			} else = {
+				add_ideas = recruitment_drive
+				807 = {
+					add_manpower = 350000
+				}
+			}
+
+		}
+	}
+
+	focus = {
+		id = imp_training_camps
+		icon = GFX_goal_generic_small_arms
+		cost = 5
+
+
+		prerequisite = {
+			focus = imp_an_army2
+			focus = imp_special_forces2
+		}
+
+		x = 4
+		y = 0
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		relative_position_id = imp_recruitment_drive
+
+		completion_reward = {
+			army_experience = 50
+			add_ideas = training_camp
+			set_province_name = {
+				id = 12879
+				name = "Camp Ypsilon"
+			}
+		}
+
+	}
+
+	focus = {
+		id = imp_grand_army
+		icon = GFX_focus_generic_combined_arms
+		cost = 10
+
+
+		prerequisite = {
+			focus = imp_stormtroopers
+
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		x = 2
+		y = 2
+		relative_position_id = imp_recruitment_drive
+
+		completion_reward = {
+			custom_effect_tooltip = grand_army_tooltip
+			hidden_effect = {
+				load_oob = "IMP_grand_army"
+			}
+		}
+	}
+
+	focus = {
+		id = imp_special_forces
+		icon = GFX_focus_specialforces
+		cost = 5
+
+		mutually_exclusive = {
+			focus = imp_an_army
+		}
+
+		prerequisite = {
+			focus = imp_land_doctrine
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 2
+		y = 1
+		relative_position_id = imp_land_doctrine
+
+		completion_reward = {
+			add_ideas = spec_forces
+		}
+	}
+
+	focus = {
+		id = imp_mountaineers
+		icon = GFX_focus_mountaineer
+		cost = 5
+
+		prerequisite = {
+			focus = imp_special_forces
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_special_forces
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			set_technology = {
+				stormtrooper_mountain = 1
+			}
+		}
+	}
+
+	focus = {
+		id = imp_paratroopers
+		icon = GFX_focus_paratrooper
+		cost = 5
+
+		prerequisite = {
+			focus = imp_special_forces
+		}
+
+		x = -2
+		y = 1
+		relative_position_id = imp_special_forces
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			set_technology = {
+				stormtrooper_paratrooper = 1
+			}
+		}
+	}
+
+	focus = {
+		id = imp_marines
+		icon = GFX_focus_marine
+		cost = 5
+
+		prerequisite = {
+			focus = imp_special_forces
+		}
+
+		x = 2
+		y = 1
+		relative_position_id = imp_special_forces
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			set_technology = {
+				stormtrooper_marine = 1
+			}
+		}
+	}
+
+	focus = {
+		id = imp_special_forces2
+		icon = GFX_focus_specialforces
+		cost = 5
+
+		prerequisite = {
+			focus = imp_mountaineers
+			focus = imp_paratroopers
+			focus = imp_marines
+		}
+
+		x = 0
+		y = 2
+		relative_position_id = imp_special_forces
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = spec_forces
+				add_idea = spec_forces2
+			}
+		}
+	}
+
+	focus = {
+		id = imp_stormtroopers
+		icon = GFX_focus_an_army
+		cost = 5
+
+		prerequisite = {
+			focus = imp_training_camps
+		}
+
+		prerequisite = {
+			focus = imp_recruitment_drive
+		}
+
+		x = -2
+		y = 1
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = imp_training_camps
+
+		completion_reward = {
+			add_ideas = army_production_weak
+		}
+	}
+
+	# generic navy
+	focus = {
+		id = imp_naval_development
+		icon = GFX_goal_generic_navy_battleship
+		cost = 5
+
+		prerequisite = {
+			focus = imp_biweekly_conference
+		}
+
+
+
+		x = -8
+		y = 1
+		relative_position_id = imp_biweekly_conference
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 1.0
+				uses = 2
+				category = naval_doctrine
+			}
+			set_country_flag = naval_development
+		}
+	}
+	focus = {
+		id = naval_effort1
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 0
+		y = 2
+		cost = 5
+
+		prerequisite = {
+			focus = imp_naval_development
+		}
+
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		relative_position_id = imp_naval_development
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = flexible_navy11
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = naval_effort1 }
+		mutually_exclusive = { focus = large_navy1 }
+		x = -1
+		y = 2
+		relative_position_id = naval_effort1
+		cost = 5
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 1.0
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
+	}
+
+	focus = {
+		id = large_navy1
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = naval_effort1 }
+		mutually_exclusive = { focus = flexible_navy11 }
+		x = 1
+		y = 2
+		relative_position_id = naval_effort1
+		cost = 5
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 1.0
+				uses = 2
+				category = fleet_in_being_tree
+			}
+		}
+	}
+
+	focus = {
+		id = submarine_effort11
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = flexible_navy11 focus = large_navy1 }
+		x = 0
+		y = 1
+		relative_position_id = flexible_navy11
+		cost = 5
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = cruiser_effort1
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = large_navy1 focus = flexible_navy11 }
+		x = 0
+		y = 1
+		relative_position_id = large_navy1
+		cost = 5
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+	}
+
+	focus = {
+		id = destroyer_effort1
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = submarine_effort11 }
+		x = 0
+		y = 1
+		relative_position_id = submarine_effort11
+		cost = 5
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = capital_ships_effort1
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = cruiser_effort1 }
+		x = 0
+		y = 1
+		relative_position_id = cruiser_effort1
+		cost = 5
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+	# generic navy
+
+	focus = {
+		id = imp_hull_repair
+		icon = GFX_goal_generic_build_tank
+		cost = 5
+
+		prerequisite = {
+			focus = imp_reconstructing_the_ship
+		}
+		available = {
+			has_full_control_of_state = 656
+		}
+
+		x = 1
+		y = 1
+		relative_position_id = imp_reconstructing_the_ship
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = {
+				executor_structure1
+			}
+			set_country_flag = hull_partially_repaired_flag
+		}
+	}
+
+	focus = {
+		id = imp_stage_one
+		icon = GFX_focus_stage_one
+		cost = 7
+
+		prerequisite = {
+			focus = imp_repair_conference_room
+		}
+
+		prerequisite = {
+			focus = imp_hull_repair
+		}
+
+		available = {
+			num_of_factories > 20
+			has_full_control_of_state = 656
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 2
+		relative_position_id = imp_reconstructing_the_ship
+
+		completion_reward = {
+			set_country_flag = partially_repaired_ship
+			swap_ideas = {
+				remove_idea = damaged_ship
+				add_idea = partial_ship
+			}
+			IMP = {
+				add_offsite_building = {
+					type = nuclear_reactor
+					level = 5
+				}
+			}
+			set_technology = {
+				experimental_rockets = 1
+				nuclear_reactor = 1
+			}
+		}
+	}
+
+	focus = {
+		id = imp_stage_two
+		icon = GFX_focus_stage_two
+		cost = 7
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_shield_repair
+		}
+		prerequisite = {
+			focus = imp_motion_sensor_i
+		}
+
+		prerequisite = {
+			focus = imp_restore_weapon_systems
+		}
+		available = {
+			num_of_factories > 40
+			has_full_control_of_state = 656
+			has_country_flag = partially_repaired_ship
+		}
+
+		x = 0
+		y = 3
+		relative_position_id = imp_stage_one
+
+		completion_reward = {
+			set_country_flag = functional_ship_flag
+			swap_ideas = {
+				remove_idea = partial_ship
+				add_idea = half_functional_ship
+			}
+			set_technology = {
+				nukes = 1
+			}
+			IMP = {
+				add_offsite_building = {
+					type = nuclear_reactor
+					level = 5
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+	focus = {
+		id = imp_restore_weapon_systems
+		icon = GFX_goal_generic_army_artillery
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_stage_one
+		}
+		available = {
+			has_full_control_of_state = 656
+			num_of_military_factories > 2
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_stage_one
+
+		completion_reward = {
+			set_technology = {
+				rocket_engines = 1
+			}
+			656 = {
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+			}
+
+			656 = {
+				add_building_construction = {
+					type = rocket_site
+					level = 1
+					instant_build = yes
+				}
+			}
+			#add_ideas = ship_gun
+			set_country_flag = guns_restored
+		}
+	}
+
+	focus = {
+		id = imp_gun_modifications_one
+		icon = GFX_goal_poland_goal
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_stage_two
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_country_flag = guns_restored
+		}
+		bypass = {
+			has_country_flag = executor_ship_flag
+		}
+
+		x = 2
+		y = 1
+		relative_position_id = imp_stage_two
+
+		completion_reward = {
+			set_technology = {
+				improved_rocket_engines = 1
+			}
+		 	add_nuclear_bombs = 1
+		}
+	}
+
+
+	focus = {
+		id = imp_gun_modifications_two
+		icon = GFX_goal_generic_air_naval_bomber
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_gun_modifications_one
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_country_flag = guns_restored
+		}
+
+		bypass = {
+			has_country_flag = executor_ship_flag
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_gun_modifications_one
+
+		completion_reward = {
+			set_technology = {
+				advanced_rocket_engines = 1
+			}
+			add_nuclear_bombs = 1
+		}
+	}
+
+	focus = {
+		id = imp_gun_modifications_three
+		icon = GFX_goal_generic_occupy_start_war
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_gun_modifications_two
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_country_flag = guns_restored
+		}
+
+		bypass = {
+			has_country_flag = executor_ship_flag
+		}
+
+		x = 0
+		y = 2
+		relative_position_id = imp_gun_modifications_two
+
+		completion_reward = {
+			656 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = rocket_site
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_nuclear_bombs = 10
+		}
+	}
+
+
+
+
+
+	focus = {
+		id = imp_hull_repair2
+		icon = GFX_goal_generic_build_tank
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_gun_modifications_two
+		}
+
+
+		prerequisite = {
+			focus = imp_complement_2
+		}
+
+
+		available = {
+			has_full_control_of_state = 656
+		}
+
+		x = 0
+		y = 3
+		relative_position_id = imp_stage_two
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = executor_structure2
+				add_idea = executor_structure3
+			}
+			set_country_flag = hull_repaired_flag
+		}
+
+	}
+
+	focus = {
+		id = imp_stage_three
+		icon = GFX_focus_stage_three
+		cost = 7
+
+		prerequisite = {
+			focus = imp_hull_repair2
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		available = {
+			num_of_factories > 60
+			has_full_control_of_state = 656
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_hull_repair2
+
+		completion_reward = {
+			set_country_flag = functional_ship_flag
+			swap_ideas = {
+				remove_idea = half_functional_ship
+				add_idea = functional_ship
+			}
+			set_province_name = {
+				id = 8085
+				name = "Imperial Headquarters"
+			}
+			IMP = {
+				add_offsite_building = {
+					type = nuclear_reactor
+					level = 10
+				}
+			}
+
+		}
+	}
+
+	focus = {
+		id = imp_navigation_repair
+		icon = GFX_goal_generic_production
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_stage_one
+		}
+		available = {
+			radar_station > 0
+			has_full_control_of_state = 656
+		}
+
+		x = -2
+		y = 1
+		relative_position_id = imp_stage_one
+
+		completion_reward = {
+			656 = {
+				remove_building = {
+					type = radar_station
+					level = 1
+				}
+			}
+			add_ideas = auxiliary_systems
+		}
+	}
+
+	focus = {
+		id = imp_motion_sensor_i
+		icon = GFX_goal_generic_radar
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_navigation_repair
+		}
+		available = {
+			has_full_control_of_state = 656
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_navigation_repair
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = auxiliary_systems
+				add_idea = auxiliary_systems1
+			}
+		}
+	}
+
+	focus = {
+		id = imp_motion_sensor_ii
+		icon = GFX_goal_generic_radar
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_stage_two
+		}
+		available = {
+			has_full_control_of_state = 656
+		}
+
+		x = -2
+		y = 1
+		relative_position_id = imp_stage_two
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = auxiliary_systems1
+				add_idea = auxiliary_systems2
+			}
+		}
+	}
+
+
+	focus = {
+		id = imp_complement_1
+		icon = GFX_goal_generic_air_production
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_stage_one
+		}
+		available = {
+			has_full_control_of_state = 656
+		}
+
+		x = 2
+		y = 1
+		relative_position_id = imp_stage_one
+
+		completion_reward = {
+			656 = {
+				add_building_construction = {
+					type = air_base
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+
+
+
+	focus = {
+		id = imp_shield_repair
+		icon = GFX_goal_generic_defence
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_complement_1
+		}
+		available = {
+			has_full_control_of_state = 656
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_complement_1
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = executor_structure1
+				add_idea = executor_structure2
+			}
+		}
+	}
+
+	focus = {
+		id = imp_complement_air_1
+		icon = GFX_goal_generic_air_fighter
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_stage_two
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_country_flag = partially_repaired_ship
+			OR = {
+				has_tech = tie_fighter
+				has_tech = v_wing
+			}
+
+		}
+
+		x = -2
+		y = 0
+		relative_position_id = imp_motion_sensor_ii
+
+		completion_reward = {
+			if = {
+				limit = { has_tech = tie_fighter }
+				add_equipment_to_stockpile = {
+					type = tie_fighter_equipment
+					amount = 120
+				}
+				else_if = {
+					limit = { has_tech = v_wing }
+					add_equipment_to_stockpile = {
+						type = v_wing_equipment
+						amount = 120
+					}
+				}
+			}
+			custom_effect_tooltip = "Restores 120 fighters depending on which research you have."
+		}
+	}
+
+
+	focus = {
+		id = imp_complement_land_1
+		icon = GFX_goal_generic_army_tanks
+		cost = 5
+
+		prerequisite = {
+			focus = imp_stage_two
+		}
+		available = {
+			has_full_control_of_state = 656
+			OR = {
+				has_tech = atrt
+				has_tech = republic_tank
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		x = 2
+		y = 0
+		relative_position_id = imp_gun_modifications_one
+
+		completion_reward = {
+			custom_effect_tooltip = give_land_equip_tip
+			hidden_effect = {
+				if = {
+					limit = { has_tech = atrt }
+					add_equipment_to_stockpile = {
+						type = atrt_equipment
+						amount = 300
+					}
+					656 = { create_unit = {
+					    division = "name = \"Surplus Walker Division\" division_template = \"Imperial Mobile Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+					    owner = IMP
+					} }
+				}
+
+				if = {
+					limit = { has_tech = republic_tank }
+					add_equipment_to_stockpile = {
+						type = republictank
+						amount = 300
+					}
+					656 = { create_unit = {
+							division = "name = \"Surplus Tank Division\" division_template = \"Imperial Assault Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+							owner = IMP
+					} }
+				}
+
+
+			}
+		}
+	}
+
+	focus = {
+		id = imp_complement_land_2
+		icon = GFX_goal_generic_army_tanks
+		cost = 5
+
+		prerequisite = {
+			focus = imp_complement_land_1
+		}
+		available = {
+			has_full_control_of_state = 656
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 1
+		relative_position_id = imp_complement_land_1
+
+		completion_reward = {
+			add_ideas = imp_vehicle_prod_bonus
+		}
+	}
+
+	focus = {
+		id = imp_complement_air_2
+		icon = GFX_goal_generic_air_fighter
+		cost = 5
+
+		prerequisite = {
+			focus = imp_complement_air_1
+		}
+		available = {
+			has_full_control_of_state = 656
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 1
+		relative_position_id = imp_complement_air_1
+
+		completion_reward = {
+			add_ideas = aircraft_prod
+		}
+	}
+
+	focus = {
+		id = imp_complement_2
+		icon = GFX_focus_usa_escort_fighters
+		cost = 5
+
+		prerequisite = {
+			focus = imp_motion_sensor_ii
+		}
+		available = {
+			has_full_control_of_state = 656
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 1
+		relative_position_id = imp_motion_sensor_ii
+
+		completion_reward = {
+			656 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			set_country_flag = hangar_complete_flag
+		}
+	}
+
+
+	focus = {
+		id = imp_auxiliary_systems_complete
+		icon = GFX_goal_generic_production
+		cost = 5
+
+		prerequisite = {
+			focus = imp_complement_2
+		}
+		available = {
+			has_full_control_of_state = 656
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 2
+		relative_position_id = imp_complement_2
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = auxiliary_systems2
+				add_idea = auxiliary_systems3
+			}
+			set_country_flag = auxiliary_complete_flag
+		}
+	}
+
+	focus = {
+		id = imp_stage_four
+		icon = GFX_focus_executor
+		cost = 20
+
+		prerequisite = {
+			focus = imp_gun_modifications_three
+		}
+
+		prerequisite = {
+			focus = imp_auxiliary_systems_complete
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+
+		prerequisite = {
+			focus = imp_stage_three
+		}
+		available = {
+			num_of_factories > 100
+			has_full_control_of_state = 656
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_stage_three
+
+		completion_reward = {
+			set_country_flag = executor_ship_flag
+			swap_ideas = {
+				remove_idea = functional_ship
+				add_idea = fully_repaired_ship
+			}
+			IMP = {
+				add_offsite_building = {
+					type = nuclear_reactor
+					level = 20
+				}
+			}
+		}
+
+	}
+
+	focus = {
+		id = imp_gun_modifications_four
+		icon = GFX_focus_wonderweapons
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_stage_four
+		}
+		available = {
+			has_full_control_of_state = 656
+			has_country_flag = guns_restored
+			has_idea = fully_repaired_ship
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_stage_four
+
+		completion_reward = {
+			set_technology = {
+				executor_rocket_engines = 1
+			}
+		}
+	}
+
+
+	focus = {
+		id = imp_skirmish_conflict
+		icon = GFX_focus_colonial_agreement
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_war_plan
+		}
+
+		available = {
+			has_country_flag = phase_two_complete
+			OR = {
+				ENG = {
+					is_subject = no
+				}
+				FRA = {
+					is_subject = no
+				}
+			}
+			NOT = {
+				has_war_with = FRA
+				has_war_with = ENG
+			}
+		}
+
+		x = -1
+		y = 1
+		relative_position_id = imp_war_plan
+
+		completion_reward = {
+			FRA = {
+				country_event = {
+					id = imperial_ambition.0
+					days = 1
+				}
+			}
+			ENG = {
+				country_event = {
+					id = imperial_ambition.0
+					days = 1
+				}
+			}
+
+		}
+
+	}
+
+	focus = {
+		id = imp_romanian_agreement
+		icon = GFX_focus_invite_romania
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_skirmish_conflict
+		}
+
+		available = {
+			IMP = {
+				has_government = imperialism
+				is_subject = no
+			}
+			country_exists = ROM
+			ROM = {
+				is_subject = no
+				NOT = {
+					has_war_with = IMP
+				}
+				is_in_faction = no
+			}
+		}
+
+		x = -1
+		y = 1
+		relative_position_id = imp_skirmish_conflict
+
+		completion_reward = {
+			ROM = {
+				add_ideas = empire_sympathy
+				add_popularity = {
+					ideology = imperialism
+					popularity = 0.05
+				}
+			}
+			ROM = {
+				add_tech_bonus = {
+				   bonus = 0.5
+					 ahead_reduction = 2.0
+				   uses = 3
+				   category = electronics
+				}
+			}
+			ROM = {
+				diplomatic_relation = {
+					country = IMP
+					relation = non_aggression_pact
+					active = yes
+				}
+				diplomatic_relation = {
+					country = TUR
+					relation = guarantee
+					active = no
+				}
+			}
+			TUR = { 
+				add_opinion_modifier = {
+					target = ROM
+					modifier = western_betrayal
+				}
+			}
+		}
+
+	}
+
+	focus = {
+		id = imp_romanian_integration
+		icon = GFX_focus_rom_preserve_romania
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = {
+			focus = imp_romanian_agreement
+		}
+
+		available = {
+			ROM = {
+				is_subject = no
+				imperialism > 0.5
+			}
+		}
+
+
+		x = 0
+		y = 1
+		relative_position_id = imp_romanian_agreement
+
+		completion_reward = {
+			ROM = {
+				set_politics = {
+					ruling_party = imperialism
+				}
+				set_cosmetic_tag = ALL
+				
+			}
+			set_autonomy = {
+				target = ROM
+				autonomy_state = autonomy_dominion
+			}
+		}
+	}
+
+
+	focus = {
+		id = imp_campaign_decisions
+		icon = GFX_focus_generic_military_mission
+		cost = 5
+
+		prerequisite = {
+			focus = imp_war_plan
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		bypass = {
+		}
+		x = 1
+		y = 1
+		relative_position_id = imp_war_plan
+
+		completion_reward = {
+			if = {
+				limit = { has_country_flag = tarkin_flag }
+				add_ideas = secret_military
+				set_country_flag = secret_police_flag
+			}
+			custom_effect_tooltip = enable_decision_campaign_tooltip
+
+		}
+	}
+
+	focus = {
+		id = imp_global_domination
+		icon = GFX_focus_usa_focus_on_europe
+		cost = 5
+
+		prerequisite = {
+			focus = imp_war_plan
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TUR = {
+				OR = {
+					exists = no
+					is_puppet = yes
+				}
+			}
+
+			AFG = {
+				OR = {
+					exists = no
+					is_puppet = yes
+				}
+			}
+
+			PER = {
+				OR = {
+					exists = no
+					is_puppet = yes
+				}
+			}
+
+			YEM = {
+				OR = {
+					exists = no
+					is_puppet = yes
+				}
+			}
+
+			OMA = {
+				OR = {
+					exists = no
+					is_puppet = yes
+				}
+			}
+		}
+
+		bypass = {
+		}
+		x = 0
+		y = 2
+		relative_position_id = imp_war_plan
+
+		completion_reward = {
+			if = {
+				limit = { has_country_flag = tarkin_flag }
+				swap_ideas = {
+					remove_idea = stranded
+					add_idea = stranded2
+				}
+				else = {
+					swap_ideas = {
+						remove_idea = stranded
+						add_idea = stranded3
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = imp_planet
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 5
+
+		prerequisite = {
+			focus = imp_global_domination
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_country_flag = executor_ship_flag
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = imp_global_domination
+
+		completion_reward = {
+			#set_country_flag = instant_wargoal_flag
+			IMP = {
+				#custom_effect_tooltip = wargoal_all_tooltip
+				add_ideas = unification_war
+				set_cosmetic_tag = IMP_MAJOR
+				if = {
+					limit = { SAU = {
+						is_subject_of = IMP
+						NOT = { has_country_flag = coop_enabled }
+					}
+					}
+					annex_country = {
+						target = SAU
+						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = { IRQ =
+						{ is_subject_of = IMP
+							NOT = { has_country_flag = coop_enabled }
+						}
+					}
+					annex_country = {
+						target = IRQ
+						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = { TUR = { is_subject_of = IMP } }
+					annex_country = {
+						target = TUR
+						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = { OMA = { is_subject_of = IMP } }
+					annex_country = {
+						target = OMA
+						transfer_troops = yes
+					}
+				}
+
+				if = {
+					limit = { YEM = { is_subject_of = IMP } }
+					annex_country = {
+						target = YEM
+						transfer_troops = yes
+					}
+				}
+
+				if = {
+					limit = { AFG = { is_subject_of = IMP } }
+					annex_country = {
+						target = AFG
+						transfer_troops = yes
+					}
+				}
+
+				if = {
+					limit = { PER = { is_subject_of = IMP } }
+					annex_country = {
+						target = PER
+						transfer_troops = yes
+					}
+				}
+
+				if = {
+					limit = { QAT = { is_subject_of = IMP } }
+					annex_country = {
+						target = QAT
+						transfer_troops = yes
+					}
+				}
+			}
+		}
+	}
+
+
+
+#End of Focuses
+}
