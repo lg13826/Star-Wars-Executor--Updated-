@@ -1,3 +1,0 @@
-IMP	= "countries/Imperial_force.txt"
-CPG	= "countries/Imperial_commies.txt"
-REP	= "countries/Republic_force.txt"
