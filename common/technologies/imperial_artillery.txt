@@ -639,11 +639,19 @@ technologies = {
 		start_year = 1937
 		enable_equipment_modules = {
 			ship_anti_air_3
-		}
+		}	
+		static_anti_air_damage_factor = 0.2
 		folder = {
 			name = swartillery_folder
 			position = { x = 0 y = 1 }
 		}
+
+		enable_building = {
+			building = anti_air_building
+			level = 5
+		}
+
+		
 
 		categories = {
 			imperial_land_vehicle_tech
@@ -744,7 +752,7 @@ technologies = {
 			leads_to_tech = target_system3
 			research_cost_coeff = 1
 		}
-
+		static_anti_air_damage_factor = 0.2
 		enable_equipment_modules = {
 			ship_anti_air_4
 		}
@@ -821,7 +829,7 @@ technologies = {
 			imperial_vehicles_tech
 			imperial_mobile_anti_air
 		}
-
+		static_anti_air_damage_factor = 0.2
 		ai_will_do = {
 			factor = 3
 		}

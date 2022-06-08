@@ -101,6 +101,7 @@ news_event = {
 					}
 					else = {
 						transfer_state = 799
+						add_state_core = 799
 					}
 				}
 			}
@@ -118,6 +119,7 @@ news_event = {
 					}
 					else = {
 						transfer_state = 659
+						add_state_core = 659
 					}
 				}
 			}
@@ -135,6 +137,7 @@ news_event = {
 					}
 					else = {
 						transfer_state = 454
+						add_state_core = 454
 					}
 				}
 			}
@@ -151,6 +154,7 @@ news_event = {
 					}
 					else = {
 						transfer_state = 658
+						add_state_core = 658
 					}
 				}
 			}
@@ -167,6 +171,7 @@ news_event = {
 					}
 					else = {
 						transfer_state = 765
+						add_state_core = 765
 					}
 				}
 			}
@@ -183,6 +188,7 @@ news_event = {
 					}
 					else = {
 						transfer_state = 455
+						add_state_core = 455
 					}
 				}
 			}
@@ -200,6 +206,7 @@ news_event = {
 					}
 					else = {
 						transfer_state = 680
+						add_state_core = 680
 					}
 				}
 			}
@@ -217,6 +224,7 @@ news_event = {
 					}
 					else = {
 						transfer_state = 677
+						add_state_core = 677
 					}
 				}
 			}
@@ -233,6 +241,7 @@ news_event = {
 					}
 					else = {
 						transfer_state = 554
+						add_state_core = 554
 					}
 				}
 			}
@@ -249,11 +258,10 @@ news_event = {
 					}
 					else = {
 						transfer_state = 553
+						add_state_core = 553
 					}
 				}
 			}
-
-
 	}
 }
 
@@ -402,10 +410,10 @@ country_event = {
 
 	option = { # Saudi Arabia and Iraq Coop
 		name = imperial_coop.1.a
-		transfer_state = 807
-		add_state_core = 807
-		transfer_state = 808
-		add_state_core = 808
+		transfer_state = 835
+		add_state_core = 835
+		transfer_state = 836
+		add_state_core = 836
 		IMP = {
 			set_autonomy = {
 				target = SAU
@@ -518,8 +526,8 @@ country_event = {
 
 	option = { # Saudi Only
 		name = imperial_coop.1.b
-		transfer_state = 808
-		add_state_core = 808
+		transfer_state = 835
+		add_state_core = 835
 		IMP = {
 			set_autonomy = {
 				target = SAU
@@ -578,8 +586,8 @@ country_event = {
 
 	option = { # Iraq Only
 		name = imperial_coop.1.c
-		transfer_state = 807
-		add_state_core = 807
+		transfer_state = 836
+		add_state_core = 836
 		IMP = {
 			set_autonomy = {
 				target = IRQ

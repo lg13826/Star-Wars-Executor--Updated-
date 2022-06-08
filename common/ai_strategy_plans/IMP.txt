@@ -1,0 +1,44 @@
+empire_tech_plan = {
+	name = "Imperial plan for tech"
+	desc = "just for technologies"
+
+	allowed = {
+		original_tag = IMP
+		is_subject_of = IMP
+	}
+	enable = {
+		
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+	}
+
+	research = {
+		imperial_weapons_tech = 50.0
+		imperial_tech = 15.0
+		imperial_mobile_artillery = 8.0
+		imperial_support = 6.5
+	}
+
+	ideas = {
+	}
+
+	traits = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+	}
+
+}

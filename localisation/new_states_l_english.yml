@@ -1,0 +1,4 @@
+l_english:
+ STATE_CRASHED:0 "Crash Site"
+ STATE_836:0 "Northern Perimeter"
+ STATE_808:0 "Southern Perimeter"

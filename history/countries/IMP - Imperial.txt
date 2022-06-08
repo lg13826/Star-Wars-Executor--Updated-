@@ -5,6 +5,7 @@
 # Starting tech
 set_technology = {
 	#military tech
+	basic_hovercrafts = 1
 	tech_special_forces = 1
 	republic_weapon1 = 1
 	stormtrooper_tech = 1
@@ -74,66 +75,22 @@ create_country_leader = {
 	traits = { imperial_connections }
 }
 
-create_corps_commander =
-{
-	name = "Maximillian Veers"
-	picture = "portrait_veers.dds"
-	traits = { war_hero armor_officer career_officer winter_specialist}
-	skill = 5
-	attack_skill = 5
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 4
-	id = 1950
-}
+recruit_character = maximillian_veers
+recruit_character = cc_appo
+recruit_character =mod_terrik
+recruit_character =snowtrooper_maraway
+recruit_character =tk_417_General
+recruit_character =trech_molock
+recruit_character =hurst_romodi
+recruit_character =wulf_yularen
+recruit_character =firmus_piett
+recruit_character =kendal_ozzel
+recruit_character =tiaan_jerjerrod
+recruit_character =conan_antonio_motti
+recruit_character =officer4
+recruit_character =cassio_tagge
+recruit_character =officer1
+recruit_character =officer2
+recruit_character =officer3
+recruit_character =moradmin_bast
 
-create_corps_commander =
-{
-	name = "CC-1119 'Appo'"
-	picture = "portrait_General_TK_417.dds"
-	traits = { infantry_officer }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 1
-	logistics_skill = 2
-	id = 1951
-}
-create_corps_commander =
-{
-	name = "Mod Terrik"
-	picture = "portrait_General_Sandtrooper.dds"
-	traits = { trait_reckless }
-	skill = 2
-	attack_skill = 3
-	defense_skill = 1
-	planning_skill = 2
-	logistics_skill = 1
-	id = 1952
-}
-
-create_corps_commander =
-{
-	name = "Snowtrooper 'Maraway'"
-	picture = "portrait_General_snowtrooper.dds"
-	traits = { }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 3
-	id = 1953
-}
-
-create_corps_commander =
-{
-	name = "TK-417"
-	picture = "portrait_General_TK_417_real.dds"
-	traits = { }
-	skill = 1
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-	id = 1954
-}

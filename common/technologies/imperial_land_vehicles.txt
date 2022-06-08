@@ -10,8 +10,9 @@ technologies = {
 		}
 
 		dependencies = {
-            republic_weapon1 = 1
-        }
+            		republic_weapon1 = 1
+			
+       		}
 
 		on_research_complete = {
 			hidden_effect = {
@@ -47,8 +48,7 @@ technologies = {
 
 		enable_equipments = {
 			tx130t_equipment = 1
-		}
-
+		}		
 
 		path = {
 			leads_to_tech = repulsor
@@ -621,6 +621,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
+		path = {
+			leads_to_tech = basic_hovercrafts
+			research_cost_coeff = 0.5
+		}
+
 		on_research_complete = {
 			hidden_effect = {
 				load_oob = "unlock_troop_transport"
@@ -648,6 +653,31 @@ technologies = {
 
 		ai_will_do = {
 			factor = 3
+		}
+	}
+
+	basic_hovercrafts = {
+		enable_equipments = {
+			hovercraft_equipment = 1
+		}
+		enable_equipments = {
+			bullet_train = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1936
+		folder = {
+			name = swinfantry_folder
+			position = { x = 18 y = 0 }
+		}
+
+		categories = {
+			imperial_tech
+			imperial_motor_tech
+		}
+
+		ai_will_do = {
+			factor = 5
 		}
 	}
 

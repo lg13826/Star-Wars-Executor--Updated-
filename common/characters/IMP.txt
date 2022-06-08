@@ -1,0 +1,448 @@
+characters={
+	darth_vader={
+		name=darth_vader
+		portraits={
+			civilian={
+				large="gfx/leaders/IMP/portrait_imp_vader.dds"
+			}
+		}
+		country_leader={
+			ideology=imperial
+			traits={ headstrong }
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+
+	tarkin={
+		name=tarkin
+		portraits={
+			civilian={
+				large="gfx/leaders/IMP/portrait_imp_tarkin.dds"
+			}
+			army={
+				large="gfx/leaders/IMP/portrait_imp_tarkin.dds"
+				small="GFX_idea_tarkin_general"
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			traits={ imperial_connections }
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+
+	maximillian_veers={
+		name=maximillian_veers
+		portraits={
+			army={
+				large="gfx/leaders/IMP/portrait_veers.dds"
+				small="GFX_idea_maximillian_veers"
+			}
+		}	
+		advisor={
+			slot = high_command
+			idea_token = maximillian_veers
+			ledger = army
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				army_armored_3
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.500
+			}
+		}
+		
+		corps_commander={
+			traits={ war_hero armor_officer career_officer winter_specialist }
+			skill=5
+			attack_skill=5
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=4
+			id = 1950
+		}
+	}
+
+	cc_appo={
+		name=cc_appo
+		portraits={
+			army={
+				large="gfx/leaders/IMP/portrait_General_TK_417.dds"
+				small="gfx/interface/ideas/idea_GER_gunther_von_kluge.dds"
+			}
+		}
+		corps_commander={
+			traits={ infantry_officer }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=1
+			logistics_skill=2
+			id = 1951
+		}
+	}
+
+	mod_terrik={
+		name=mod_terrik
+		portraits={
+			army={
+				large="gfx/leaders/IMP/portrait_General_Sandtrooper.dds"
+				small="gfx/interface/ideas/idea_GER_friedrich_paulus.dds"
+			}
+		}
+		corps_commander={
+			traits={ trait_reckless }
+			skill=2
+			attack_skill=3
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=1
+			id = 1952
+		}
+	}
+
+	snowtrooper_maraway={
+		name=snowtrooper_maraway
+		portraits={
+			army={
+				large="gfx/leaders/IMP/portrait_General_snowtrooper.dds"
+				small="GFX_idea_erwin_rommel"
+			}
+		}
+		
+		corps_commander={
+			traits={ trickster }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=3
+			id = 1953
+		}
+	}
+
+	tk_417_General={
+		name=tk_417_General
+		portraits={
+			army={
+				large="gfx/leaders/IMP/portrait_General_TK_417_real.dds"
+				small="GFX_idea_manstein"
+			}
+		}
+		
+		corps_commander={
+			traits={ trait_engineer }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			id = 1954
+		}
+	}
+
+	trech_molock={
+		name=trech_molock
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Heinz_Guderian.dds"
+				small="GFX_idea_trech_molock"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = high_command
+			idea_token = trech_molock
+			ledger = air
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				air_close_air_support_2
+			}
+		}
+	}
+
+	hurst_romodi={
+		name=hurst_romodi
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Heinz_Guderian.dds"
+				small="GFX_idea_hurst_romodi"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = high_command
+			idea_token = hurst_romodi
+			ledger = army
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				army_regrouping_3
+			}
+		}
+	}
+
+	wulf_yularen={
+		name=wulf_yularen
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Heinz_Guderian.dds"
+				small="GFX_idea_wulf_yularen"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = high_command
+			idea_token = wulf_yularen
+			ledger = army
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				army_infantry_3
+			}
+		}
+	}
+
+	firmus_piett={
+		name=firmus_piett
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Heinz_Guderian.dds"
+				small="GFX_idea_firmus_piett"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = firmus_piett
+			ledger = army
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				military_theorist
+			}
+		}
+	}
+
+	kendal_ozzel={
+		name=kendal_ozzel
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Heinz_Guderian.dds"
+				small="GFX_idea_kendal_ozzel"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = kendal_ozzel
+			ledger = navy
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				naval_theorist
+			}
+		}
+	}
+
+	tiaan_jerjerrod={
+		name=tiaan_jerjerrod
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Heinz_Guderian.dds"
+				small="GFX_idea_tiaan_jerjerrod"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = tiaan_jerjerrod
+			ledger = navy
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				air_warfare_theorist
+			}
+		}
+	}
+
+	conan_antonio_motti={
+		name=conan_antonio_motti
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Heinz_Guderian.dds"
+				small="GFX_idea_conan_antonio_motti"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = navy_chief
+			idea_token = conan_antonio_motti
+			ledger = navy
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				navy_chief_commerce_raiding_3
+			}
+		}
+
+		navy_leader={
+			traits={ navy_career_officer seawolf }
+			skill=4
+			attack_skill=4
+			defense_skill=1
+			maneuvering_skill=3
+			coordination_skill=4
+			legacy_id=26
+		}
+	}
+
+	officer4={
+		name=officer4
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Heinz_Guderian.dds"
+				small="GFX_idea_officer4"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = air_chief
+			idea_token = officer4
+			ledger = air
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				air_chief_reform_3
+			}
+		}
+	}
+
+	cassio_tagge={
+		name=cassio_tagge
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Heinz_Guderian.dds"
+				small="GFX_idea_cassio_tagge"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = army_chief
+			idea_token = cassio_tagge
+			ledger = army
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				army_chief_organizational_3
+			}
+		}
+	}
+
+	officer1={
+		name=officer1
+		portraits={
+			army={
+				small="GFX_idea_officer1"
+			}
+			
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = officer1
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				prince_of_terror
+			}
+			ai_will_do = {
+				factor = 1.5
+			}
+		}
+	}
+
+	officer2={
+		name=officer2
+		portraits={
+			army={
+				small="GFX_idea_officer2"
+			}
+			
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = officer2
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				captain_of_industry
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	officer3={
+		name=officer3
+		portraits={
+			army={
+				small="GFX_idea_officer3"
+			}
+			
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = officer3
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				war_industrialist
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	moradmin_bast={
+		name=moradmin_bast
+		portraits={
+			army={
+				small="GFX_idea_moradmin_bast"
+			}
+			
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = moradmin_bast
+			allowed = {
+				original_tag = IMP
+			}
+			traits = {
+				silent_workhorse
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+	}		
+}

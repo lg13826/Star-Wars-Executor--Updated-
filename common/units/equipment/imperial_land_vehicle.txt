@@ -1,6 +1,21 @@
 # All equipment based on light tank chassis
 
 equipments = {
+	bullet_train = {
+		year = 1936
+
+		archetype = train_equipment
+		type = {
+			train
+		}
+		priority = 40
+		armor_value = 350
+		build_cost_ic = 70
+		resources = {
+			steel = 1
+		}
+	}
+	
 	mobile_art_equipment = {
 		year = 1936
 		is_archetype = yes
@@ -543,9 +558,7 @@ equipments = {
 
 		fuel_consumption = 2.0
 	}
-
-
-
+	
 	troop_transport_equipment = {
 		year = 1936
 
@@ -576,7 +589,36 @@ equipments = {
 			steel = 4
 		}
 
-		fuel_consumption = 2.0
+		fuel_consumption = 1.0
+	}
+
+	hovercraft_equipment = {
+		year = 1936
+		visual_level = 0
+		archetype = troop_transport_equipment
+		priority = 45
+		
+		#stats
+		defense = 0
+		hardness = 0
+		ap_attack = 0
+
+		maximum_speed = 12
+		reliability = 0.9
+		hardness = 0.2
+
+		breakthrough = 10
+
+		#Space taken in convoy
+		lend_lease_cost = 30
+
+		build_cost_ic = 2
+		resources = {
+			#oil = 1
+			rubber = 1
+			steel = 1
+		}
+		supply_truck = yes
 	}
 
 	atot_equipment = {
@@ -584,6 +626,7 @@ equipments = {
 		visual_level = 0
 		archetype = troop_transport_equipment
 		priority = 30
+		build_cost_ic = 3.0
 	}
 
 	rtt_equipment = {
